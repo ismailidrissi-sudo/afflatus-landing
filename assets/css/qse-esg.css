@@ -1,0 +1,132 @@
+/* ══════════════════════════════════════════════════════════════
+   PAGE 1 — QSE / ESG / DUE DILIGENCE
+   Palette : Teal & Gold — Premium Institutional
+   Fonts  : DM Serif Display + Manrope
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --ink: #0B0F1A;
+  --slate: #1E2535;
+  --teal: #0A6B5E;
+  --teal-light: #0D8870;
+  --gold: #E8C547;
+  --mist: #F0F4F3;
+  --muted: #6B7A74;
+  --border: #D4DDD9;
+  --white: #FFFFFF;
+  --red: #C0392B;
+}
+
+body { background: var(--mist); color: var(--ink); font-family: 'Manrope', sans-serif; }
+
+/* ── Sticky Bar ── */
+.sticky-bar { background: var(--ink); color: var(--white); }
+.btn-sticky { background: var(--gold); color: var(--ink); }
+.btn-sticky:hover { background: #d4af30; }
+
+/* ── Nav ── */
+.main-nav { background: rgba(11,15,26,.85); }
+.btn-nav-cta { background: var(--teal); color: var(--white); }
+.btn-nav-cta:hover { background: var(--teal-light); }
+
+/* ── Hero ── */
+.hero { background: linear-gradient(165deg, var(--ink) 0%, var(--slate) 60%, #142E2B 100%); color: var(--white); }
+.hero-tag { background: rgba(232,197,71,.12); color: var(--gold); border: 1px solid rgba(232,197,71,.2); }
+.hero h1 { font-family: 'DM Serif Display', serif; color: var(--white); }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-mechanism { color: rgba(255,255,255,.7); }
+.usp-icon { background: var(--teal); color: var(--white); }
+.hero-stat .stat-num { color: var(--gold); font-family: 'DM Serif Display', serif; }
+.hero-stat .stat-label { color: rgba(255,255,255,.5); }
+
+/* ── Hero Form ── */
+.hero-form-panel { background: var(--slate); border: 1px solid rgba(255,255,255,.08); }
+.hero-form-panel h3 { color: var(--white); font-family: 'DM Serif Display', serif; }
+.hero-form-panel .form-subtitle { color: rgba(255,255,255,.5); }
+.form-group label { color: rgba(255,255,255,.6); }
+.form-group input, .form-group select {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  color: var(--white); border-radius: 8px;
+}
+.form-group input::placeholder { color: rgba(255,255,255,.3); }
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--teal); box-shadow: 0 0 0 3px rgba(10,107,94,.2);
+}
+.form-group select option { background: var(--slate); color: var(--white); }
+.btn-submit { background: var(--gold); color: var(--ink); }
+.btn-submit:hover { background: #d4af30; box-shadow: 0 8px 24px rgba(232,197,71,.3); }
+.form-trust { color: rgba(255,255,255,.4); }
+
+/* ── Trust Badges ── */
+.trust-badges-bar { background: var(--mist); border-bottom: 1px solid var(--border); }
+.trust-badge { background: var(--white); color: var(--ink); border: 1px solid var(--border); }
+
+/* ── Problem Section ── */
+.section-problems { background: var(--white); }
+.section-problems .section-label { background: rgba(192,57,43,.08); color: var(--red); }
+.section-problems .section-title { color: var(--ink); font-family: 'DM Serif Display', serif; }
+.problem-card { background: var(--mist); border: 1px solid var(--border); }
+.problem-num { color: var(--teal); }
+.problem-card h4 { color: var(--ink); }
+.problem-consequence { background: rgba(192,57,43,.08); color: var(--red); }
+
+/* ── Solution Section ── */
+.section-solution { background: var(--ink); color: var(--white); }
+.section-solution .section-label { background: rgba(10,107,94,.15); color: var(--teal-light); }
+.section-solution .section-title { font-family: 'DM Serif Display', serif; color: var(--white); }
+.timeline::before { background: var(--teal); }
+.timeline-num { background: var(--teal); color: var(--white); }
+.timeline-content h4 { color: var(--white); }
+.timeline-content .timeline-duration { color: var(--gold); }
+
+/* ── Case Study ── */
+.case-study { background: linear-gradient(135deg, var(--slate), #0F1F1C); border: 1px solid rgba(10,107,94,.2); }
+.case-study-label { background: rgba(10,107,94,.15); color: var(--teal-light); }
+.case-study h3 { color: var(--white); font-family: 'DM Serif Display', serif; }
+.case-col h5 { color: var(--gold); }
+.case-col ul li { color: rgba(255,255,255,.8); }
+.case-col.before ul li::before { background: var(--red); }
+.case-col.after ul li::before { background: var(--teal-light); }
+
+/* ── Trusted By ── */
+.trusted-section { background: var(--mist); }
+.trusted-label { color: var(--muted); }
+.logo-chip { background: rgba(10,107,94,.06); color: var(--slate); border: 1px solid var(--border); }
+
+/* ── Authority ── */
+.authority-section { background: var(--white); }
+.authority-card { background: var(--mist); border: 1px solid var(--border); }
+.authority-name { color: var(--ink); font-family: 'DM Serif Display', serif; }
+.authority-title { color: var(--muted); }
+.authority-stat { background: var(--white); border: 1px solid var(--border); }
+.authority-stat .stat-val { color: var(--teal); font-family: 'DM Serif Display', serif; }
+.authority-badge-item { background: rgba(10,107,94,.08); color: var(--teal); }
+
+/* ── Metrics ── */
+.metrics-bar { background: var(--ink); }
+.metric-num { color: var(--gold); font-family: 'DM Serif Display', serif; }
+.metric-label { color: rgba(255,255,255,.5); }
+
+/* ── Guarantee ── */
+.guarantee-box { background: var(--mist); border: 2px solid var(--teal); }
+.guarantee-box h3 { color: var(--teal); font-family: 'DM Serif Display', serif; }
+.guarantee-box blockquote { background: rgba(10,107,94,.05); border-left: 3px solid var(--teal); }
+
+/* ── FAQ ── */
+.section-faq { background: var(--white); }
+.faq-card { background: var(--mist); border: 1px solid var(--border); }
+.faq-card h4 { color: var(--ink); }
+
+/* ── Final CTA ── */
+.final-cta { background: linear-gradient(165deg, var(--ink) 0%, #0F2E28 100%); color: var(--white); }
+.final-cta h2 { font-family: 'DM Serif Display', serif; }
+.btn-cta-primary { background: var(--gold); color: var(--ink); }
+.btn-cta-primary:hover { box-shadow: 0 12px 32px rgba(232,197,71,.3); }
+.btn-cta-whatsapp { background: #25D366; color: var(--white); }
+
+/* ── Footer ── */
+.site-footer { background: var(--ink); color: rgba(255,255,255,.7); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); }
+
+/* ── Cookie Banner ── */
+.cookie-banner { background: rgba(30,37,53,.95); color: var(--white); }

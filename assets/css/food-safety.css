@@ -1,0 +1,147 @@
+/* ══════════════════════════════════════════════════════════════
+   PAGE 2 — FOOD SAFETY (BRCGS / IFS / FSSC 22000)
+   Palette : Dark mode tech-premium — Pink/Magenta urgency
+   Fonts  : Bebas Neue + Instrument Sans
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --black: #0A0A0E;
+  --dark: #111118;
+  --card: #16161F;
+  --pink: #FF1B8D;
+  --deep-pink: #CC0066;
+  --white: #F4F4F0;
+  --muted: #8888A0;
+  --border: #2A2A38;
+  --gold: #F5A623;
+}
+
+body { background: var(--black); color: var(--white); font-family: 'Instrument Sans', sans-serif; }
+
+/* ── Sticky Bar ── */
+.sticky-bar { background: rgba(17,17,24,.92); border-bottom: 1px solid var(--border); color: var(--white); }
+.btn-sticky { background: var(--pink); color: var(--white); }
+.btn-sticky:hover { background: var(--deep-pink); }
+
+/* ── Nav ── */
+.main-nav { background: rgba(10,10,14,.88); }
+.btn-nav-cta { background: var(--pink); color: var(--white); }
+.btn-nav-cta:hover { background: var(--deep-pink); }
+
+/* ── Hero ── */
+.hero { background: radial-gradient(ellipse at 20% 50%, rgba(255,27,141,.08) 0%, var(--black) 60%); color: var(--white); }
+.hero-tag { background: rgba(255,27,141,.1); color: var(--pink); border: 1px solid rgba(255,27,141,.2); }
+.hero h1 { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
+.hero h1 em { font-style: normal; color: var(--pink); }
+.hero-mechanism { color: var(--muted); }
+.usp-icon { background: var(--pink); color: var(--white); }
+.hero-stat .stat-num { color: var(--pink); font-family: 'Bebas Neue', sans-serif; font-size: 32px; }
+.hero-stat .stat-label { color: var(--muted); }
+
+/* ── Hero Form ── */
+.hero-form-panel { background: var(--card); border: 1px solid var(--border); }
+.hero-form-panel h3 { color: var(--white); font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; font-size: 26px; letter-spacing: 0.02em; }
+.hero-form-panel .form-subtitle { color: var(--muted); }
+.form-group label { color: var(--muted); }
+.form-group input, .form-group select {
+  background: rgba(255,255,255,.04); border: 1px solid var(--border);
+  color: var(--white);
+}
+.form-group input::placeholder { color: rgba(255,255,255,.2); }
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255,27,141,.15);
+}
+.form-group select option { background: var(--card); color: var(--white); }
+.btn-submit { background: var(--pink); color: var(--white); }
+.btn-submit:hover { background: var(--deep-pink); box-shadow: 0 8px 24px rgba(255,27,141,.3); }
+.form-trust { color: var(--muted); }
+
+/* ── Trust Badges ── */
+.trust-badges-bar { background: var(--dark); border-bottom: 1px solid var(--border); }
+.trust-badge { background: var(--card); color: var(--white); border: 1px solid var(--border); }
+.trust-badge.badge-premium { background: linear-gradient(135deg, rgba(255,27,141,.12), rgba(204,0,102,.08)); border-color: rgba(255,27,141,.3); }
+
+/* ── Problem Section ── */
+.section-problems { background: var(--dark); }
+.section-problems .section-label { background: rgba(255,27,141,.1); color: var(--pink); }
+.section-problems .section-title { color: var(--white); font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+.problem-card { background: var(--card); border: 1px solid var(--border); }
+.problem-num { color: var(--pink); }
+.problem-card h4 { color: var(--white); }
+.problem-card p { color: var(--muted); }
+.problem-consequence { background: rgba(255,27,141,.1); color: var(--pink); }
+
+/* ── Solution Section ── */
+.section-solution { background: var(--black); }
+.section-solution .section-label { background: rgba(255,27,141,.1); color: var(--pink); }
+.section-solution .section-title { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; color: var(--white); }
+.timeline::before { background: var(--pink); }
+.timeline-num { background: var(--pink); color: var(--white); }
+.timeline-content h4 { color: var(--white); }
+.timeline-content .timeline-duration { color: var(--gold); }
+.timeline-content p { color: var(--muted); }
+
+/* ── Case Study ── */
+.case-study { background: var(--card); border: 1px solid var(--border); }
+.case-study-label { background: rgba(255,27,141,.1); color: var(--pink); }
+.case-study h3 { color: var(--white); font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+.case-col h5 { color: var(--gold); }
+.case-col ul li { color: var(--muted); }
+.case-col.before ul li::before { background: #C0392B; }
+.case-col.after ul li::before { background: var(--pink); }
+
+/* ── Social Proof Premium (BRCGS) ── */
+.social-proof-premium {
+  background: linear-gradient(135deg, rgba(255,27,141,.08) 0%, rgba(204,0,102,.05) 100%);
+  border: 1px solid rgba(255,27,141,.2);
+}
+.social-proof-premium h3 { color: var(--white); font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+.social-proof-premium p { color: var(--muted); }
+.social-proof-premium .verify-link { color: var(--pink); }
+.social-proof-premium .verify-link:hover { color: var(--gold); }
+.social-proof-premium .badge-visual { background: rgba(255,27,141,.15); color: var(--pink); border: 1px solid rgba(255,27,141,.3); }
+
+/* ── Trusted By ── */
+.trusted-section { background: var(--dark); }
+.trusted-label { color: var(--muted); }
+.logo-chip { background: rgba(255,255,255,.04); color: var(--muted); border: 1px solid var(--border); }
+.logo-chip:hover { color: var(--white); border-color: rgba(255,27,141,.3); }
+
+/* ── Authority ── */
+.authority-section { background: var(--black); }
+.authority-card { background: var(--card); border: 1px solid var(--border); }
+.authority-name { color: var(--white); font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+.authority-title { color: var(--muted); }
+.authority-stat { background: rgba(255,255,255,.04); border: 1px solid var(--border); }
+.authority-stat .stat-val { color: var(--pink); font-family: 'Bebas Neue', sans-serif; }
+.authority-badge-item { background: rgba(255,27,141,.1); color: var(--pink); }
+
+/* ── Metrics ── */
+.metrics-bar { background: var(--card); border: 1px solid var(--border); border-radius: 16px; max-width: 900px; margin: 0 auto; }
+.metric-num { color: var(--pink); font-family: 'Bebas Neue', sans-serif; font-size: 42px; }
+.metric-label { color: var(--muted); }
+
+/* ── Guarantee ── */
+.guarantee-box { background: var(--card); border: 2px solid var(--pink); }
+.guarantee-box h3 { color: var(--pink); font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+.guarantee-box blockquote { background: rgba(255,27,141,.05); border-left: 3px solid var(--pink); }
+
+/* ── FAQ ── */
+.section-faq { background: var(--dark); }
+.faq-card { background: var(--card); border: 1px solid var(--border); }
+.faq-card h4 { color: var(--white); }
+.faq-card p { color: var(--muted); }
+
+/* ── Final CTA ── */
+.final-cta { background: radial-gradient(ellipse at 50% 80%, rgba(255,27,141,.1) 0%, var(--black) 70%); color: var(--white); }
+.final-cta h2 { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+.btn-cta-primary { background: var(--pink); color: var(--white); }
+.btn-cta-primary:hover { box-shadow: 0 12px 32px rgba(255,27,141,.4); }
+.btn-cta-whatsapp { background: #25D366; color: var(--white); }
+
+/* ── Footer ── */
+.site-footer { background: var(--dark); color: var(--muted); border-top: 1px solid var(--border); }
+.footer-bottom { border-top: 1px solid var(--border); }
+
+/* ── Cookie Banner ── */
+.cookie-banner { background: rgba(22,22,31,.95); color: var(--white); }

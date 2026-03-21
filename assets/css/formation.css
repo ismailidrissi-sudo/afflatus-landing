@@ -1,0 +1,158 @@
+/* ══════════════════════════════════════════════════════════════
+   PAGE 3 — FORMATIONS & CSF
+   Palette : Warm premium-editorial — Cream & Gold
+   Fonts  : Cormorant Garamond + Outfit
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --cream: #FAF7F2;
+  --warm: #F0EAE0;
+  --deep: #1C1408;
+  --brown: #3D2B1F;
+  --gold: #C8922A;
+  --light-gold: #E8B84B;
+  --accent: #B5451B;
+  --green: #1A6B4A;
+  --muted: #7A6B5A;
+  --border: #DDD5C8;
+  --white: #FFFFFF;
+}
+
+body { background: var(--cream); color: var(--deep); font-family: 'Outfit', sans-serif; }
+
+/* ── Sticky Bar ── */
+.sticky-bar { background: var(--deep); color: var(--cream); }
+.btn-sticky { background: var(--gold); color: var(--white); }
+.btn-sticky:hover { background: var(--light-gold); }
+
+/* ── Nav ── */
+.main-nav { background: rgba(28,20,8,.88); }
+.btn-nav-cta { background: var(--gold); color: var(--white); }
+.btn-nav-cta:hover { background: var(--light-gold); }
+
+/* ── Hero ── */
+.hero { background: linear-gradient(170deg, var(--deep) 0%, var(--brown) 50%, #2A1F12 100%); color: var(--cream); }
+.hero-tag { background: rgba(200,146,42,.1); color: var(--light-gold); border: 1px solid rgba(200,146,42,.2); }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+.hero h1 em { font-style: normal; color: var(--light-gold); }
+.hero .hero-big-number {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 8vw, 96px);
+  font-weight: 800; color: var(--gold); line-height: 1; margin: 8px 0 12px;
+}
+.hero-mechanism { color: rgba(250,247,242,.6); }
+.usp-icon { background: var(--gold); color: var(--white); }
+.hero-stat .stat-num { color: var(--light-gold); font-family: 'Cormorant Garamond', serif; }
+.hero-stat .stat-label { color: rgba(250,247,242,.4); }
+
+/* ── Hero Form ── */
+.hero-form-panel { background: var(--brown); border: 1px solid rgba(200,146,42,.15); }
+.hero-form-panel h3 { color: var(--cream); font-family: 'Cormorant Garamond', serif; }
+.hero-form-panel .form-subtitle { color: rgba(250,247,242,.5); }
+.form-group label { color: rgba(250,247,242,.6); }
+.form-group input, .form-group select {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  color: var(--cream);
+}
+.form-group input::placeholder { color: rgba(255,255,255,.25); }
+.form-group input:focus, .form-group select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,146,42,.2); }
+.form-group select option { background: var(--brown); color: var(--cream); }
+.btn-submit { background: var(--gold); color: var(--white); }
+.btn-submit:hover { background: var(--light-gold); box-shadow: 0 8px 24px rgba(200,146,42,.3); }
+.form-trust { color: rgba(250,247,242,.35); }
+
+/* ── Trust Badges ── */
+.trust-badges-bar { background: var(--warm); border-bottom: 1px solid var(--border); }
+.trust-badge { background: var(--white); color: var(--deep); border: 1px solid var(--border); }
+
+/* ── Problem Section ── */
+.section-problems { background: var(--white); }
+.section-problems .section-label { background: rgba(181,69,27,.08); color: var(--accent); }
+.section-problems .section-title { color: var(--deep); font-family: 'Cormorant Garamond', serif; }
+.problem-card { background: var(--cream); border: 1px solid var(--border); }
+.problem-num { color: var(--gold); }
+.problem-card h4 { color: var(--deep); }
+.problem-consequence { background: rgba(181,69,27,.08); color: var(--accent); }
+
+/* ── Solution Section ── */
+.section-solution { background: var(--deep); color: var(--cream); }
+.section-solution .section-label { background: rgba(200,146,42,.12); color: var(--light-gold); }
+.section-solution .section-title { font-family: 'Cormorant Garamond', serif; color: var(--cream); }
+.timeline::before { background: var(--gold); }
+.timeline-num { background: var(--gold); color: var(--white); }
+.timeline-content h4 { color: var(--cream); }
+.timeline-content .timeline-duration { color: var(--light-gold); }
+.timeline-content p { color: rgba(250,247,242,.6); }
+
+/* ── Case Study ── */
+.case-study { background: var(--brown); border: 1px solid rgba(200,146,42,.15); }
+.case-study-label { background: rgba(200,146,42,.15); color: var(--light-gold); }
+.case-study h3 { color: var(--cream); font-family: 'Cormorant Garamond', serif; }
+.case-col h5 { color: var(--light-gold); }
+.case-col ul li { color: rgba(250,247,242,.75); }
+.case-col.before ul li::before { background: var(--accent); }
+.case-col.after ul li::before { background: var(--green); }
+
+/* ── Social Proof Premium (OFPPT) ── */
+.social-proof-premium { background: linear-gradient(135deg, var(--warm), rgba(200,146,42,.08)); border: 2px solid var(--gold); }
+.social-proof-premium h3 { color: var(--deep); font-family: 'Cormorant Garamond', serif; }
+.social-proof-premium p { color: var(--brown); }
+.social-proof-premium .badge-visual { background: rgba(200,146,42,.1); color: var(--gold); border: 1px solid var(--gold); }
+.social-proof-premium .sp-stats {
+  display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px;
+}
+.social-proof-premium .sp-stat { text-align: center; }
+.social-proof-premium .sp-stat-num { font-size: 28px; font-weight: 800; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+.social-proof-premium .sp-stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+
+/* ── Offer Table ── */
+.offer-section { background: var(--white); }
+.offer-table { background: var(--cream); }
+.offer-table th { background: var(--deep); color: var(--cream); }
+.offer-table td { border-bottom: 1px solid var(--border); }
+.offer-table tr:hover td { background: var(--warm); }
+.offer-table .check { color: var(--green); font-weight: 700; }
+.offer-table .cross { color: var(--accent); }
+
+/* ── Trusted By ── */
+.trusted-section { background: var(--cream); }
+.trusted-label { color: var(--muted); }
+.logo-chip { background: rgba(200,146,42,.06); color: var(--brown); border: 1px solid var(--border); }
+
+/* ── Authority ── */
+.authority-section { background: var(--white); }
+.authority-card { background: var(--cream); border: 1px solid var(--border); }
+.authority-name { color: var(--deep); font-family: 'Cormorant Garamond', serif; }
+.authority-title { color: var(--muted); }
+.authority-stat { background: var(--white); border: 1px solid var(--border); }
+.authority-stat .stat-val { color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+.authority-badge-item { background: rgba(200,146,42,.08); color: var(--gold); }
+
+/* ── Metrics ── */
+.metrics-bar { background: var(--deep); border-radius: 16px; max-width: 900px; margin: 0 auto; }
+.metric-num { color: var(--light-gold); font-family: 'Cormorant Garamond', serif; }
+.metric-label { color: rgba(250,247,242,.5); }
+
+/* ── Guarantee ── */
+.guarantee-box { background: var(--cream); border: 2px solid var(--gold); }
+.guarantee-box h3 { color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+.guarantee-box blockquote { background: rgba(200,146,42,.05); border-left: 3px solid var(--gold); }
+
+/* ── FAQ ── */
+.section-faq { background: var(--white); }
+.faq-card { background: var(--cream); border: 1px solid var(--border); }
+.faq-card h4 { color: var(--deep); }
+.faq-card p { color: var(--muted); }
+
+/* ── Final CTA ── */
+.final-cta { background: linear-gradient(170deg, var(--deep) 0%, var(--brown) 100%); color: var(--cream); }
+.final-cta h2 { font-family: 'Cormorant Garamond', serif; }
+.btn-cta-primary { background: var(--gold); color: var(--white); }
+.btn-cta-primary:hover { box-shadow: 0 12px 32px rgba(200,146,42,.4); }
+.btn-cta-whatsapp { background: #25D366; color: var(--white); }
+
+/* ── Footer ── */
+.site-footer { background: var(--deep); color: rgba(250,247,242,.6); }
+.footer-bottom { border-top: 1px solid rgba(250,247,242,.06); }
+
+/* ── Cookie Banner ── */
+.cookie-banner { background: rgba(61,43,31,.95); color: var(--cream); }
