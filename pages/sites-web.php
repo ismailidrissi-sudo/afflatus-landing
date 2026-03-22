@@ -95,8 +95,8 @@ $nav_cta_text = "Devis gratuit";
 <!-- ══ BADGES DE CONFIANCE ══ -->
 <div class="trust-badges-bar reveal">
   <div class="trust-badges-inner">
-    <div class="trust-badge"><span class="badge-icon">🏅</span> Cabinet certifié ISO 9001</div>
-    <div class="trust-badge"><span class="badge-icon">🔒</span> Agréé CNDP — Protection des données</div>
+    <div class="trust-badge"><img src="/assets/img/logos/iso9001.svg" alt="ISO 9001" class="badge-icon" width="24" height="24"> Cabinet certifié ISO 9001</div>
+    <div class="trust-badge"><img src="/assets/img/logos/cndp.svg" alt="CNDP" class="badge-icon" width="24" height="24"> Agréé CNDP — Protection des données</div>
   </div>
 </div>
 

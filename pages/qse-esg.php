@@ -91,9 +91,9 @@ $nav_cta_text = "Consultation gratuite";
 <!-- ══ BADGES DE CONFIANCE ══ -->
 <div class="trust-badges-bar reveal">
   <div class="trust-badges-inner">
-    <div class="trust-badge"><span class="badge-icon">🏅</span> Cabinet certifié ISO 9001</div>
-    <div class="trust-badge"><span class="badge-icon">🔒</span> Agréé CNDP — Protection des données</div>
-    <div class="trust-badge"><span class="badge-icon">👨‍💼</span> Auditeurs certifiés IRCA — 10+ ans d'expérience terrain</div>
+    <div class="trust-badge"><img src="/assets/img/logos/iso9001.svg" alt="ISO 9001" class="badge-icon" width="24" height="24"> Cabinet certifié ISO 9001</div>
+    <div class="trust-badge"><img src="/assets/img/logos/cndp.svg" alt="CNDP" class="badge-icon" width="24" height="24"> Agréé CNDP — Protection des données</div>
+    <div class="trust-badge"><img src="/assets/img/logos/irca.svg" alt="IRCA" class="badge-icon" width="24" height="24"> Auditeurs certifiés IRCA — 10+ ans d'expérience terrain</div>
   </div>
 </div>
 
@@ -171,28 +171,29 @@ $nav_cta_text = "Consultation gratuite";
 <!-- ══ PREUVE SOCIALE — TÉMOIGNAGE NARRATIF ══ -->
 <section class="section" style="background: var(--ink, #0B0F1A); padding: 80px 24px;">
   <div class="section-inner">
-    <div class="case-study reveal" style="max-width: 800px; margin: 0 auto;">
-      <span class="case-study-label">Témoignage client</span>
-      <h3 style="margin-bottom: 20px;">Aiguebelle — Leader marocain de la chocolaterie</h3>
-      <p style="font-size: 16px; line-height: 1.9; color: rgba(255,255,255,.75); margin-bottom: 16px;">
-        Depuis plus de <strong style="color: var(--gold, #E8C547);">6 ans</strong>, la société <strong style="color: #fff;">Aiguebelle</strong> fait confiance à Afflatus Consulting Group pour la certification et le maintien de sa certification <strong style="color: #fff;">ISO 9001</strong>.
-      </p>
-      <p style="font-size: 16px; line-height: 1.9; color: rgba(255,255,255,.75); margin-bottom: 16px;">
-        Ce partenariat stratégique a permis à Aiguebelle de renforcer sa position de <strong style="color: #fff;">leader marocain et africain de l'industrie chocolatière</strong>, en garantissant une conformité rigoureuse et continue aux standards internationaux les plus exigeants.
-      </p>
-      <p style="font-size: 16px; line-height: 1.9; color: rgba(255,255,255,.75);">
-        Résultat : une satisfaction client renforcée, des marchés export sécurisés, et une crédibilité qui fait la différence face aux acheteurs internationaux les plus exigeants du secteur.
-      </p>
-      <div style="display: flex; gap: 24px; margin-top: 28px; flex-wrap: wrap;">
-        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center;">
+    <div class="case-study reveal" style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 48px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+        <div>
+          <span class="case-study-label" style="display:inline-block; margin-bottom: 16px;">Témoignage client</span>
+          <img src="/assets/img/logos/aiguebelle_orange2.png" alt="Aiguebelle Logo" style="height: 72px; margin-bottom: 12px; display: block; object-fit: contain;">
+          <p style="color: rgba(255,255,255,.6); font-family: var(--font-m);">Leader marocain de la chocolaterie</p>
+        </div>
+      </div>
+
+      <blockquote style="font-size: 20px; line-height: 1.7; font-family: var(--font-heading); font-style: italic; color: #fff; border-left: 4px solid var(--gold); padding-left: 24px; margin: 0;">
+        "La société Aiguebelle fait confiance à Afflatus Consulting Group pour l'obtention et le maintien de sa certification <strong style="color: var(--gold);">ISO 9001</strong> depuis plus de <strong style="color: var(--gold);">6 ans</strong>. Ce partenariat d'excellence a permis à Aiguebelle de consolider sa position incontestée de <strong>leader marocain et africain</strong> dans l'industrie chocolatière, tout en garantissant une qualité irréprochable pour satisfaire les exigences des marchés les plus stricts."
+      </blockquote>
+      
+      <div style="display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap;">
+        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px;">
           <div style="font-size: 24px; font-weight: 800; color: var(--gold, #E8C547);">6+</div>
           <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Années de partenariat</div>
         </div>
-        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center;">
+        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px;">
           <div style="font-size: 24px; font-weight: 800; color: var(--teal, #0D8870);">ISO 9001</div>
           <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Certification maintenue</div>
         </div>
-        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center;">
+        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px;">
           <div style="font-size: 24px; font-weight: 800; color: #fff;">N°1</div>
           <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Chocolaterie au Maroc</div>
         </div>
@@ -227,11 +228,11 @@ $nav_cta_text = "Consultation gratuite";
   <div class="section-inner">
     <div class="authority-card reveal">
       <div style="text-align:center">
-        <div class="authority-avatar" style="background: linear-gradient(135deg, var(--teal), var(--gold)); display:flex; align-items:center; justify-content:center; font-size:48px; color:#fff; margin: 0 auto;">II</div>
+        <div class="authority-avatar" style="background: linear-gradient(135deg, var(--teal), var(--gold)); display:flex; align-items:center; justify-content:center; font-size:40px; color:#fff; margin: 0 auto;">🤝</div>
       </div>
       <div>
-        <h3 class="authority-name">Ismail Idrissi</h3>
-        <p class="authority-title">Consultant QSE & ESG · BRCGS® Approuvé · CEO Afflatus Consulting Group</p>
+        <h3 class="authority-name">Nos consultants et experts</h3>
+        <p class="authority-title">Experts QSE & ESG · BRCGS® Approuvés · Afflatus Consulting Group</p>
         <div class="authority-stats">
           <div class="authority-stat"><div class="stat-val">+400</div><div class="stat-lab">Projets</div></div>
           <div class="authority-stat"><div class="stat-val">98%</div><div class="stat-lab">Succès</div></div>
@@ -277,7 +278,7 @@ $nav_cta_text = "Consultation gratuite";
       </div>
       <div class="faq-card reveal">
         <h4>Intervenez-vous en dehors du Maroc ?</h4>
-        <p>Oui, nous intervenons dans toute l'Afrique. Ismail Idrissi est le seul consultant BRCGS reconnu sur le continent — nos missions couvrent le Maroc et l'Afrique subsaharienne.</p>
+        <p>Oui, nous intervenons partout dans le monde avec des consultants tri-lingues (français, anglais, arabe). Nos missions couvrent le Maroc, l'Afrique et l'international pour accompagner le développement de nos clients.</p>
       </div>
     </div>
   </div>

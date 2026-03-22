@@ -20,7 +20,7 @@ $nav_cta_text = "Réserver maintenant";
 
 <!-- ══ STICKY BAR ══ -->
 <div class="sticky-bar">
-  <span class="sticky-text">🏆 Seul consultant BRCGS officiellement approuvé au Maroc & en Afrique</span>
+  <span class="sticky-text"><img src="/assets/img/logos/brcgs.svg" alt="BRCGS" class="badge-icon" width="24" height="24"> Seul consultant BRCGS officiellement approuvé au Maroc & en Afrique</span>
   <a href="#hero-form" class="btn-sticky" data-cta="sticky-cta" data-page="food-safety">Réserver maintenant</a>
 </div>
 
@@ -97,8 +97,8 @@ $nav_cta_text = "Réserver maintenant";
 <!-- ══ BADGES DE CONFIANCE ══ -->
 <div class="trust-badges-bar reveal">
   <div class="trust-badges-inner">
-    <div class="trust-badge"><span class="badge-icon">🏅</span> Cabinet certifié ISO 9001</div>
-    <div class="trust-badge"><span class="badge-icon">🔒</span> Agréé CNDP — Protection des données</div>
+    <div class="trust-badge"><img src="/assets/img/logos/iso9001.svg" alt="ISO 9001" class="badge-icon" width="24" height="24"> Cabinet certifié ISO 9001</div>
+    <div class="trust-badge"><img src="/assets/img/logos/cndp.svg" alt="CNDP" class="badge-icon" width="24" height="24"> Agréé CNDP — Protection des données</div>
     <a href="https://www.brcgs.com/partners/find-a-consultant/list-updated/ismail-idrissi/" target="_blank" rel="noopener" class="trust-badge badge-premium">
       <span class="badge-icon">🏆</span>
       <span><strong>1er Consultant BRCGS reconnu en Afrique</strong> — Vérifier sur le registre officiel →</span>
