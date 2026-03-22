@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../config.php';
 
 $page_title = "Consulting QSE, ESG & Due Diligence au Maroc";
-$page_description = "Afflatus Consulting implémente vos systèmes QSE (ISO 9001, 14001, 45001) et structure vos démarches ESG — 94% de succès à la première tentative.";
+$page_description = "Afflatus Consulting implémente vos systèmes QSE (ISO 9001, 14001, 45001) et structure vos démarches ESG — 98% de succès à la première tentative.";
 $page_slug = "qse-esg";
 $page_css = "qse-esg";
 $google_fonts_url = "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@300;400;500;600;700;800&display=swap";
@@ -38,11 +38,11 @@ $nav_cta_text = "Consultation gratuite";
         <li><span class="usp-icon">✓</span> Stratégie ESG structurée avec reporting conforme GRI / TCFD pour investisseurs et donneurs d'ordre</li>
         <li><span class="usp-icon">✓</span> Due Diligence fournisseur : audits SMETA, amfori BSCI, conformité sociale & environnementale</li>
         <li><span class="usp-icon">✓</span> Méthode en 4 phases — du diagnostic gap analysis à la certification réussie en 90 jours</li>
-        <li><span class="usp-icon">✓</span> 94% de taux de succès à la première tentative d'audit de certification</li>
+        <li><span class="usp-icon">✓</span> 98% de taux de succès à la première tentative d'audit de certification</li>
       </ul>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="stat-num">50+</div><div class="stat-label">Certifications</div></div>
-        <div class="hero-stat"><div class="stat-num">94%</div><div class="stat-label">Succès 1ère tentative</div></div>
+        <div class="hero-stat"><div class="stat-num">+400</div><div class="stat-label">Projets</div></div>
+        <div class="hero-stat"><div class="stat-num">98%</div><div class="stat-label">Taux de succès</div></div>
         <div class="hero-stat"><div class="stat-num">90j</div><div class="stat-label">Délai moyen</div></div>
       </div>
     </div>
@@ -130,7 +130,7 @@ $nav_cta_text = "Consultation gratuite";
   <div class="section-inner">
     <span class="section-label reveal">La méthode</span>
     <h2 class="section-title reveal">La méthode Afflatus en 4 phases</h2>
-    <p class="section-subtitle reveal" style="color: rgba(255,255,255,.6)">Du diagnostic à la certification — un processus éprouvé sur 50+ entreprises.</p>
+    <p class="section-subtitle reveal" style="color: rgba(255,255,255,.6)">Du diagnostic à la certification — un processus éprouvé sur +400 projets.</p>
     <div class="timeline">
       <div class="timeline-step reveal">
         <div class="timeline-num">1</div>
@@ -151,7 +151,7 @@ $nav_cta_text = "Consultation gratuite";
       <div class="timeline-step reveal">
         <div class="timeline-num">3</div>
         <div class="timeline-content">
-          <h4>Mise en conformité terrain</h4>
+          <h4>Mise en conformité terrain et documentaire</h4>
           <p class="timeline-duration">6–10 semaines</p>
           <p>Accompagnement opérationnel : documentation, procédures, formation des équipes, mise en place des processus.</p>
         </div>
@@ -160,7 +160,7 @@ $nav_cta_text = "Consultation gratuite";
         <div class="timeline-num">4</div>
         <div class="timeline-content">
           <h4>Audit blanc + Certification</h4>
-          <p class="timeline-duration">Taux 94% — 1ère tentative</p>
+          <p class="timeline-duration">Taux 98% — 1ère tentative</p>
           <p>Simulation d'audit pour éliminer les derniers écarts, puis accompagnement le jour J de l'audit de certification.</p>
         </div>
       </div>
@@ -168,28 +168,33 @@ $nav_cta_text = "Consultation gratuite";
   </div>
 </section>
 
-<!-- ══ PREUVE SOCIALE — CASE STUDY ══ -->
+<!-- ══ PREUVE SOCIALE — TÉMOIGNAGE NARRATIF ══ -->
 <section class="section" style="background: var(--ink, #0B0F1A); padding: 80px 24px;">
   <div class="section-inner">
-    <div class="case-study reveal">
-      <span class="case-study-label">Étude de cas</span>
-      <h3>Aiguebelle — Industrie chocolatière, Maroc</h3>
-      <div class="case-before-after">
-        <div class="case-col before">
-          <h5>Avant Afflatus</h5>
-          <ul>
-            <li>Pas de certification QSE en place</li>
-            <li>Contrats internationaux bloqués</li>
-            <li>Documentation qualité inexistante</li>
-          </ul>
+    <div class="case-study reveal" style="max-width: 800px; margin: 0 auto;">
+      <span class="case-study-label">Témoignage client</span>
+      <h3 style="margin-bottom: 20px;">Aiguebelle — Leader marocain de la chocolaterie</h3>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(255,255,255,.75); margin-bottom: 16px;">
+        Depuis plus de <strong style="color: var(--gold, #E8C547);">6 ans</strong>, la société <strong style="color: #fff;">Aiguebelle</strong> fait confiance à Afflatus Consulting Group pour la certification et le maintien de sa certification <strong style="color: #fff;">ISO 9001</strong>.
+      </p>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(255,255,255,.75); margin-bottom: 16px;">
+        Ce partenariat stratégique a permis à Aiguebelle de renforcer sa position de <strong style="color: #fff;">leader marocain et africain de l'industrie chocolatière</strong>, en garantissant une conformité rigoureuse et continue aux standards internationaux les plus exigeants.
+      </p>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(255,255,255,.75);">
+        Résultat : une satisfaction client renforcée, des marchés export sécurisés, et une crédibilité qui fait la différence face aux acheteurs internationaux les plus exigeants du secteur.
+      </p>
+      <div style="display: flex; gap: 24px; margin-top: 28px; flex-wrap: wrap;">
+        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center;">
+          <div style="font-size: 24px; font-weight: 800; color: var(--gold, #E8C547);">6+</div>
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Années de partenariat</div>
         </div>
-        <div class="case-col after">
-          <h5>Après Afflatus</h5>
-          <ul>
-            <li>Système intégré ISO 9001 + ISO 14001 implémenté</li>
-            <li>Certification obtenue à la 1ère tentative</li>
-            <li>Accès marchés internationaux débloqué</li>
-          </ul>
+        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center;">
+          <div style="font-size: 24px; font-weight: 800; color: var(--teal, #0D8870);">ISO 9001</div>
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Certification maintenue</div>
+        </div>
+        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center;">
+          <div style="font-size: 24px; font-weight: 800; color: #fff;">N°1</div>
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Chocolaterie au Maroc</div>
         </div>
       </div>
     </div>
@@ -200,8 +205,8 @@ $nav_cta_text = "Consultation gratuite";
 <section class="section" style="padding: 60px 24px;">
   <div class="metrics-bar reveal">
     <div class="metric-item"><div class="metric-num">90</div><div class="metric-label">Jours délai moyen</div></div>
-    <div class="metric-item"><div class="metric-num">94%</div><div class="metric-label">Succès 1ère tentative</div></div>
-    <div class="metric-item"><div class="metric-num">50+</div><div class="metric-label">Entreprises certifiées</div></div>
+    <div class="metric-item"><div class="metric-num">98%</div><div class="metric-label">Taux de succès</div></div>
+    <div class="metric-item"><div class="metric-num">+400</div><div class="metric-label">Projets réalisés</div></div>
     <div class="metric-item"><div class="metric-num">5</div><div class="metric-label">Normes couvertes</div></div>
   </div>
 </section>
@@ -228,8 +233,8 @@ $nav_cta_text = "Consultation gratuite";
         <h3 class="authority-name">Ismail Idrissi</h3>
         <p class="authority-title">Consultant QSE & ESG · BRCGS® Approuvé · CEO Afflatus Consulting Group</p>
         <div class="authority-stats">
-          <div class="authority-stat"><div class="stat-val">50+</div><div class="stat-lab">Certifications</div></div>
-          <div class="authority-stat"><div class="stat-val">94%</div><div class="stat-lab">Succès</div></div>
+          <div class="authority-stat"><div class="stat-val">+400</div><div class="stat-lab">Projets</div></div>
+          <div class="authority-stat"><div class="stat-val">98%</div><div class="stat-lab">Succès</div></div>
           <div class="authority-stat"><div class="stat-val">8+</div><div class="stat-lab">Ans terrain</div></div>
         </div>
         <p style="font-size: 14px; line-height: 1.7; opacity: 0.8; margin-top: 12px;">Afflatus dispose d'auditeurs qualifiés IRCA (International Register of Certificated Auditors) avec plus de 10 ans d'expérience terrain — disponibles pour audits internes, audits fournisseurs, due diligence ESG et accompagnement certification.</p>

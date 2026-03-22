@@ -120,7 +120,7 @@ $nav_cta_text = "Nous contacter";
     <div class="service-body">
       <span class="service-tag">Certifications</span>
       <h3>QSE, ESG & Due Diligence</h3>
-      <p>Implémentation de systèmes ISO 9001, 14001, 45001 et structuration de démarches ESG. 94% de succès à la première tentative d'audit de certification.</p>
+      <p>Implémentation de systèmes ISO 9001, 14001, 45001 et structuration de démarches ESG. 98% de succès à la première tentative d'audit de certification.</p>
       <span class="service-cta">Voir le détail →</span>
     </div>
   </a>

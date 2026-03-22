@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../config.php';
 
 $page_title = "Certification BRCGS, IFS & FSSC 22000 au Maroc";
-$page_description = "Le seul consultant BRCGS officiellement approuvé en Afrique. Certification BRCGS Food Safety, IFS, FSSC 22000 — 94% de succès première tentative en 90 jours.";
+$page_description = "Le seul consultant BRCGS officiellement approuvé en Afrique. Certification BRCGS Food Safety, IFS, FSSC 22000 — 98% de succès première tentative en 90 jours.";
 $page_slug = "food-safety";
 $page_css = "food-safety";
 $google_fonts_url = "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&display=swap";
@@ -32,18 +32,18 @@ $nav_cta_text = "Réserver maintenant";
     <div class="hero-content reveal-l">
       <span class="hero-tag">BRCGS · IFS · FSSC 22000 · Food Safety</span>
       <h1>VOTRE CERTIFICATION <em>EN 90 JOURS.</em></h1>
-      <p class="hero-mechanism">Le seul consultant BRCGS approuvé en Afrique accompagne votre entreprise de la Gap Analysis à la certification — avec un taux de succès de 94% à la première tentative.</p>
+      <p class="hero-mechanism">Le seul consultant BRCGS approuvé en Afrique accompagne votre entreprise de la Gap Analysis à la certification — avec un taux de succès de 98% à la première tentative.</p>
       <ul class="hero-usps">
         <li><span class="usp-icon">✓</span> Gap Analysis complète offerte (valeur 8 000 MAD) — diagnostic point par point vs exigences BRCGS v9</li>
         <li><span class="usp-icon">✓</span> Accompagnement BRCGS Food Safety, BRCGS Packaging, IFS Food, FSSC 22000 et ISO 22000</li>
-        <li><span class="usp-icon">✓</span> Méthode en 4 étapes testée sur 50+ entreprises certifiées au Maroc et en Afrique</li>
-        <li><span class="usp-icon">✓</span> Taux de succès 94% à la première tentative d'audit — pas de seconde chance nécessaire</li>
+        <li><span class="usp-icon">✓</span> Méthode en 4 étapes testée sur +400 projets réalisés au Maroc et en Afrique</li>
+        <li><span class="usp-icon">✓</span> Taux de succès 98% à la première tentative d'audit — pas de seconde chance nécessaire</li>
         <li><span class="usp-icon">✓</span> Formation terrain du personnel finançable à 100% par l'État (jusqu'à 200 000 MAD)</li>
       </ul>
       <div class="hero-stats">
         <div class="hero-stat"><div class="stat-num">90</div><div class="stat-label">Jours en moyenne</div></div>
-        <div class="hero-stat"><div class="stat-num">94%</div><div class="stat-label">Succès 1ère tentative</div></div>
-        <div class="hero-stat"><div class="stat-num">50+</div><div class="stat-label">Entreprises certifiées</div></div>
+        <div class="hero-stat"><div class="stat-num">98%</div><div class="stat-label">Taux de succès</div></div>
+        <div class="hero-stat"><div class="stat-num">+400</div><div class="stat-label">Projets</div></div>
         <div class="hero-stat"><div class="stat-num">130+</div><div class="stat-label">Pays BRCGS</div></div>
       </div>
     </div>
@@ -159,7 +159,7 @@ $nav_cta_text = "Réserver maintenant";
       <div class="timeline-step reveal">
         <div class="timeline-num">3</div>
         <div class="timeline-content">
-          <h4>Mise en conformité terrain</h4>
+          <h4>Mise en conformité terrain et documentaire</h4>
           <p class="timeline-duration">6–8 semaines</p>
           <p>Formation des opérateurs, mise en place des bonnes pratiques, vérification terrain de chaque exigence normative.</p>
         </div>
@@ -168,7 +168,7 @@ $nav_cta_text = "Réserver maintenant";
         <div class="timeline-num">4</div>
         <div class="timeline-content">
           <h4>Audit blanc + Certification</h4>
-          <p class="timeline-duration">Taux 94% — 1ère tentative</p>
+          <p class="timeline-duration">Taux 98% — 1ère tentative</p>
           <p>Simulation complète d'audit, correction des derniers écarts, accompagnement le jour J.</p>
         </div>
       </div>
@@ -229,8 +229,8 @@ $nav_cta_text = "Réserver maintenant";
 <section class="section" style="padding: 60px 24px;">
   <div class="metrics-bar reveal">
     <div class="metric-item"><div class="metric-num">90</div><div class="metric-label">Jours délai moyen</div></div>
-    <div class="metric-item"><div class="metric-num">94%</div><div class="metric-label">Succès 1ère tentative</div></div>
-    <div class="metric-item"><div class="metric-num">50+</div><div class="metric-label">Certifiées</div></div>
+    <div class="metric-item"><div class="metric-num">98%</div><div class="metric-label">Taux de succès</div></div>
+    <div class="metric-item"><div class="metric-num">+400</div><div class="metric-label">Projets</div></div>
     <div class="metric-item"><div class="metric-num">8+</div><div class="metric-label">Ans terrain</div></div>
     <div class="metric-item"><div class="metric-num">130+</div><div class="metric-label">Pays BRCGS</div></div>
   </div>
@@ -262,8 +262,8 @@ $nav_cta_text = "Réserver maintenant";
         <h3 class="authority-name">ISMAIL IDRISSI</h3>
         <p class="authority-title">Consultant BRCGS® Approuvé · Sécurité Alimentaire · CEO Afflatus Consulting Group</p>
         <div class="authority-stats">
-          <div class="authority-stat"><div class="stat-val">50+</div><div class="stat-lab">Certifications</div></div>
-          <div class="authority-stat"><div class="stat-val">94%</div><div class="stat-lab">Succès</div></div>
+          <div class="authority-stat"><div class="stat-val">+400</div><div class="stat-lab">Projets</div></div>
+          <div class="authority-stat"><div class="stat-val">98%</div><div class="stat-lab">Succès</div></div>
           <div class="authority-stat"><div class="stat-val">8+</div><div class="stat-lab">Ans terrain</div></div>
           <div class="authority-stat"><div class="stat-val">1er</div><div class="stat-lab">En Afrique</div></div>
         </div>
@@ -305,7 +305,7 @@ $nav_cta_text = "Réserver maintenant";
       </div>
       <div class="faq-card reveal">
         <h4>Que se passe-t-il si l'audit échoue ?</h4>
-        <p>Avec 94% de succès en première tentative, c'est rare. Mais si cela arrive, nous reprenons l'intégralité des actions correctives sans frais supplémentaires jusqu'à l'obtention de votre certification.</p>
+        <p>Avec 98% de succès en première tentative, c'est rare. Mais si cela arrive, nous reprenons l'intégralité des actions correctives sans frais supplémentaires jusqu'à l'obtention de votre certification.</p>
       </div>
     </div>
   </div>
