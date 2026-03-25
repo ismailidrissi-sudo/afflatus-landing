@@ -1,1 +1,34 @@
-.github/workflows/deploy-ftp.yml
+# Deploy site to hosting FTP → public_html (serves afflatusconsulting.tech)
+# GitHub → repo Settings → Secrets and variables → Actions:
+#   FTP_USERNAME = u485919720.afflatusconsulting.tech
+#   FTP_PASSWORD = (from your hosting panel; never commit it)
+# If plain FTP fails, try adding protocol: ftps (see action README).
+
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          # Hostname from panel; use 82.25.113.173 if DNS issues
+          server: afflatusconsulting.tech
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            .gitignore
