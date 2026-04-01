@@ -1,11 +1,14 @@
 # Deploy site to hosting FTP → public_html (serves afflatusconsulting.tech)
 #
-# Required repository secrets (Settings → Secrets and variables → Actions):
-#   FTP_USERNAME — full FTP login (e.g. u485919720.afflatusconsulting.tech from hPanel)
-#   FTP_PASSWORD — FTP password from hosting panel (never commit)
+# Required — add under: Repository → Settings → Secrets and variables → Actions
+#   (use either name on the left; first match wins)
 #
-# If the job fails with "username" / "password" not supplied, those secrets are missing or empty.
-# If plain FTP fails, add: protocol: ftps (see action README).
+#   Username: FTP_USERNAME  OR  FTP_USER
+#   Password: FTP_PASSWORD  OR  FTP_PASS
+#
+# Hostinger: hPanel → Files → FTP Accounts → copy full username + password you set.
+# Forks: secrets are NOT inherited — create them again on your fork.
+# Org secrets: allow this repository in the secret’s access list.
 
 name: Deploy to FTP
 
@@ -14,6 +17,7 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -24,22 +28,27 @@ jobs:
 
       - name: Verify FTP secrets exist
         env:
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME || secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD || secrets.FTP_PASS }}
         run: |
           if [ -z "$FTP_USERNAME" ] || [ -z "$FTP_PASSWORD" ]; then
-            echo "::error::Missing FTP_USERNAME and/or FTP_PASSWORD."
-            echo "Add both secrets: Repository → Settings → Secrets and variables → Actions → New repository secret"
+            echo "::error::No FTP credentials found for this repository."
+            echo ""
+            echo "Create exactly two repository secrets (same fork/repo that runs this workflow):"
+            echo "  • FTP_USERNAME  (or FTP_USER)     = full FTP login from your host"
+            echo "  • FTP_PASSWORD  (or FTP_PASS)    = FTP password"
+            echo ""
+            echo "Path: GitHub repo → Settings → Secrets and variables → Actions → New repository secret"
+            echo "Then: Actions → Deploy to FTP → Re-run failed jobs (or push again)."
             exit 1
           fi
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          # Hostname from panel; use 82.25.113.173 if DNS issues
           server: afflatusconsulting.tech
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          username: ${{ secrets.FTP_USERNAME || secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD || secrets.FTP_PASS }}
           server-dir: public_html/
           exclude: |
             **/.git*
