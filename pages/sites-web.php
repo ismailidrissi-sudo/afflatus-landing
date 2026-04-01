@@ -44,64 +44,57 @@ $nav_cta_href = '#lead-form';
       </div>
       <div class="hero-ctas">
         <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="sites-web">Obtenir mon devis gratuit</a>
-        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="sites-web">Voir notre méthode</a>
       </div>
       <div class="hero-trust-signals">
         <span class="trust-badge">✅ +400 projets</span>
         <span class="trust-badge">✅ Réponse 24h</span>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="https://placehold.co/600x450/f0f4ff/7B2D8B?text=Web+%2B+Responsive" width="600" height="450" alt="" decoding="async" loading="eager">
-    </div>
-  </div>
-</section>
-
-<section class="section-lead-form" id="lead-form">
-  <div class="lead-form-inner">
-    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Devis gratuit</span>
-    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Décrivez votre projet</h2>
-    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Proposition détaillée sous 48h · Sans engagement</p>
-    <div class="hero-form-panel">
-      <form data-landing="Sites Web Afflatus">
-        <input type="hidden" name="source" value="sites-web">
-        <div class="form-group">
-          <label for="wb-name">Nom complet</label>
-          <input type="text" id="wb-name" name="Nom" placeholder="Votre nom" required>
-        </div>
-        <div class="form-group">
-          <label for="wb-company">Entreprise</label>
-          <input type="text" id="wb-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
-        </div>
-        <div class="form-group">
-          <label for="wb-project">Type de projet</label>
-          <select id="wb-project" name="Projet" required>
-            <option value="" disabled selected>Sélectionnez</option>
-            <option value="Site vitrine">Site vitrine</option>
-            <option value="E-commerce">E-commerce</option>
-            <option value="Application web">Application web</option>
-            <option value="Refonte site existant">Refonte site existant</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="wb-budget">Budget estimé</label>
-          <select id="wb-budget" name="Budget" required>
-            <option value="" disabled selected>Sélectionnez</option>
-            <option value="< 20 000 MAD">< 20 000 MAD</option>
-            <option value="20 000 - 50 000 MAD">20 000 – 50 000 MAD</option>
-            <option value="50 000 - 100 000 MAD">50 000 – 100 000 MAD</option>
-            <option value="100 000+ MAD">100 000+ MAD</option>
-            <option value="À discuter">À discuter</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="wb-telephone">Téléphone</label>
-          <input type="tel" id="wb-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
-        </div>
-        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="sites-web">Obtenir mon devis gratuit →</button>
-        <p class="form-trust">🔒 Confidentiel · Réponse sous 48h · Sans engagement</p>
-      </form>
+    <div class="hero-lead-column" id="lead-form">
+      <div class="hero-form-panel">
+        <span class="hero-form-eyebrow">Devis gratuit</span>
+        <h3>Décrivez votre projet</h3>
+        <p class="form-subtitle">Proposition détaillée sous 48h · Sans engagement</p>
+        <form data-landing="Sites Web Afflatus">
+          <input type="hidden" name="source" value="sites-web">
+          <div class="form-group">
+            <label for="wb-name">Nom complet</label>
+            <input type="text" id="wb-name" name="Nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="wb-company">Entreprise</label>
+            <input type="text" id="wb-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="wb-project">Type de projet</label>
+            <select id="wb-project" name="Projet" required>
+              <option value="" disabled selected>Sélectionnez</option>
+              <option value="Site vitrine">Site vitrine</option>
+              <option value="E-commerce">E-commerce</option>
+              <option value="Application web">Application web</option>
+              <option value="Refonte site existant">Refonte site existant</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="wb-budget">Budget estimé</label>
+            <select id="wb-budget" name="Budget" required>
+              <option value="" disabled selected>Sélectionnez</option>
+              <option value="< 20 000 MAD">< 20 000 MAD</option>
+              <option value="20 000 - 50 000 MAD">20 000 – 50 000 MAD</option>
+              <option value="50 000 - 100 000 MAD">50 000 – 100 000 MAD</option>
+              <option value="100 000+ MAD">100 000+ MAD</option>
+              <option value="À discuter">À discuter</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="wb-telephone">Téléphone</label>
+            <input type="tel" id="wb-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
+          </div>
+          <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="sites-web">Obtenir mon devis gratuit →</button>
+          <p class="form-trust">🔒 Confidentiel · Réponse sous 48h · Sans engagement</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -111,6 +104,7 @@ $anatomy_logos_label = 'Ils nous font confiance';
 $anatomy_logos_bg = 'white';
 $anatomy_cert_logos = true;
 $anatomy_cert_set = 'sites-web';
+$anatomy_expertise_chips = ['Next.js / React', 'SEO technique', 'UX / UI', 'Performance', 'Conversion'];
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
 
@@ -206,38 +200,6 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
           </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section anatomy-services-band" id="services">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Écosystème</p>
-      <h2 class="section-title">Nos autres solutions</h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Conformité, formation financée et IA agentique — les mêmes équipes pour digital et terrain.</p>
-    </div>
-    <div class="anatomy-service-cards">
-      <a href="/qse-esg" class="anatomy-service-card">
-        <h3>QSE &amp; ESG</h3>
-        <p>Certifications et reporting.</p>
-        <span class="anatomy-service-more">En savoir plus →</span>
-      </a>
-      <a href="/food-safety" class="anatomy-service-card">
-        <h3>Food safety</h3>
-        <p>BRCGS, IFS, FSSC 22000.</p>
-        <span class="anatomy-service-more">En savoir plus →</span>
-      </a>
-      <a href="/formation" class="anatomy-service-card">
-        <h3>Formation &amp; CSF</h3>
-        <p>Financement OFPPT.</p>
-        <span class="anatomy-service-more">En savoir plus →</span>
-      </a>
-      <a href="/anir-ia" class="anatomy-service-card">
-        <h3>Anir.io</h3>
-        <p>IA agentique métier.</p>
-        <span class="anatomy-service-more">En savoir plus →</span>
-      </a>
     </div>
   </div>
 </section>
@@ -357,8 +319,6 @@ $anatomy_cert_logos = true;
 $anatomy_cert_set = 'sites-web';
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
-
-<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
 
 <?php
 $anatomy_cta_headline = 'Un site web qui travaille pour vous';

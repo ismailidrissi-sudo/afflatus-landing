@@ -47,56 +47,49 @@ $nav_cta_href = '#lead-form';
       </div>
       <div class="hero-ctas">
         <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="formation">Obtenir mon diagnostic gratuit</a>
-        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="formation">Voir notre méthode</a>
       </div>
       <div class="hero-trust-signals">
         <span class="trust-badge">✅ +400 projets</span>
         <span class="trust-badge">✅ Réponse 24h</span>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="https://placehold.co/600x450/fff5eb/c45c00?text=Formation+%2B+CSF" width="600" height="450" alt="" decoding="async" loading="eager">
-    </div>
-  </div>
-</section>
-
-<section class="section-lead-form" id="lead-form">
-  <div class="lead-form-inner">
-    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Estimation gratuite</span>
-    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Calculez votre montant remboursable</h2>
-    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Réponse en 24h · Sans engagement</p>
-    <div class="hero-form-panel">
-      <form data-landing="Formation CSF">
-        <input type="hidden" name="source" value="formation">
-        <div class="form-group">
-          <label for="fo-name">Nom complet</label>
-          <input type="text" id="fo-name" name="Nom" placeholder="Votre nom" required>
-        </div>
-        <div class="form-group">
-          <label for="fo-company">Entreprise</label>
-          <input type="text" id="fo-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
-        </div>
-        <div class="form-group">
-          <label for="fo-sector">Secteur d'activité</label>
-          <input type="text" id="fo-sector" name="Secteur" placeholder="Ex: Agroalimentaire, Industrie..." required>
-        </div>
-        <div class="form-group">
-          <label for="fo-employees">Nombre d'employés à former</label>
-          <select id="fo-employees" name="Employés" required>
-            <option value="" disabled selected>Sélectionnez</option>
-            <option value="1-5">1 à 5 employés</option>
-            <option value="6-15">6 à 15 employés</option>
-            <option value="16-30">16 à 30 employés</option>
-            <option value="30+">Plus de 30 employés</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="fo-telephone">Téléphone</label>
-          <input type="tel" id="fo-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
-        </div>
-        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="formation">Calculer mon remboursement →</button>
-        <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
-      </form>
+    <div class="hero-lead-column" id="lead-form">
+      <div class="hero-form-panel">
+        <span class="hero-form-eyebrow">Estimation gratuite</span>
+        <h3>Calculez votre montant remboursable</h3>
+        <p class="form-subtitle">Réponse en 24h · Sans engagement</p>
+        <form data-landing="Formation CSF">
+          <input type="hidden" name="source" value="formation">
+          <div class="form-group">
+            <label for="fo-name">Nom complet</label>
+            <input type="text" id="fo-name" name="Nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="fo-company">Entreprise</label>
+            <input type="text" id="fo-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="fo-sector">Secteur d'activité</label>
+            <input type="text" id="fo-sector" name="Secteur" placeholder="Ex: Agroalimentaire, Industrie..." required>
+          </div>
+          <div class="form-group">
+            <label for="fo-employees">Nombre d'employés à former</label>
+            <select id="fo-employees" name="Employés" required>
+              <option value="" disabled selected>Sélectionnez</option>
+              <option value="1-5">1 à 5 employés</option>
+              <option value="6-15">6 à 15 employés</option>
+              <option value="16-30">16 à 30 employés</option>
+              <option value="30+">Plus de 30 employés</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fo-telephone">Téléphone</label>
+            <input type="tel" id="fo-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
+          </div>
+          <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="formation">Calculer mon remboursement →</button>
+          <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -106,6 +99,7 @@ $anatomy_logos_label = 'Ils nous font confiance';
 $anatomy_logos_bg = 'white';
 $anatomy_cert_logos = true;
 $anatomy_cert_set = 'formation';
+$anatomy_expertise_chips = ['CSF / OFPPT', 'Ingénierie pédagogique', 'Financement État', 'Formateurs terrain', 'Normes métiers'];
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
 
@@ -199,13 +193,13 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
   </div>
 </section>
 
-<!-- ══ 5. AUTRES SERVICES (QSE · Food safety · Formation · Anir.io) ══ -->
+<!-- ══ 5. OFFRE CSF (comparatif) ══ -->
 <section class="section anatomy-services-band offer-section" id="services" style="background: var(--color-bg-grey);">
   <div class="section-inner">
     <div class="section-header">
-      <p class="section-tag">Les quatre expertises Afflatus</p>
-      <h2 class="section-title">QSE &amp; ESG · Food safety · Formation · Anir.io</h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Comparer notre approche CSF ci-dessous, puis accédez aux trois autres offres du groupe.</p>
+      <p class="section-tag">Formation financée</p>
+      <h2 class="section-title">Afflatus vs autres organismes</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Comparer notre approche CSF et l'ingénierie de votre dossier.</p>
     </div>
     <div class="reveal" style="overflow-x: auto; margin-bottom: 2.5rem;">
       <table class="offer-table">
@@ -224,10 +218,6 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
         </tbody>
       </table>
     </div>
-<?php
-$anatomy_current_service = 'formation';
-require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
-?>
   </div>
 </section>
 
@@ -346,8 +336,6 @@ $anatomy_cert_logos = true;
 $anatomy_cert_set = 'formation';
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
-
-<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
 
 <?php
 $anatomy_cta_headline = 'Ne laissez plus 200 000 MAD sur la table';

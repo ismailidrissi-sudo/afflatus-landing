@@ -38,6 +38,7 @@ $anatomy_logos_label = 'Ils nous font confiance';
 $anatomy_logos_bg = 'white';
 $anatomy_cert_logos = true;
 $anatomy_cert_set = 'nos-services';
+$anatomy_expertise_chips = ['QSE & ESG', 'Food safety', 'Formation CSF', 'IA agentique', 'Sites web'];
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
 
@@ -242,8 +243,6 @@ $anatomy_cert_logos = true;
 $anatomy_cert_set = 'nos-services';
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
-
-<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
 
 <?php
 $anatomy_cta_headline = 'Prêt à lancer votre prochaine étape ?';

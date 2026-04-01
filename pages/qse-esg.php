@@ -49,60 +49,53 @@ $nav_cta_href = '#lead-form';
       </div>
       <div class="hero-ctas">
         <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="qse-esg">Obtenir mon diagnostic gratuit</a>
-        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="qse-esg">Voir notre méthode</a>
       </div>
       <div class="hero-trust-signals">
         <span class="trust-badge">✅ +400 projets</span>
         <span class="trust-badge">✅ Réponse 24h</span>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="https://placehold.co/600x450/f3eaf6/7B2D8B?text=QSE+%26+ESG" width="600" height="450" alt="" decoding="async" loading="eager">
-    </div>
-  </div>
-</section>
-
-<section class="section-lead-form" id="lead-form">
-  <div class="lead-form-inner">
-    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Diagnostic offert</span>
-    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Obtenez votre feuille de route QSE/ESG</h2>
-    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Réponse sous 24h · Sans engagement</p>
-    <div class="hero-form-panel">
-      <form data-landing="QSE ESG Due Diligence">
-        <input type="hidden" name="source" value="qse-esg">
-        <div class="form-group">
-          <label for="qse-name">Nom complet</label>
-          <input type="text" id="qse-name" name="Nom" placeholder="Votre nom" required>
-        </div>
-        <div class="form-group">
-          <label for="qse-company">Entreprise</label>
-          <input type="text" id="qse-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
-        </div>
-        <div class="form-group">
-          <label for="qse-need">Besoin principal</label>
-          <select id="qse-need" name="Besoin" required>
-            <option value="" disabled selected>Sélectionnez votre besoin</option>
-            <option value="ISO 9001">ISO 9001</option>
-            <option value="ISO 14001">ISO 14001</option>
-            <option value="ISO 45001">ISO 45001</option>
-            <option value="Système intégré QSE">Système intégré QSE</option>
-            <option value="Stratégie ESG & Reporting">Stratégie ESG & Reporting</option>
-            <option value="Audit interne / Due Diligence">Audit interne / Due Diligence</option>
-            <option value="SMETA / amfori BSCI">SMETA / amfori BSCI</option>
-            <option value="Je ne sais pas encore">Je ne sais pas encore</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="qse-size">Taille entreprise</label>
-          <input type="text" id="qse-size" name="Taille" placeholder="Nombre d'employés" required>
-        </div>
-        <div class="form-group">
-          <label for="qse-telephone">Téléphone</label>
-          <input type="tel" id="qse-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
-        </div>
-        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="qse-esg">Obtenir ma feuille de route →</button>
-        <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
-      </form>
+    <div class="hero-lead-column" id="lead-form">
+      <div class="hero-form-panel">
+        <span class="hero-form-eyebrow">Diagnostic offert</span>
+        <h3>Obtenez votre feuille de route QSE/ESG</h3>
+        <p class="form-subtitle">Réponse sous 24h · Sans engagement</p>
+        <form data-landing="QSE ESG Due Diligence">
+          <input type="hidden" name="source" value="qse-esg">
+          <div class="form-group">
+            <label for="qse-name">Nom complet</label>
+            <input type="text" id="qse-name" name="Nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="qse-company">Entreprise</label>
+            <input type="text" id="qse-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="qse-need">Besoin principal</label>
+            <select id="qse-need" name="Besoin" required>
+              <option value="" disabled selected>Sélectionnez votre besoin</option>
+              <option value="ISO 9001">ISO 9001</option>
+              <option value="ISO 14001">ISO 14001</option>
+              <option value="ISO 45001">ISO 45001</option>
+              <option value="Système intégré QSE">Système intégré QSE</option>
+              <option value="Stratégie ESG & Reporting">Stratégie ESG & Reporting</option>
+              <option value="Audit interne / Due Diligence">Audit interne / Due Diligence</option>
+              <option value="SMETA / amfori BSCI">SMETA / amfori BSCI</option>
+              <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="qse-size">Taille entreprise</label>
+            <input type="text" id="qse-size" name="Taille" placeholder="Nombre d'employés" required>
+          </div>
+          <div class="form-group">
+            <label for="qse-telephone">Téléphone</label>
+            <input type="tel" id="qse-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
+          </div>
+          <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="qse-esg">Obtenir ma feuille de route →</button>
+          <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -112,6 +105,7 @@ $anatomy_logos_label = 'Ils nous font confiance';
 $anatomy_logos_bg = 'white';
 $anatomy_cert_logos = true;
 $anatomy_cert_set = 'qse-esg';
+$anatomy_expertise_chips = ['ISO 9001 / 14001 / 45001', 'ESG & reporting', 'SMETA / BSCI', 'Due diligence', 'Certification'];
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
 
@@ -186,22 +180,7 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
   </div>
 </section>
 
-<!-- ══ 5. AUTRES SERVICES (QSE · Food safety · Formation · Anir.io) ══ -->
-<section class="section anatomy-services-band" id="services">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Les quatre expertises Afflatus</p>
-      <h2 class="section-title">QSE &amp; ESG · Food safety · Formation · Anir.io</h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Les trois autres offres du groupe — même exigence de résultats. La page actuelle n'est pas répétée.</p>
-    </div>
-<?php
-$anatomy_current_service = 'qse-esg';
-require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
-?>
-  </div>
-</section>
-
-<!-- ══ 6. FAQ / POURQUOI NOUS ══ -->
+<!-- ══ 5. FAQ / POURQUOI NOUS ══ -->
 <section class="section anatomy-faq section-faq">
   <div class="section-inner">
     <div class="section-header">
@@ -321,8 +300,6 @@ $anatomy_cert_logos = true;
 $anatomy_cert_set = 'qse-esg';
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
-
-<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
 
 <?php
 $anatomy_cta_headline = 'Prêt à transformer votre conformité en avantage compétitif ?';

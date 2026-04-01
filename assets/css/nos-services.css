@@ -11,20 +11,8 @@
   padding: calc(120px + var(--sticky-bar-height)) var(--space-md) 5rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(26, 10, 46, 0.96) 0%, rgba(90, 31, 104, 0.9) 100%),
-    var(--color-bg-hero);
+  background: var(--color-bg-hero);
   color: var(--color-text-light);
-}
-.services-hero::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(123, 45, 139, 0.2) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
 }
 .services-hero h1 {
   font-family: var(--font-heading);
@@ -87,7 +75,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--color-bg-hero) 0%, var(--color-brand-purple-dark) 100%);
+  background: var(--color-bg-hero);
 }
 .service-thumb .thumb-icon {
   font-size: 3rem;

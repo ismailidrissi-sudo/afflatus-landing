@@ -50,65 +50,58 @@ $nav_cta_href = '#lead-form';
       </div>
       <div class="hero-ctas">
         <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="food-safety">Obtenir mon diagnostic gratuit</a>
-        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="food-safety">Voir notre méthode</a>
       </div>
       <div class="hero-trust-signals">
         <span class="trust-badge">✅ +400 projets</span>
         <span class="trust-badge">✅ Réponse 24h</span>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="https://placehold.co/600x450/e8f4fc/1a5f8a?text=Food+Safety+%2B+Certs" width="600" height="450" alt="" decoding="async" loading="eager">
-    </div>
-  </div>
-</section>
-
-<section class="section-lead-form" id="lead-form">
-  <div class="lead-form-inner">
-    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Diagnostic gratuit</span>
-    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Identifiez vos 3 écarts prioritaires</h2>
-    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Session de 45 minutes · Réponse sous 24h</p>
-    <div class="hero-form-panel">
-      <form data-landing="Food Safety BRCGS">
-        <input type="hidden" name="source" value="food-safety">
-        <div class="form-group">
-          <label for="fs-name">Nom complet</label>
-          <input type="text" id="fs-name" name="Nom" placeholder="Votre nom" required>
-        </div>
-        <div class="form-group">
-          <label for="fs-company">Entreprise</label>
-          <input type="text" id="fs-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
-        </div>
-        <div class="form-group">
-          <label for="fs-sector">Secteur</label>
-          <select id="fs-sector" name="Secteur" required>
-            <option value="" disabled selected>Sélectionnez votre secteur</option>
-            <option value="Industrie alimentaire">Industrie alimentaire</option>
-            <option value="Emballage">Emballage</option>
-            <option value="Distribution alimentaire">Distribution alimentaire</option>
-            <option value="Agriculture / Pêche">Agriculture / Pêche</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="fs-certification">Certification visée</label>
-          <select id="fs-certification" name="Certification" required>
-            <option value="" disabled selected>Sélectionnez la certification</option>
-            <option value="BRCGS Food Safety">BRCGS Food Safety</option>
-            <option value="BRCGS Packaging">BRCGS Packaging</option>
-            <option value="IFS Food">IFS Food</option>
-            <option value="FSSC 22000">FSSC 22000</option>
-            <option value="ISO 22000">ISO 22000</option>
-            <option value="Je ne sais pas">Je ne sais pas</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="fs-telephone">Téléphone</label>
-          <input type="tel" id="fs-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
-        </div>
-        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="food-safety">Réserver mon diagnostic →</button>
-        <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
-      </form>
+    <div class="hero-lead-column" id="lead-form">
+      <div class="hero-form-panel">
+        <span class="hero-form-eyebrow">Diagnostic gratuit</span>
+        <h3>Identifiez vos 3 écarts prioritaires</h3>
+        <p class="form-subtitle">Session de 45 minutes · Réponse sous 24h</p>
+        <form data-landing="Food Safety BRCGS">
+          <input type="hidden" name="source" value="food-safety">
+          <div class="form-group">
+            <label for="fs-name">Nom complet</label>
+            <input type="text" id="fs-name" name="Nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="fs-company">Entreprise</label>
+            <input type="text" id="fs-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="fs-sector">Secteur</label>
+            <select id="fs-sector" name="Secteur" required>
+              <option value="" disabled selected>Sélectionnez votre secteur</option>
+              <option value="Industrie alimentaire">Industrie alimentaire</option>
+              <option value="Emballage">Emballage</option>
+              <option value="Distribution alimentaire">Distribution alimentaire</option>
+              <option value="Agriculture / Pêche">Agriculture / Pêche</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fs-certification">Certification visée</label>
+            <select id="fs-certification" name="Certification" required>
+              <option value="" disabled selected>Sélectionnez la certification</option>
+              <option value="BRCGS Food Safety">BRCGS Food Safety</option>
+              <option value="BRCGS Packaging">BRCGS Packaging</option>
+              <option value="IFS Food">IFS Food</option>
+              <option value="FSSC 22000">FSSC 22000</option>
+              <option value="ISO 22000">ISO 22000</option>
+              <option value="Je ne sais pas">Je ne sais pas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fs-telephone">Téléphone</label>
+            <input type="tel" id="fs-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
+          </div>
+          <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="food-safety">Réserver mon diagnostic →</button>
+          <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -196,32 +189,16 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
     <div class="social-proof-premium reveal">
       <h3>Premier consultant BRCGS officiellement reconnu en Afrique</h3>
       <p>Ismail Idrissi est inscrit au registre mondial des consultants BRCGS — accréditation vérifiable publiquement.</p>
-      <a href="https://www.brcgs.com/partners/find-a-consultant/list-updated/ismail-idrissi/" target="_blank" rel="noopener" class="verify-link">→ Vérifier sur le registre officiel BRCGS</a>
-      <div class="badge-visual">
-        <span style="font-size: 24px;">🛡️</span>
-        BRCGS® APPROVED CONSULTANT
+      <div class="social-proof-premium-cta-row">
+        <a href="https://www.brcgs.com/partners/find-a-consultant/list-updated/ismail-idrissi/" target="_blank" rel="noopener" class="verify-link">→ Vérifier sur le registre officiel BRCGS</a>
+        <img src="/assets/img/brcgs-consultant-approuve-maroc-afrique.jpg" alt="BRCGS® Approved Consultant — badge officiel" class="social-proof-brcgs-img" width="690" height="214" loading="lazy" decoding="async">
       </div>
       <p style="margin-top: 16px; font-size: 13px; opacity: 0.6;">Cabinet certifié ISO 9001 et agréé CNDP.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ 5. AUTRES SERVICES (QSE · Food safety · Formation · Anir.io) ══ -->
-<section class="section anatomy-services-band" id="services">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Les quatre expertises Afflatus</p>
-      <h2 class="section-title">QSE &amp; ESG · Food safety · Formation · Anir.io</h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Les trois autres offres du groupe — même exigence de résultats. La page actuelle n'est pas répétée.</p>
-    </div>
-<?php
-$anatomy_current_service = 'food-safety';
-require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
-?>
-  </div>
-</section>
-
-<!-- ══ 6. FAQ ══ -->
+<!-- ══ 5. FAQ ══ -->
 <section class="section anatomy-faq section-faq">
   <div class="section-inner">
     <div class="section-header">
@@ -341,8 +318,6 @@ $anatomy_cert_logos = true;
 $anatomy_cert_set = 'food-safety';
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
-
-<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
 
 <?php
 $anatomy_cta_headline = 'Prêt à décrocher votre certification ?';
