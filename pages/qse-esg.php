@@ -262,23 +262,20 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-testimonial-grid">
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AB</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/aig.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Aiguebelle</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Leader marocain de la chocolaterie</p>
         <p class="anatomy-t-quote">«&nbsp;Partenariat depuis plus de <strong>6 ans</strong> pour l'ISO 9001 — qualité et exigences des marchés les plus stricts.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IP</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/52.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">International Paper Maroc</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Direction industrielle — emballage</p>
         <p class="anatomy-t-quote">«&nbsp;Accompagnement structuré — <strong>certification BRCGS Packaging en 1<sup>re</sup> tentative</strong>, après échecs antérieurs sans appui externe.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IG</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/pla.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Industrie graphique &amp; packaging</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Responsable QSE — Maroc</p>
         <p class="anatomy-t-quote">«&nbsp;Méthode claire sur les exigences QSE et audits clients — <strong>−30&nbsp;% de temps</strong> sur la préparation documentaire.&nbsp;»</p>
       </div>
@@ -296,19 +293,19 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-team-grid">
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IR</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Auditeurs IRCA</h3>
         <p class="role">Audits internes &amp; fournisseurs</p>
         <p>Plus de 10 ans d'expérience sur ISO 9001, 14001, 45001 et chaînes d'approvisionnement.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">ES</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Consultants ESG</h3>
         <p class="role">Reporting &amp; due diligence</p>
         <p>Structuration des enjeux ESG, matérialité et alignement avec les attentes investisseurs.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AC</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Chefs de mission</h3>
         <p class="role">Certification &amp; mise en conformité</p>
         <p>Pilotage bout en bout jusqu'à l'audit de certification — objectif 98&nbsp;% en première tentative.</p>

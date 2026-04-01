@@ -298,23 +298,20 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-testimonial-grid">
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IP</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/52.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">International Paper</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Cas d'usage documentaire &amp; qualité</p>
         <p class="anatomy-t-quote">«&nbsp;Objectif : <strong>−70&nbsp;% de temps</strong> sur l'analyse documentaire et le contrôle qualité assisté par agents — aligné BRCGS.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IN</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/atc.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Industrie — Maroc</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">DSI</p>
         <p class="anatomy-t-quote">«&nbsp;Mise en production pilote en <strong>4 semaines</strong> avec gouvernance et human-in-the-loop.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AC</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="https://afflatus.consulting/logo.png" width="64" height="64" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <p class="anatomy-t-name">Afflatus Consulting Group</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Éditeur &amp; intégrateur</p>
         <p class="anatomy-t-quote">«&nbsp;Anir.io : <strong>99,2&nbsp;% de précision cible</strong> sur nos agents métiers en recette.&nbsp;»</p>
       </div>
@@ -330,19 +327,19 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-team-grid">
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">PD</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Product &amp; architecture</h3>
         <p class="role">Roadmap &amp; intégrations</p>
         <p>Cadrage des cas d'usage et design de la gouvernance.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">ML</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Ingénierie IA</h3>
         <p class="role">Agents &amp; fiabilité</p>
         <p>Anti-hallucination, prompts, évaluation des agents.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">OP</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Déploiement</h3>
         <p class="role">Mise en production</p>
         <p>Formation utilisateurs et run operations.</p>

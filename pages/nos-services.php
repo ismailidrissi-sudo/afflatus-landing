@@ -185,23 +185,20 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
     </div>
     <div class="anatomy-testimonial-grid">
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AB</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/aig.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Aiguebelle</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Industrie chocolatière</p>
         <p class="anatomy-t-quote">«&nbsp;Partenariat ISO 9001 — <strong>+6 ans</strong> d'exigence marchés export.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IP</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/52.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">International Paper Maroc</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Emballage</p>
         <p class="anatomy-t-quote">«&nbsp;<strong>BRCGS Packaging en 1<sup>re</sup> tentative</strong> après échecs antérieurs — méthode et terrain.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AG</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/aicha.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Agroalimentaire</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Casablanca</p>
         <p class="anatomy-t-quote">«&nbsp;CSF : <strong>160&nbsp;000 MAD remboursés</strong>, 18 personnes formées.&nbsp;»</p>
       </div>
@@ -217,19 +214,19 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
     </div>
     <div class="anatomy-team-grid">
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">II</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Direction &amp; BRCGS</h3>
         <p class="role">Consultant senior</p>
         <p>Pilotage des missions certification et stratégie cabinet.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IR</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Auditeurs &amp; consultants QSE</h3>
         <p class="role">IRCA · terrain</p>
         <p>Audits, mise en conformité et préparation certification.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">DV</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Digital &amp; Anir.io</h3>
         <p class="role">Produit &amp; web</p>
         <p>Sites web, intégrations et plateforme IA agentique.</p>

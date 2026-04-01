@@ -300,23 +300,20 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
     </div>
     <div class="anatomy-testimonial-grid">
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AC</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="https://afflatus.consulting/logo.png" width="64" height="64" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <p class="anatomy-t-name">Afflatus Consulting Group</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Site corporate</p>
         <p class="anatomy-t-quote">«&nbsp;Site premium — <strong>+35&nbsp;% de demandes qualifiées</strong> post-refonte.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">OL</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/lk.jpg" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">OmniLearn.space</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Plateforme éducative</p>
         <p class="anatomy-t-quote">«&nbsp;Lighthouse <strong>95+</strong> et parcours apprenant fluide sur mobile.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">PME</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/123.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">PME services B2B</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Direction marketing</p>
         <p class="anatomy-t-quote">«&nbsp;Chargement <strong>&lt;2&nbsp;s</strong> — les demandes de devis ont suivi.&nbsp;»</p>
       </div>
@@ -332,19 +329,19 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
     </div>
     <div class="anatomy-team-grid">
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">II</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Ismail Idrissi</h3>
         <p class="role">CEO · Direction produit web</p>
         <p>Architecture solution, UX stratégique et exigence qualité livrable.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">UX</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Design UX/UI</h3>
         <p class="role">Maquettes &amp; design system</p>
         <p>Parcours utilisateur, identité visuelle et composants réutilisables.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">DV</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Développement full-stack</h3>
         <p class="role">Next.js, React, CMS</p>
         <p>Performance, SEO technique, intégrations et mises en production.</p>

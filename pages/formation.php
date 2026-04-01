@@ -289,23 +289,20 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-testimonial-grid">
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AG</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/aicha.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Agroalimentaire — Casablanca</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">DRH</p>
         <p class="anatomy-t-quote">«&nbsp;18 personnes formées — <strong>160&nbsp;000 MAD remboursés</strong> via CSF en une année.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">LP</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/pla.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Industrie plastique</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Direction générale</p>
         <p class="anatomy-t-quote">«&nbsp;Dossier OFPPT pris en charge de bout en bout — <strong>validation en moins de 30 jours</strong>.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">TM</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/logo_traspex_mining.jpg" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Secteur minier</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Responsable formation</p>
         <p class="anatomy-t-quote">«&nbsp;Plan aligné CSF — <strong>−40&nbsp;% de charge admin</strong> sur notre équipe RH.&nbsp;»</p>
       </div>
@@ -321,19 +318,19 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-team-grid">
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IF</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Ingénierie formation</h3>
         <p class="role">Conception des parcours</p>
         <p>Plans sur mesure, objectifs métier et éligibilité CSF.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AD</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Administration CSF</h3>
         <p class="role">Dossiers OFPPT</p>
         <p>Montage, suivi et corrections jusqu'à validation.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">FT</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Formateurs terrain</h3>
         <p class="role">Animation sur site</p>
         <p>Experts avec plus de 15 ans d'expérience sectorielle.</p>

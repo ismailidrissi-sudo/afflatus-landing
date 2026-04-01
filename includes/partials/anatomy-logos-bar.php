@@ -48,12 +48,10 @@ if (!is_array($anatomy_logo_images)) {
             continue;
         }
         ?>
-      <?php $logo_name = $logo['name'] ?? $alt; ?>
-      <span class="anatomy-logo-block anatomy-logo-block--client" role="group" aria-label="<?php echo htmlspecialchars($logo_name); ?>">
+      <span class="anatomy-logo-block anatomy-logo-block--client">
         <span class="anatomy-client-logo-wrap">
-          <img src="<?php echo htmlspecialchars($src); ?>" alt="" class="anatomy-client-logo" width="140" height="48" loading="lazy" decoding="async">
+          <img src="<?php echo htmlspecialchars($src); ?>" alt="<?php echo htmlspecialchars($alt !== '' ? $alt : 'Logo partenaire'); ?>" class="anatomy-client-logo" width="140" height="48" loading="lazy" decoding="async">
         </span>
-        <span class="anatomy-logo-name"><?php echo htmlspecialchars($logo_name); ?></span>
       </span>
       <?php endforeach; ?>
     </div>
@@ -69,16 +67,15 @@ if (!is_array($anatomy_logo_images)) {
       <?php foreach ($anatomy_cert_items as $cert) :
         $c_src = $cert['src'] ?? '';
         $c_alt = $cert['alt'] ?? '';
-        $c_name = $cert['name'] ?? $c_alt;
         if ($c_src === '') {
             continue;
         }
+        $c_img_alt = $cert['name'] ?? $c_alt;
         ?>
-      <span class="anatomy-logo-block anatomy-logo-block--cert" role="group" aria-label="<?php echo htmlspecialchars($c_name); ?>">
+      <span class="anatomy-logo-block anatomy-logo-block--cert">
         <span class="anatomy-cert-img-wrap">
-          <img src="<?php echo htmlspecialchars($c_src); ?>" alt="" class="anatomy-cert-img" width="120" height="48" loading="lazy" decoding="async">
+          <img src="<?php echo htmlspecialchars($c_src); ?>" alt="<?php echo htmlspecialchars($c_img_alt !== '' ? $c_img_alt : 'Certification'); ?>" class="anatomy-cert-img" width="120" height="48" loading="lazy" decoding="async">
         </span>
-        <span class="anatomy-logo-name anatomy-logo-name--cert"><?php echo htmlspecialchars($c_name); ?></span>
       </span>
       <?php endforeach; ?>
     </div>

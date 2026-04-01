@@ -135,18 +135,6 @@
   filter: grayscale(100%);
   opacity: 0.52;
 }
-.anatomy-logo-name {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--color-text-secondary);
-  opacity: 0.9;
-}
-.anatomy-logo-name--cert {
-  font-size: 0.6875rem;
-}
 .anatomy-cert-row {
   display: flex;
   flex-wrap: wrap;
@@ -310,6 +298,22 @@
   background: rgba(123, 45, 139, 0.12);
   color: var(--color-brand-purple-dark);
 }
+.anatomy-t-avatar--img {
+  display: block;
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+  background: var(--color-bg-light);
+}
+.anatomy-t-card .anatomy-t-avatar--img {
+  width: 64px;
+  height: 64px;
+}
+.anatomy-team-card .anatomy-t-avatar--img {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1rem;
+}
 .anatomy-t-name {
   font-weight: 700;
   font-size: 1rem;
@@ -329,23 +333,6 @@
   color: var(--color-brand-purple-dark);
   font-weight: 700;
 }
-.anatomy-t-logo {
-  min-height: 28px;
-  margin-bottom: 0.35rem;
-}
-.anatomy-t-logo-placeholder {
-  display: inline-block;
-  padding: 0.2rem 0.65rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-text-muted);
-  border: 1px dashed var(--color-border);
-  border-radius: 4px;
-  font-family: var(--font-body);
-}
-
 .anatomy-team {
   background: var(--color-bg-white);
 }
@@ -369,6 +356,9 @@
 }
 .anatomy-team-card .anatomy-t-avatar.initials {
   margin: 0 auto 1rem;
+}
+.anatomy-team-card .anatomy-t-avatar--img {
+  flex-shrink: 0;
 }
 .anatomy-team-card h3 {
   font-size: 1.0625rem;

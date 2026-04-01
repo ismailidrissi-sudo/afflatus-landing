@@ -283,23 +283,20 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-testimonial-grid">
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">IP</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/52.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">International Paper Maroc</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Emballage — leader mondial</p>
         <p class="anatomy-t-quote">«&nbsp;Après deux échecs, <strong>certification BRCGS Packaging en 1<sup>re</sup> tentative en 87 jours</strong> — gap analysis, plan 60 jours et formation de 12 opérateurs.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">AC</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/aicha.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Atlantic Conserves</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Industrie agroalimentaire</p>
         <p class="anatomy-t-quote">«&nbsp;Accompagnement exigeant sur la documentation HACCP — <strong>100&nbsp;% des audits clients export validés</strong> la même année.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">FM</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/LOGO/atc.png" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Industriel FMCG</p>
-        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
         <p class="anatomy-t-role">Responsable qualité — Maroc</p>
         <p class="anatomy-t-quote">«&nbsp;Préparation audit en <strong>délai contraint (21 jours)</strong> : priorisation des écarts majeurs et coaching terrain des équipes.&nbsp;»</p>
       </div>
@@ -316,19 +313,19 @@ require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
     </div>
     <div class="anatomy-team-grid">
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">II</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Ismail Idrissi</h3>
         <p class="role">Consultant BRCGS® Approuvé · CEO</p>
         <p>Premier consultant BRCGS reconnu en Afrique — pilotage stratégique des missions certification.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">FS</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Experts Food Safety</h3>
         <p class="role">HACCP, PRP &amp; audits blancs</p>
         <p>Mise en conformité terrain, formation opérateurs et simulation d'audit.</p>
       </div>
       <div class="anatomy-team-card reveal">
-        <div class="anatomy-t-avatar initials" aria-hidden="true">DC</div>
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="/assets/img/team/silhouette.svg" width="88" height="88" alt="" loading="lazy" decoding="async">
         <h3>Documentation &amp; système</h3>
         <p class="role">Manuels, procédures, enregistrements</p>
         <p>Construction des dossiers et preuves attendues par BRCGS, IFS et FSSC 22000.</p>
