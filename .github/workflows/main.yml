@@ -1,8 +1,11 @@
 # Deploy site to hosting FTP → public_html (serves afflatusconsulting.tech)
-# GitHub → repo Settings → Secrets and variables → Actions:
-#   FTP_USERNAME = u485919720.afflatusconsulting.tech
-#   FTP_PASSWORD = (from your hosting panel; never commit it)
-# If plain FTP fails, try adding protocol: ftps (see action README).
+#
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   FTP_USERNAME — full FTP login (e.g. u485919720.afflatusconsulting.tech from hPanel)
+#   FTP_PASSWORD — FTP password from hosting panel (never commit)
+#
+# If the job fails with "username" / "password" not supplied, those secrets are missing or empty.
+# If plain FTP fails, add: protocol: ftps (see action README).
 
 name: Deploy to FTP
 
@@ -18,6 +21,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Verify FTP secrets exist
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          if [ -z "$FTP_USERNAME" ] || [ -z "$FTP_PASSWORD" ]; then
+            echo "::error::Missing FTP_USERNAME and/or FTP_PASSWORD."
+            echo "Add both secrets: Repository → Settings → Secrets and variables → Actions → New repository secret"
+            exit 1
+          fi
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
