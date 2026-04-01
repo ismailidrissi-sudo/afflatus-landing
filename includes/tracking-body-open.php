@@ -1,3 +1,4 @@
+<div class="scroll-progress" aria-hidden="true"></div>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo GTM_ID; ?>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

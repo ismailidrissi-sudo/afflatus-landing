@@ -1,41 +1,32 @@
 <?php
 require_once __DIR__ . '/config.php';
 
-$page_title = "Politique de Confidentialité";
-$page_description = "Politique de confidentialité et protection des données personnelles — Afflatus Consulting Group, conforme à la loi 09-08 et au RGPD.";
-$page_slug = "confidentialite";
-$page_css = "qse-esg";
-$google_fonts_url = "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;600;700&display=swap";
+$page_title = 'Politique de confidentialité';
+$page_description = 'Politique de confidentialité et protection des données personnelles — Afflatus Consulting Group, conforme à la loi 09-08 et au RGPD.';
+$page_slug = 'confidentialite';
+$page_css = '';
 $gads_conversion_label = '';
-$nav_cta_text = "Accueil";
+$nav_cta_text = 'Accueil';
+$nav_cta_href = '/';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <?php require __DIR__ . '/includes/head.php'; ?>
-<style>
-  .privacy-page { padding: 140px 24px 80px; max-width: 800px; margin: 0 auto; color: #0B0F1A; }
-  .privacy-page h1 { font-family: 'DM Serif Display', serif; font-size: 36px; margin-bottom: 12px; color: #0A6B5E; }
-  .privacy-page .date { font-size: 13px; opacity: 0.5; margin-bottom: 40px; }
-  .privacy-page h2 { font-family: 'DM Serif Display', serif; font-size: 22px; margin: 32px 0 12px; color: #0B0F1A; }
-  .privacy-page p, .privacy-page li { font-size: 15px; line-height: 1.8; color: #333; }
-  .privacy-page ul { margin: 12px 0; padding-left: 24px; list-style: disc; }
-  .privacy-page a { color: #0A6B5E; text-decoration: underline; }
-</style>
 </head>
 <body>
 <?php require __DIR__ . '/includes/tracking-body-open.php'; ?>
 <?php require __DIR__ . '/includes/nav.php'; ?>
 
-<div class="privacy-page">
-  <h1>Politique de Confidentialité</h1>
+<main class="privacy-page">
+  <h1>Politique de confidentialité</h1>
   <p class="date">Dernière mise à jour : <?php echo date('d/m/Y'); ?></p>
 
   <h2>1. Responsable du traitement</h2>
-  <p><strong><?php echo COMPANY_NAME; ?></strong><br>
-  <?php echo COMPANY_ADDRESS; ?><br>
-  Email : <a href="mailto:<?php echo COMPANY_EMAIL; ?>"><?php echo COMPANY_EMAIL; ?></a><br>
-  Téléphone : <?php echo COMPANY_PHONE; ?></p>
+  <p><strong><?php echo htmlspecialchars(COMPANY_NAME); ?></strong><br>
+  <?php echo htmlspecialchars(COMPANY_ADDRESS); ?><br>
+  Email : <?php echo htmlspecialchars(COMPANY_EMAIL); ?><br>
+  Téléphone : <?php echo htmlspecialchars(COMPANY_PHONE); ?></p>
 
   <h2>2. Données collectées</h2>
   <p>Dans le cadre de nos landing pages, nous collectons les données suivantes via nos formulaires de contact :</p>
@@ -43,7 +34,7 @@ $nav_cta_text = "Accueil";
     <li>Nom et prénom</li>
     <li>Nom de l'entreprise</li>
     <li>Secteur d'activité</li>
-    <li>Numéro WhatsApp</li>
+    <li>Numéro de téléphone</li>
     <li>Informations relatives à votre besoin (type de certification, budget, nombre d'employés)</li>
   </ul>
 
@@ -91,18 +82,19 @@ $nav_cta_text = "Accueil";
     <li>Droit d'opposition au traitement</li>
     <li>Droit à la portabilité</li>
   </ul>
-  <p>Pour exercer ces droits, contactez-nous à <a href="mailto:<?php echo COMPANY_EMAIL; ?>"><?php echo COMPANY_EMAIL; ?></a>.</p>
+  <p>Pour exercer ces droits, contactez-nous à l’adresse <?php echo htmlspecialchars(COMPANY_EMAIL); ?>.</p>
 
   <h2>9. Agrément CNDP</h2>
-  <p><?php echo COMPANY_NAME; ?> dispose de l'agrément de la Commission Nationale de protection des Données Personnelles (CNDP), conformément à la législation marocaine en vigueur.</p>
+  <p><?php echo htmlspecialchars(COMPANY_NAME); ?> dispose de l'agrément de la Commission Nationale de protection des Données Personnelles (CNDP), conformément à la législation marocaine en vigueur.</p>
 
   <h2>10. Contact</h2>
   <p>Pour toute question relative à cette politique, vous pouvez nous contacter :<br>
-  Email : <a href="mailto:<?php echo COMPANY_EMAIL; ?>"><?php echo COMPANY_EMAIL; ?></a><br>
-  Téléphone : <?php echo COMPANY_PHONE; ?><br>
-  Adresse : <?php echo COMPANY_ADDRESS; ?></p>
-</div>
+  Email : <?php echo htmlspecialchars(COMPANY_EMAIL); ?><br>
+  Téléphone : <?php echo htmlspecialchars(COMPANY_PHONE); ?><br>
+  Adresse : <?php echo htmlspecialchars(COMPANY_ADDRESS); ?></p>
+</main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>
+<?php require __DIR__ . '/includes/scripts-landing.php'; ?>
 </body>
 </html>

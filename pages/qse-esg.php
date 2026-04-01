@@ -4,24 +4,26 @@ require_once __DIR__ . '/../config.php';
 $page_title = "Consulting QSE, ESG & Due Diligence au Maroc";
 $page_description = "Afflatus Consulting implémente vos systèmes QSE (ISO 9001, 14001, 45001) et structure vos démarches ESG — 98% de succès à la première tentative.";
 $page_slug = "qse-esg";
-$page_css = "qse-esg";
-$google_fonts_url = "https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@300;400;500;600;700;800&display=swap";
+$page_css = 'brand-pages';
 $gads_conversion_label = GADS_CONVERSION_LABEL_QSE;
-$nav_cta_text = "Consultation gratuite";
+$nav_contact_href = '#lead-form';
+$nav_cta_href = '#lead-form';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <?php require __DIR__ . '/../includes/head.php'; ?>
 </head>
-<body>
+<body class="has-sticky">
 <?php require __DIR__ . '/../includes/tracking-body-open.php'; ?>
-<?php require __DIR__ . '/../includes/floating-cta.php'; ?>
 
 <!-- ══ STICKY BAR ══ -->
 <div class="sticky-bar">
-  <span class="sticky-text">🏆 Seul consultant BRCGS approuvé au Maroc & en Afrique — Systèmes QSE & ESG pour marchés internationaux</span>
-  <a href="#hero-form" class="btn-sticky" data-cta="sticky-cta" data-page="qse-esg">Consultation gratuite</a>
+  <span class="sticky-text"><?php
+    $sticky_brcgs_text = '🏆 Seul consultant BRCGS approuvé au Maroc & en Afrique — Systèmes QSE & ESG pour marchés internationaux';
+    require __DIR__ . '/../includes/partials/sticky-brcgs-claim.php';
+  ?></span>
+  <a href="#lead-form" class="btn-sticky" data-cta="sticky-cta" data-page="qse-esg">Demander un devis</a>
 </div>
 
 <?php require __DIR__ . '/../includes/nav.php'; ?>
@@ -29,7 +31,7 @@ $nav_cta_text = "Consultation gratuite";
 <!-- ══ HERO ══ -->
 <section class="hero" id="hero">
   <div class="hero-inner">
-    <div class="hero-content reveal-l">
+    <div class="hero-content">
       <span class="hero-tag">QSE · ESG · ISO · Due Diligence · Conformité internationale</span>
       <h1>Votre système QSE & ESG, <em>construit pour durer</em> et ouvrir de nouveaux marchés.</h1>
       <p class="hero-mechanism">Afflatus Consulting implémente des systèmes de management Qualité-Sécurité-Environnement et structure vos démarches ESG — pour que votre conformité devienne un avantage compétitif réel, pas une contrainte administrative.</p>
@@ -45,23 +47,40 @@ $nav_cta_text = "Consultation gratuite";
         <div class="hero-stat"><div class="stat-num">98%</div><div class="stat-label">Taux de succès</div></div>
         <div class="hero-stat"><div class="stat-num">90j</div><div class="stat-label">Délai moyen</div></div>
       </div>
+      <div class="hero-ctas">
+        <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="qse-esg">Obtenir mon diagnostic gratuit</a>
+        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="qse-esg">Voir notre méthode</a>
+      </div>
+      <div class="hero-trust-signals">
+        <span class="trust-badge">✅ +400 projets</span>
+        <span class="trust-badge">✅ Réponse 24h</span>
+      </div>
     </div>
-    <div class="hero-form-panel reveal-r" id="hero-form">
-      <h3>Obtenez votre feuille de route QSE/ESG</h3>
-      <p class="form-subtitle">Diagnostic offert · Réponse sous 24h</p>
+    <div class="hero-visual">
+      <img src="https://placehold.co/600x450/f3eaf6/7B2D8B?text=QSE+%26+ESG" width="600" height="450" alt="" decoding="async" loading="eager">
+    </div>
+  </div>
+</section>
+
+<section class="section-lead-form" id="lead-form">
+  <div class="lead-form-inner">
+    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Diagnostic offert</span>
+    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Obtenez votre feuille de route QSE/ESG</h2>
+    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Réponse sous 24h · Sans engagement</p>
+    <div class="hero-form-panel">
       <form data-landing="QSE ESG Due Diligence">
         <input type="hidden" name="source" value="qse-esg">
         <div class="form-group">
-          <label for="name">Nom complet</label>
-          <input type="text" id="name" name="Nom" placeholder="Votre nom" required>
+          <label for="qse-name">Nom complet</label>
+          <input type="text" id="qse-name" name="Nom" placeholder="Votre nom" required>
         </div>
         <div class="form-group">
-          <label for="company">Entreprise</label>
-          <input type="text" id="company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          <label for="qse-company">Entreprise</label>
+          <input type="text" id="qse-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
         </div>
         <div class="form-group">
-          <label for="need">Besoin principal</label>
-          <select id="need" name="Besoin" required>
+          <label for="qse-need">Besoin principal</label>
+          <select id="qse-need" name="Besoin" required>
             <option value="" disabled selected>Sélectionnez votre besoin</option>
             <option value="ISO 9001">ISO 9001</option>
             <option value="ISO 14001">ISO 14001</option>
@@ -74,58 +93,57 @@ $nav_cta_text = "Consultation gratuite";
           </select>
         </div>
         <div class="form-group">
-          <label for="size">Taille entreprise</label>
-          <input type="text" id="size" name="Taille" placeholder="Nombre d'employés" required>
+          <label for="qse-size">Taille entreprise</label>
+          <input type="text" id="qse-size" name="Taille" placeholder="Nombre d'employés" required>
         </div>
         <div class="form-group">
-          <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="WhatsApp" placeholder="+212 6XX XXX XXX" required>
+          <label for="qse-telephone">Téléphone</label>
+          <input type="tel" id="qse-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
         </div>
-        <button type="submit" class="btn-submit" data-cta="form-submit" data-page="qse-esg">OBTENIR MA FEUILLE DE ROUTE →</button>
+        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="qse-esg">Obtenir ma feuille de route →</button>
         <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ══ BADGES DE CONFIANCE ══ -->
-<div class="trust-badges-bar reveal">
-  <div class="trust-badges-inner">
-    <div class="trust-badge"><img src="/assets/img/logos/iso9001.svg" alt="ISO 9001" class="badge-icon" width="24" height="24"> Cabinet certifié ISO 9001</div>
-    <div class="trust-badge"><img src="/assets/img/logos/cndp.svg" alt="CNDP" class="badge-icon" width="24" height="24"> Agréé CNDP — Protection des données</div>
-    <div class="trust-badge"><img src="/assets/img/logos/irca.svg" alt="IRCA" class="badge-icon" width="24" height="24"> Auditeurs certifiés IRCA — 10+ ans d'expérience terrain</div>
-  </div>
-</div>
+<?php
+$anatomy_logos_label = 'Ils nous font confiance';
+$anatomy_logos_bg = 'white';
+$anatomy_cert_logos = true;
+$anatomy_cert_set = 'qse-esg';
+require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
+?>
 
-<!-- ══ PROBLÈME ══ -->
-<section class="section section-problems">
+<!-- ══ 4. VALEUR & MÉTHODE ══ -->
+<section class="section section-problems anatomy-features" id="expertise">
   <div class="section-inner">
-    <span class="section-label reveal">Le problème</span>
-    <h2 class="section-title reveal">Vos clients et investisseurs exigent une conformité que vous n'avez pas encore.</h2>
+    <span class="section-label reveal">Notre expertise, votre succès</span>
+    <h2 class="section-title reveal">Conseil QSE et démarche ESG : une méthode éprouvée sur plus de 400 projets</h2>
+    <p class="section-subtitle reveal">Nous transformons les exigences ISO et ESG en leviers commerciaux — avec un taux de réussite de 98&nbsp;% à la première tentative d'audit.</p>
     <div class="problems-grid">
       <div class="problem-card reveal" style="--i:0">
         <span class="problem-num">01</span>
-        <h4>Contrats perdus faute de certification</h4>
-        <p>Vos prospects exigent ISO 9001 ou ISO 45001 comme prérequis. Votre offre est éliminée avant même l'évaluation technique.</p>
-        <span class="problem-consequence">→ Opportunités commerciales perdues</span>
+        <h4>Débloquez les marchés qui exigent ISO 9001, 14001 ou 45001</h4>
+        <p>Vos donneurs d'ordre demandent un système de management certifié. Nous implémentons les exigences et vous préparons jusqu'au jour de l'audit.</p>
+        <span class="problem-consequence">→ Moins d'exclusions sur les AO</span>
       </div>
       <div class="problem-card reveal" style="--i:1">
         <span class="problem-num">02</span>
-        <h4>Investisseurs qui bloquent sur l'ESG</h4>
-        <p>Les fonds d'investissement exigent un rapport ESG structuré. Sans stratégie documentée, les négociations s'arrêtent à la due diligence.</p>
-        <span class="problem-consequence">→ Financement externe bloqué</span>
+        <h4>Rassurez investisseurs et banques avec un reporting ESG structuré</h4>
+        <p>Cadre GRI / TCFD, matérialité et indicateurs : nous documentons votre stratégie ESG pour passer les phases de due diligence.</p>
+        <span class="problem-consequence">→ Dossiers financement plus solides</span>
       </div>
       <div class="problem-card reveal" style="--i:2">
         <span class="problem-num">03</span>
-        <h4>Audit fournisseur raté (SMETA / BSCI)</h4>
-        <p>Vos clients export exigent SMETA ou amfori BSCI pour votre référencement. Sans accompagnement, l'audit révèle des non-conformités.</p>
-        <span class="problem-consequence">→ Référencement fournisseur menacé</span>
+        <h4>Réussissez SMETA, amfori BSCI et audits fournisseur</h4>
+        <p>Préparation terrain et dossiers preuves pour sécuriser votre référencement dans les chaînes d'approvisionnement internationales.</p>
+        <span class="problem-consequence">→ Chaîne d'approvisionnement préservée</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SOLUTION ══ -->
 <section class="section section-solution">
   <div class="section-inner">
     <span class="section-label reveal">La méthode</span>
@@ -135,7 +153,7 @@ $nav_cta_text = "Consultation gratuite";
       <div class="timeline-step reveal">
         <div class="timeline-num">1</div>
         <div class="timeline-content">
-          <h4>Diagnostic & Gap Analysis</h4>
+          <h4>Diagnostic &amp; Gap Analysis</h4>
           <p class="timeline-duration">2 jours · Offert</p>
           <p>Évaluation complète de votre système existant versus les exigences normatives. Identification précise des écarts prioritaires.</p>
         </div>
@@ -168,135 +186,154 @@ $nav_cta_text = "Consultation gratuite";
   </div>
 </section>
 
-<!-- ══ PREUVE SOCIALE — TÉMOIGNAGE NARRATIF ══ -->
-<section class="section" style="background: var(--ink, #0B0F1A); padding: 80px 24px;">
+<!-- ══ 5. AUTRES SERVICES (QSE · Food safety · Formation · Anir.io) ══ -->
+<section class="section anatomy-services-band" id="services">
   <div class="section-inner">
-    <div class="case-study reveal" style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 48px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
-        <div>
-          <span class="case-study-label" style="display:inline-block; margin-bottom: 16px;">Témoignage client</span>
-          <img src="/assets/img/logos/aiguebelle_orange2.png" alt="Aiguebelle Logo" style="height: 72px; margin-bottom: 12px; display: block; object-fit: contain;">
-          <p style="color: rgba(255,255,255,.6); font-family: var(--font-m);">Leader marocain de la chocolaterie</p>
+    <div class="section-header">
+      <p class="section-tag">Les quatre expertises Afflatus</p>
+      <h2 class="section-title">QSE &amp; ESG · Food safety · Formation · Anir.io</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Les trois autres offres du groupe — même exigence de résultats. La page actuelle n'est pas répétée.</p>
+    </div>
+<?php
+$anatomy_current_service = 'qse-esg';
+require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
+?>
+  </div>
+</section>
+
+<!-- ══ 6. FAQ / POURQUOI NOUS ══ -->
+<section class="section anatomy-faq section-faq">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-tag">Vos questions</p>
+      <h2 class="section-title">Pourquoi Afflatus Consulting Group&nbsp;?</h2>
+    </div>
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Qu'est-ce qui vous différencie des autres cabinets&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Nous combinons auditeurs IRCA, expérience terrain au Maroc et en Afrique, et un taux documenté de 98&nbsp;% de réussite à la première tentative sur nos missions d'accompagnement certification complètes.</p>
         </div>
       </div>
-
-      <blockquote style="font-size: 20px; line-height: 1.7; font-family: var(--font-heading); font-style: italic; color: #fff; border-left: 4px solid var(--gold); padding-left: 24px; margin: 0;">
-        "La société Aiguebelle fait confiance à Afflatus Consulting Group pour l'obtention et le maintien de sa certification <strong style="color: var(--gold);">ISO 9001</strong> depuis plus de <strong style="color: var(--gold);">6 ans</strong>. Ce partenariat d'excellence a permis à Aiguebelle de consolider sa position incontestée de <strong>leader marocain et africain</strong> dans l'industrie chocolatière, tout en garantissant une qualité irréprochable pour satisfaire les exigences des marchés les plus stricts."
-      </blockquote>
-      
-      <div style="display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap;">
-        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px;">
-          <div style="font-size: 24px; font-weight: 800; color: var(--gold, #E8C547);">6+</div>
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Années de partenariat</div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Combien de temps pour obtenir la certification ISO 9001&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>En moyenne 90 jours avec notre méthode en 4 phases. Le délai dépend de la taille de l'entreprise et de la maturité de vos processus.</p>
         </div>
-        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px;">
-          <div style="font-size: 24px; font-weight: 800; color: var(--teal, #0D8870);">ISO 9001</div>
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Certification maintenue</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Le diagnostic initial est-il vraiment gratuit&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Oui. Le Gap Analysis de 2 jours est offert sans engagement et livre une feuille de route priorisée.</p>
         </div>
-        <div style="background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 16px 24px; text-align: center; flex: 1; min-width: 140px;">
-          <div style="font-size: 24px; font-weight: 800; color: #fff;">N°1</div>
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; margin-top: 4px;">Chocolaterie au Maroc</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Que se passe-t-il si l'audit échoue après votre accompagnement&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Avec 98&nbsp;% de succès en première tentative, c'est rare. Si cela arrive après un accompagnement complet, nous reprenons les actions correctives sans frais supplémentaires jusqu'à l'obtention de la certification.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Intervenez-vous hors du Maroc&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Oui. Nos consultants interviennent en français, anglais et arabe — Maroc, Afrique et missions internationales.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ MÉTRIQUES ══ -->
-<section class="section" style="padding: 60px 24px;">
-  <div class="metrics-bar reveal">
-    <div class="metric-item"><div class="metric-num">90</div><div class="metric-label">Jours délai moyen</div></div>
-    <div class="metric-item"><div class="metric-num">98%</div><div class="metric-label">Taux de succès</div></div>
-    <div class="metric-item"><div class="metric-num">+400</div><div class="metric-label">Projets réalisés</div></div>
-    <div class="metric-item"><div class="metric-num">5</div><div class="metric-label">Normes couvertes</div></div>
+<!-- ══ 7. RÉSULTATS CHIFFRÉS ══ -->
+<section class="anatomy-stats-band">
+  <div class="metrics-bar theme-dark reveal">
+    <div class="metric-item"><div class="metric-num" data-count="90">0</div><div class="metric-label">Jours délai moyen</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="98" data-suffix="%">0%</div><div class="metric-label">Taux de succès 1<sup>re</sup> tentative</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="400" data-prefix="+">0</div><div class="metric-label">Projets réalisés</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="5">0</div><div class="metric-label">Normes couvertes</div></div>
   </div>
 </section>
 
-<!-- ══ TRUSTED BY ══ -->
-<section class="trusted-section reveal">
-  <p class="trusted-label">Ils nous font confiance</p>
-  <div class="trusted-logos">
-    <span class="logo-chip">Aiguebelle</span>
-    <span class="logo-chip">ETASCM</span>
-    <span class="logo-chip">International Paper</span>
-    <span class="logo-chip">Miller Graphics</span>
-  </div>
-</section>
-
-<!-- ══ AUTORITÉ ══ -->
-<section class="authority-section">
+<!-- ══ 8. TÉMOIGNAGES ══ -->
+<section class="section anatomy-testimonials">
   <div class="section-inner">
-    <div class="authority-card reveal">
-      <div style="text-align:center">
-        <div class="authority-avatar" style="background: linear-gradient(135deg, var(--teal), var(--gold)); display:flex; align-items:center; justify-content:center; font-size:40px; color:#fff; margin: 0 auto;">🤝</div>
+    <div class="section-header">
+      <p class="section-tag">Ils nous font confiance</p>
+      <h2 class="section-title">Ce que disent nos clients</h2>
+    </div>
+    <div class="anatomy-testimonial-grid">
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">AB</div>
+        <p class="anatomy-t-name">Aiguebelle</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Leader marocain de la chocolaterie</p>
+        <p class="anatomy-t-quote">«&nbsp;Partenariat depuis plus de <strong>6 ans</strong> pour l'ISO 9001 — qualité et exigences des marchés les plus stricts.&nbsp;»</p>
       </div>
-      <div>
-        <h3 class="authority-name">Nos consultants et experts</h3>
-        <p class="authority-title">Experts QSE & ESG · BRCGS® Approuvés · Afflatus Consulting Group</p>
-        <div class="authority-stats">
-          <div class="authority-stat"><div class="stat-val">+400</div><div class="stat-lab">Projets</div></div>
-          <div class="authority-stat"><div class="stat-val">98%</div><div class="stat-lab">Succès</div></div>
-          <div class="authority-stat"><div class="stat-val">8+</div><div class="stat-lab">Ans terrain</div></div>
-        </div>
-        <p style="font-size: 14px; line-height: 1.7; opacity: 0.8; margin-top: 12px;">Afflatus dispose d'auditeurs qualifiés IRCA (International Register of Certificated Auditors) avec plus de 10 ans d'expérience terrain — disponibles pour audits internes, audits fournisseurs, due diligence ESG et accompagnement certification.</p>
-        <div class="authority-badges">
-          <span class="authority-badge-item">🏅 Cabinet certifié ISO 9001</span>
-          <span class="authority-badge-item">🔒 Agréé CNDP</span>
-          <span class="authority-badge-item">👨‍💼 Auditeurs IRCA</span>
-          <span class="authority-badge-item">🏆 BRCGS® Approuvé</span>
-        </div>
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">IP</div>
+        <p class="anatomy-t-name">International Paper Maroc</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Direction industrielle — emballage</p>
+        <p class="anatomy-t-quote">«&nbsp;Accompagnement structuré — <strong>certification BRCGS Packaging en 1<sup>re</sup> tentative</strong>, après échecs antérieurs sans appui externe.&nbsp;»</p>
+      </div>
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">IG</div>
+        <p class="anatomy-t-name">Industrie graphique &amp; packaging</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Responsable QSE — Maroc</p>
+        <p class="anatomy-t-quote">«&nbsp;Méthode claire sur les exigences QSE et audits clients — <strong>−30&nbsp;% de temps</strong> sur la préparation documentaire.&nbsp;»</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ GARANTIE ══ -->
-<section class="section" style="padding: 60px 24px;">
-  <div class="guarantee-box reveal">
-    <h3>Notre engagement qualité</h3>
-    <p>Si vous ne passez pas votre audit de certification à la première tentative après notre accompagnement complet, nous reprenons l'ensemble des actions correctives — sans frais supplémentaires — jusqu'à l'obtention de votre certification.</p>
-    <blockquote>"La conformité n'est pas une fin en soi — c'est le point de départ de votre croissance internationale." — Ismail Idrissi</blockquote>
-  </div>
-</section>
-
-<!-- ══ FAQ ══ -->
-<section class="section section-faq">
+<!-- ══ 9. ÉQUIPE ══ -->
+<section class="section anatomy-team">
   <div class="section-inner">
-    <h2 class="section-title reveal" style="text-align:center">Questions fréquentes</h2>
-    <div class="faq-grid" style="margin-top: 40px;">
-      <div class="faq-card reveal">
-        <h4>Combien de temps pour obtenir la certification ISO 9001 ?</h4>
-        <p>En moyenne 90 jours avec notre méthode en 4 phases. Ce délai varie selon la taille de l'entreprise et le niveau de maturité de vos processus existants.</p>
+    <div class="section-header">
+      <p class="section-tag">Les experts derrière Afflatus</p>
+      <h2 class="section-title">Notre équipe</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Auditeurs IRCA, consultants QSE/ESG et chefs de mission certification — une équipe terrain, pas seulement du conseil au PowerPoint.</p>
+    </div>
+    <div class="anatomy-team-grid">
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">IR</div>
+        <h3>Auditeurs IRCA</h3>
+        <p class="role">Audits internes &amp; fournisseurs</p>
+        <p>Plus de 10 ans d'expérience sur ISO 9001, 14001, 45001 et chaînes d'approvisionnement.</p>
       </div>
-      <div class="faq-card reveal">
-        <h4>Le diagnostic initial est-il vraiment gratuit ?</h4>
-        <p>Oui, le diagnostic Gap Analysis de 2 jours est offert sans engagement. Il vous donne une vision claire de vos écarts et une feuille de route actionnable.</p>
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">ES</div>
+        <h3>Consultants ESG</h3>
+        <p class="role">Reporting &amp; due diligence</p>
+        <p>Structuration des enjeux ESG, matérialité et alignement avec les attentes investisseurs.</p>
       </div>
-      <div class="faq-card reveal">
-        <h4>Quelle est la différence entre QSE et ESG ?</h4>
-        <p>Le QSE (Qualité-Sécurité-Environnement) concerne les normes ISO de management. L'ESG (Environnement-Social-Gouvernance) est un cadre de reporting pour investisseurs. Nous couvrons les deux.</p>
-      </div>
-      <div class="faq-card reveal">
-        <h4>Intervenez-vous en dehors du Maroc ?</h4>
-        <p>Oui, nous intervenons partout dans le monde avec des consultants tri-lingues (français, anglais, arabe). Nos missions couvrent le Maroc, l'Afrique et l'international pour accompagner le développement de nos clients.</p>
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">AC</div>
+        <h3>Chefs de mission</h3>
+        <p class="role">Certification &amp; mise en conformité</p>
+        <p>Pilotage bout en bout jusqu'à l'audit de certification — objectif 98&nbsp;% en première tentative.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FINAL CTA ══ -->
-<section class="final-cta">
-  <h2 class="reveal">Prêt à transformer votre conformité en avantage compétitif ?</h2>
-  <p class="reveal">Obtenez votre diagnostic gratuit et votre feuille de route QSE/ESG personnalisée.</p>
-  <div class="final-cta-buttons reveal">
-    <a href="#hero-form" class="btn-cta-primary" data-cta="final-cta" data-page="qse-esg">DEMANDER MON DIAGNOSTIC GRATUIT →</a>
-    <a href="<?php echo WHATSAPP_URL; ?>?text=<?php echo urlencode('Bonjour, je souhaite obtenir un diagnostic QSE/ESG pour mon entreprise.'); ?>"
-       target="_blank" rel="noopener" class="btn-cta-whatsapp" data-cta="final-whatsapp" data-page="qse-esg">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Contacter sur WhatsApp
-    </a>
-  </div>
-</section>
+<?php
+$anatomy_logos_label = 'Ils nous font confiance';
+$anatomy_logos_bg = 'white';
+$anatomy_cert_logos = true;
+$anatomy_cert_set = 'qse-esg';
+require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
+?>
+
+<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
+
+<?php
+$anatomy_cta_headline = 'Prêt à transformer votre conformité en avantage compétitif ?';
+$anatomy_cta_sub = 'Contactez-nous pour un diagnostic gratuit et votre feuille de route QSE/ESG personnalisée — réponse sous 24h.';
+$anatomy_cta_btn = 'Obtenir mon diagnostic gratuit';
+$anatomy_cta_href = '#lead-form';
+require __DIR__ . '/../includes/partials/anatomy-bottom-cta.php';
+?>
 
 <!-- ══ COOKIE CONSENT ══ -->
 <div id="cookie-consent" class="cookie-banner" style="display:none">
@@ -309,8 +346,10 @@ $nav_cta_text = "Consultation gratuite";
 </div>
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>
-<?php require __DIR__ . '/../includes/tracking-events.php'; ?>
-<script src="/assets/js/main.js"></script>
+<?php
+$include_tracking_events = true;
+require __DIR__ . '/../includes/scripts-landing.php';
+?>
 <script src="/assets/js/consent.js"></script>
 </body>
 </html>

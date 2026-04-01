@@ -38,6 +38,52 @@ if ($uri === 'includes/form-handler.php' || $uri === 'includes/form-handler') {
     return;
 }
 
+// Fichiers statiques /LOGO/* (références « Ils nous font confiance »)
+if (str_starts_with($uri, 'LOGO/') && strpos($uri, '..') === false) {
+    $logo_file = __DIR__ . '/' . str_replace('/', DIRECTORY_SEPARATOR, $uri);
+    if (is_file($logo_file)) {
+        $ext = strtolower(pathinfo($logo_file, PATHINFO_EXTENSION));
+        $mimes = [
+            'png' => 'image/png',
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'webp' => 'image/webp',
+            'gif' => 'image/gif',
+            'svg' => 'image/svg+xml',
+        ];
+        $mime = $mimes[$ext] ?? 'application/octet-stream';
+        header('Content-Type: ' . $mime);
+        header('Cache-Control: public, max-age=86400');
+        readfile($logo_file);
+        return;
+    }
+}
+
+// Fichiers statiques /Cert/* (logos de certifications)
+if (str_starts_with($uri, 'Cert/') && strpos($uri, '..') === false) {
+    $rel = substr($uri, strlen('Cert/'));
+    $decoded = rawurldecode($rel);
+    if (strpos($decoded, '..') === false) {
+        $cert_file = __DIR__ . DIRECTORY_SEPARATOR . 'Cert' . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $decoded);
+        if (is_file($cert_file)) {
+            $ext = strtolower(pathinfo($cert_file, PATHINFO_EXTENSION));
+            $mimes = [
+                'png' => 'image/png',
+                'jpg' => 'image/jpeg',
+                'jpeg' => 'image/jpeg',
+                'webp' => 'image/webp',
+                'gif' => 'image/gif',
+                'svg' => 'image/svg+xml',
+            ];
+            $mime = $mimes[$ext] ?? 'application/octet-stream';
+            header('Content-Type: ' . $mime);
+            header('Cache-Control: public, max-age=86400');
+            readfile($cert_file);
+            return;
+        }
+    }
+}
+
 $routes = [
     ''                => 'pages/nos-services.php',
     'nos-services'    => 'pages/nos-services.php',
@@ -55,7 +101,7 @@ if (array_key_exists($uri, $routes)) {
 } else {
     http_response_code(404);
     echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>404</title></head>';
-    echo '<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;background:#0B0F1A;color:#fff">';
-    echo '<div style="text-align:center"><h1 style="font-size:72px;margin:0">404</h1><p>Page non trouvée</p>';
-    echo '<a href="/" style="color:#E8C547;text-decoration:none">← Retour à l\'accueil</a></div></body></html>';
+    echo '<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Poppins,Segoe UI,sans-serif;background:linear-gradient(135deg,#1A0A2E 0%,#5A1F68 100%);color:#fff">';
+    echo '<div style="text-align:center;max-width:420px;padding:2rem"><h1 style="font-size:4rem;margin:0 0 0.5rem;font-weight:800">404</h1><p style="opacity:0.85;margin-bottom:1.5rem;line-height:1.6">Page non trouvée</p>';
+    echo '<a href="/" style="display:inline-block;padding:0.75rem 1.5rem;background:#7B2D8B;color:#fff;border-radius:8px;text-decoration:none;font-weight:600">← Retour à l\'accueil</a></div></body></html>';
 }

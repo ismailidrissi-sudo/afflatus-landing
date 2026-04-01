@@ -152,11 +152,7 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
             <td><span class="source-badge source-<?php echo $lead['source'] ?? ''; ?>"><?php echo $PAGE_LABELS[$lead['source'] ?? ''] ?? $lead['source'] ?? '—'; ?></span></td>
             <td><?php echo htmlspecialchars($lead['nom'] ?? '—'); ?></td>
             <td><?php echo htmlspecialchars($lead['entreprise'] ?? '—'); ?></td>
-            <td>
-              <?php if (!empty($lead['whatsapp'])): ?>
-              <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $lead['whatsapp']); ?>" target="_blank" class="wa-link"><?php echo htmlspecialchars($lead['whatsapp']); ?></a>
-              <?php else: ?>—<?php endif; ?>
-            </td>
+            <td><?php echo !empty($lead['whatsapp']) ? htmlspecialchars($lead['whatsapp']) : '—'; ?></td>
             <td style="font-size: 12px; max-width: 200px;">
               <?php
               $details = array_filter([

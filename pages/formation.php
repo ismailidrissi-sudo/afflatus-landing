@@ -4,24 +4,23 @@ require_once __DIR__ . '/../config.php';
 $page_title = "Formations Professionnelles & Contrats Spéciaux de Formation CSF";
 $page_description = "Formez vos équipes et récupérez jusqu'à 200 000 MAD grâce aux CSF. Afflatus conçoit vos formations sur mesure et gère l'intégralité du dossier administratif OFPPT.";
 $page_slug = "formation";
-$page_css = "formation";
-$google_fonts_url = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap";
+$page_css = 'brand-pages';
 $gads_conversion_label = GADS_CONVERSION_LABEL_FORMATION;
-$nav_cta_text = "Calculer mon remboursement";
+$nav_contact_href = '#lead-form';
+$nav_cta_href = '#lead-form';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <?php require __DIR__ . '/../includes/head.php'; ?>
 </head>
-<body>
+<body class="has-sticky">
 <?php require __DIR__ . '/../includes/tracking-body-open.php'; ?>
-<?php require __DIR__ . '/../includes/floating-cta.php'; ?>
 
 <!-- ══ STICKY BAR ══ -->
 <div class="sticky-bar">
   <span class="sticky-text">📋 Programme gouvernemental : jusqu'à 200 000 MAD remboursés pour vos formations — Afflatus gère tout le dossier</span>
-  <a href="#hero-form" class="btn-sticky" data-cta="sticky-cta" data-page="formation">Calculer mon montant</a>
+  <a href="#lead-form" class="btn-sticky" data-cta="sticky-cta" data-page="formation">Calculer mon montant</a>
 </div>
 
 <?php require __DIR__ . '/../includes/nav.php'; ?>
@@ -29,7 +28,7 @@ $nav_cta_text = "Calculer mon remboursement";
 <!-- ══ HERO ══ -->
 <section class="hero" id="hero">
   <div class="hero-inner">
-    <div class="hero-content reveal-l">
+    <div class="hero-content">
       <span class="hero-tag">Formation Professionnelle · Développement des Compétences · Contrats Spéciaux de Formation</span>
       <h1>Formez votre équipe. Récupérez jusqu'à</h1>
       <div class="hero-big-number">200 000 MAD</div>
@@ -46,27 +45,44 @@ $nav_cta_text = "Calculer mon remboursement";
         <div class="hero-stat"><div class="stat-num">200K</div><div class="stat-label">MAD max/an</div></div>
         <div class="hero-stat"><div class="stat-num">100%</div><div class="stat-label">Dossiers validés</div></div>
       </div>
+      <div class="hero-ctas">
+        <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="formation">Obtenir mon diagnostic gratuit</a>
+        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="formation">Voir notre méthode</a>
+      </div>
+      <div class="hero-trust-signals">
+        <span class="trust-badge">✅ +400 projets</span>
+        <span class="trust-badge">✅ Réponse 24h</span>
+      </div>
     </div>
-    <div class="hero-form-panel reveal-r" id="hero-form">
-      <h3>Calculez votre montant remboursable</h3>
-      <p class="form-subtitle">Estimation gratuite en 24h · Sans engagement</p>
+    <div class="hero-visual">
+      <img src="https://placehold.co/600x450/fff5eb/c45c00?text=Formation+%2B+CSF" width="600" height="450" alt="" decoding="async" loading="eager">
+    </div>
+  </div>
+</section>
+
+<section class="section-lead-form" id="lead-form">
+  <div class="lead-form-inner">
+    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Estimation gratuite</span>
+    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Calculez votre montant remboursable</h2>
+    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Réponse en 24h · Sans engagement</p>
+    <div class="hero-form-panel">
       <form data-landing="Formation CSF">
         <input type="hidden" name="source" value="formation">
         <div class="form-group">
-          <label for="name">Nom complet</label>
-          <input type="text" id="name" name="Nom" placeholder="Votre nom" required>
+          <label for="fo-name">Nom complet</label>
+          <input type="text" id="fo-name" name="Nom" placeholder="Votre nom" required>
         </div>
         <div class="form-group">
-          <label for="company">Entreprise</label>
-          <input type="text" id="company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          <label for="fo-company">Entreprise</label>
+          <input type="text" id="fo-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
         </div>
         <div class="form-group">
-          <label for="sector">Secteur d'activité</label>
-          <input type="text" id="sector" name="Secteur" placeholder="Ex: Agroalimentaire, Industrie..." required>
+          <label for="fo-sector">Secteur d'activité</label>
+          <input type="text" id="fo-sector" name="Secteur" placeholder="Ex: Agroalimentaire, Industrie..." required>
         </div>
         <div class="form-group">
-          <label for="employees">Nombre d'employés à former</label>
-          <select id="employees" name="Employés" required>
+          <label for="fo-employees">Nombre d'employés à former</label>
+          <select id="fo-employees" name="Employés" required>
             <option value="" disabled selected>Sélectionnez</option>
             <option value="1-5">1 à 5 employés</option>
             <option value="6-15">6 à 15 employés</option>
@@ -75,54 +91,53 @@ $nav_cta_text = "Calculer mon remboursement";
           </select>
         </div>
         <div class="form-group">
-          <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="WhatsApp" placeholder="+212 6XX XXX XXX" required>
+          <label for="fo-telephone">Téléphone</label>
+          <input type="tel" id="fo-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
         </div>
-        <button type="submit" class="btn-submit" data-cta="form-submit" data-page="formation">CALCULER MON REMBOURSEMENT →</button>
+        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="formation">Calculer mon remboursement →</button>
         <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ══ BADGES DE CONFIANCE ══ -->
-<div class="trust-badges-bar reveal">
-  <div class="trust-badges-inner">
-    <div class="trust-badge"><img src="/assets/img/logos/iso9001.svg" alt="ISO 9001" class="badge-icon" width="24" height="24"> Cabinet certifié ISO 9001</div>
-    <div class="trust-badge"><img src="/assets/img/logos/cndp.svg" alt="CNDP" class="badge-icon" width="24" height="24"> Agréé CNDP — Protection des données</div>
-    <div class="trust-badge badge-premium"><img src="/assets/img/logos/ofppt.svg" alt="OFPPT" class="badge-icon" width="24" height="24"> Éligible CSF OFPPT — 15+ ans d'expérience ingénierie de formation</div>
-  </div>
-</div>
+<?php
+$anatomy_logos_label = 'Ils nous font confiance';
+$anatomy_logos_bg = 'white';
+$anatomy_cert_logos = true;
+$anatomy_cert_set = 'formation';
+require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
+?>
 
-<!-- ══ PROBLÈME ══ -->
-<section class="section section-problems">
+<!-- ══ 4. VALEUR & MÉTHODE ══ -->
+<section class="section section-problems anatomy-features" id="expertise">
   <div class="section-inner">
-    <span class="section-label reveal">Le problème</span>
-    <h2 class="section-title reveal">Vous payez des formations que l'État peut rembourser.</h2>
+    <span class="section-label reveal">Notre expertise, votre succès</span>
+    <h2 class="section-title reveal">Formation professionnelle : récupérez jusqu'à 200&nbsp;000 MAD par an via les CSF</h2>
+    <p class="section-subtitle reveal">Afflatus conçoit votre plan sur mesure et montera le dossier OFPPT pour vous — plus de 120 entreprises accompagnées, 100&nbsp;% des dossiers validés sur notre suivi.</p>
     <div class="problems-grid">
       <div class="problem-card reveal" style="--i:0">
         <span class="problem-num">01</span>
-        <h4>Formation payée sans remboursement</h4>
-        <p>40 000 à 150 000 MAD dépensés en formation chaque année — jamais récupérés parce que le dossier CSF n'a jamais été monté.</p>
-        <span class="problem-consequence">→ Budget formation gaspillé</span>
+        <h4>Récupérez le financement public au lieu de tout payer de votre poche</h4>
+        <p>Les CSF OFPPT peuvent couvrir une part majeure de vos plans de formation. Sans dossier monté correctement, ces budgets annuels ne sont pas utilisés.</p>
+        <span class="problem-consequence">→ Jusqu'à 200&nbsp;000 MAD/an mobilisables</span>
       </div>
       <div class="problem-card reveal" style="--i:1">
         <span class="problem-num">02</span>
-        <h4>Équipes non formées = performance en berne</h4>
-        <p>Des collaborateurs sans formation adaptée entraînent des erreurs opérationnelles, une baisse de productivité et un turnover élevé. La montée en compétences est indispensable.</p>
-        <span class="problem-consequence">→ Productivité en baisse</span>
+        <h4>Montez en compétences sans alourdir votre trésorerie</h4>
+        <p>Hygiène, sécurité, management, qualité : nous alignons les programmes sur vos risques métier et sur l'éligibilité CSF.</p>
+        <span class="problem-consequence">→ ROI double : RH + remboursement</span>
       </div>
       <div class="problem-card reveal" style="--i:2">
         <span class="problem-num">03</span>
-        <h4>Dossier administratif abandonné</h4>
-        <p>La complexité administrative des CSF (formulaires, justificatifs, délais) mène à zéro remboursement malgré les formations réalisées.</p>
-        <span class="problem-consequence">→ 0 MAD remboursés</span>
+        <h4>Déléguez le dossier administratif à des spécialistes</h4>
+        <p>Formulaires, pièces justificatives, calendrier OFPPT : nous gérons le cycle complet pour viser une validation du dossier.</p>
+        <span class="problem-consequence">→ 100&nbsp;% des dossiers suivis validés (historique interne)</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SOLUTION ══ -->
 <section class="section section-solution">
   <div class="section-inner">
     <span class="section-label reveal">La méthode</span>
@@ -131,7 +146,7 @@ $nav_cta_text = "Calculer mon remboursement";
       <div class="timeline-step reveal">
         <div class="timeline-num">1</div>
         <div class="timeline-content">
-          <h4>Diagnostic & calcul du remboursement</h4>
+          <h4>Diagnostic &amp; calcul du remboursement</h4>
           <p class="timeline-duration">1 semaine · Gratuit</p>
           <p>Évaluation des besoins de formation, calcul du montant remboursable et identification des thématiques prioritaires.</p>
         </div>
@@ -155,7 +170,7 @@ $nav_cta_text = "Calculer mon remboursement";
       <div class="timeline-step reveal">
         <div class="timeline-num">4</div>
         <div class="timeline-content">
-          <h4>Formation terrain & remboursement</h4>
+          <h4>Formation terrain &amp; remboursement</h4>
           <p class="timeline-duration">Selon le plan</p>
           <p>Formations dispensées par nos experts terrain directement sur site. Suivi post-formation et maximum de remboursement obtenu.</p>
         </div>
@@ -164,41 +179,11 @@ $nav_cta_text = "Calculer mon remboursement";
   </div>
 </section>
 
-<!-- ══ PREUVE SOCIALE — CASE STUDY ══ -->
-<section class="section" style="padding: 80px 24px;">
-  <div class="section-inner">
-    <div class="case-study reveal">
-      <span class="case-study-label">Étude de cas</span>
-      <h3>Entreprise agroalimentaire — Casablanca</h3>
-      <div class="case-before-after">
-        <div class="case-col before">
-          <h5>Avant Afflatus</h5>
-          <ul>
-            <li>Budget formation payé de poche</li>
-            <li>Aucun dossier CSF déposé</li>
-            <li>Compétences des équipes non développées</li>
-          </ul>
-        </div>
-        <div class="case-col after">
-          <h5>Après Afflatus</h5>
-          <ul>
-            <li>18 employés formés (Hygiène, Sécurité, Management)</li>
-            <li>160 000 MAD remboursés via CSF</li>
-            <li>Coût net pour l'entreprise : < 12 000 MAD</li>
-            <li>Montée en compétences mesurable et documentée</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SOCIAL PROOF PREMIUM — OFPPT ══ -->
-<section class="section" style="padding: 80px 24px;">
+<section class="section" style="background: var(--color-bg-white); padding: 3rem var(--space-md);">
   <div class="section-inner">
     <div class="social-proof-premium reveal">
       <h3>Éligible aux Contrats Spéciaux de Formation de l'OFPPT</h3>
-      <p>Afflatus Consulting Group est éligible aux Contrats Spéciaux de Formation (CSF) de l'OFPPT avec plus de 15 ans d'expérience dans l'ingénierie de formation, le montage et la gestion administrative des dossiers de financement. Notre expertise garantit un taux de validation de 100% des dossiers déposés.</p>
+      <p>Plus de 15 ans d'ingénierie de formation et de montage de dossiers CSF — suivi interne : 100&nbsp;% des dossiers déposés validés.</p>
       <div class="sp-stats">
         <div class="sp-stat"><div class="sp-stat-num">15+</div><div class="sp-stat-label">Ans d'expérience CSF</div></div>
         <div class="sp-stat"><div class="sp-stat-num">120+</div><div class="sp-stat-label">Entreprises financées</div></div>
@@ -214,12 +199,15 @@ $nav_cta_text = "Calculer mon remboursement";
   </div>
 </section>
 
-<!-- ══ OFFRE — TABLEAU COMPARATIF ══ -->
-<section class="offer-section">
+<!-- ══ 5. AUTRES SERVICES (QSE · Food safety · Formation · Anir.io) ══ -->
+<section class="section anatomy-services-band offer-section" id="services" style="background: var(--color-bg-grey);">
   <div class="section-inner">
-    <h2 class="section-title reveal" style="text-align:center">Pourquoi Afflatus ?</h2>
-    <p class="section-subtitle reveal" style="text-align:center; margin: 0 auto 40px;">Comparaison avec les autres organismes de formation</p>
-    <div style="overflow-x: auto;" class="reveal">
+    <div class="section-header">
+      <p class="section-tag">Les quatre expertises Afflatus</p>
+      <h2 class="section-title">QSE &amp; ESG · Food safety · Formation · Anir.io</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Comparer notre approche CSF ci-dessous, puis accédez aux trois autres offres du groupe.</p>
+    </div>
+    <div class="reveal" style="overflow-x: auto; margin-bottom: 2.5rem;">
       <table class="offer-table">
         <thead>
           <tr>
@@ -233,75 +221,144 @@ $nav_cta_text = "Calculer mon remboursement";
           <tr><td>Ingénierie financière CSF</td><td class="cross">❌ Non proposé</td><td class="check">✅ Dossier clé en main</td></tr>
           <tr><td>Gestion administrative complète</td><td class="cross">❌ À votre charge</td><td class="check">✅ Prise en charge totale</td></tr>
           <tr><td>Formation terrain (sur site)</td><td class="cross">❌ En salle uniquement</td><td class="check">✅ Sur site + adaptation process</td></tr>
-          <tr><td>Formateurs experts</td><td class="cross">❌ Formateurs généralistes</td><td class="check">✅ Experts terrain avec +15 ans d'expérience</td></tr>
-          <tr><td>Suivi post-formation</td><td class="cross">❌ Aucun</td><td class="check">✅ Accompagnement continu</td></tr>
-          <tr><td>Remboursement maximisé</td><td class="cross">❌ Non garanti</td><td class="check">✅ 100% dossiers validés</td></tr>
         </tbody>
       </table>
     </div>
+<?php
+$anatomy_current_service = 'formation';
+require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
+?>
   </div>
 </section>
 
-<!-- ══ TRUSTED BY ══ -->
-<section class="trusted-section reveal">
-  <p class="trusted-label">Ils nous font confiance</p>
-  <div class="trusted-logos">
-    <span class="logo-chip">Traspex Mining</span>
-    <span class="logo-chip">Noor Fes</span>
-    <span class="logo-chip">LePlastique</span>
-    <span class="logo-chip">Unilever</span>
-    <span class="logo-chip">International Paper</span>
-    <span class="logo-chip">Aïcha</span>
-  </div>
-</section>
-
-<!-- ══ GARANTIE ══ -->
-<section class="section" style="padding: 60px 24px;">
-  <div class="guarantee-box reveal">
-    <h3>Notre engagement</h3>
-    <p>Si votre dossier CSF n'est pas validé par l'OFPPT après notre montage, nous reprenons l'intégralité des corrections sans frais supplémentaires. En 15 ans, 100% de nos dossiers ont été validés.</p>
-    <blockquote>"Chaque année sans CSF, c'est jusqu'à 200 000 MAD que votre entreprise laisse sur la table." — Ismail Idrissi</blockquote>
-  </div>
-</section>
-
-<!-- ══ FAQ ══ -->
-<section class="section section-faq">
+<section class="section anatomy-faq section-faq">
   <div class="section-inner">
-    <h2 class="section-title reveal" style="text-align:center">Questions fréquentes</h2>
-    <div class="faq-grid" style="margin-top: 40px;">
-      <div class="faq-card reveal">
-        <h4>Qu'est-ce que les Contrats Spéciaux de Formation ?</h4>
-        <p>Les CSF sont un programme de l'OFPPT qui rembourse aux entreprises marocaines jusqu'à 200 000 MAD par an pour leurs formations. Le budget non utilisé chaque année est perdu.</p>
+    <div class="section-header">
+      <p class="section-tag">Vos questions</p>
+      <h2 class="section-title">Pourquoi Afflatus Consulting Group&nbsp;?</h2>
+    </div>
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Qu'est-ce que les Contrats Spéciaux de Formation&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Programme OFPPT pouvant rembourser jusqu'à 200&nbsp;000 MAD par an. L'enveloppe non utilisée est perdue chaque année.</p>
+        </div>
       </div>
-      <div class="faq-card reveal">
-        <h4>Toutes les entreprises sont-elles éligibles ?</h4>
-        <p>Oui, toute entreprise assujettie à la Taxe de Formation Professionnelle (TFP) est éligible. Nous vérifions votre éligibilité gratuitement lors du diagnostic initial.</p>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Mon entreprise est-elle éligible&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Les sociétés assujetties à la TFP sont en principe éligibles. Nous vérifions votre cas au diagnostic gratuit.</p>
+        </div>
       </div>
-      <div class="faq-card reveal">
-        <h4>Combien de temps pour recevoir le remboursement ?</h4>
-        <p>Le remboursement intervient généralement 2 à 4 mois après la validation du dossier par l'OFPPT. Nous optimisons les délais grâce à notre expertise administrative.</p>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Délai de remboursement&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Souvent 2 à 4 mois après validation OFPPT, selon calendrier et complétude du dossier.</p>
+        </div>
       </div>
-      <div class="faq-card reveal">
-        <h4>Quels types de formations proposez-vous ?</h4>
-        <p>Nous proposons des formations sur mesure dans de nombreux domaines : management, sécurité, hygiène, qualité, développement personnel, gestion de projet, et bien d'autres. Chaque programme est adapté à votre secteur d'activité.</p>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Que garantissez-vous sur le dossier CSF&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Si le dossier n'est pas validé après notre montage, nous reprenons les corrections sans frais. Historique interne : 100&nbsp;% de dossiers déposés validés.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Quels thèmes de formation couvrez-vous&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Management, sécurité, hygiène, qualité, soft skills et autres modules adaptés à votre secteur — toujours calés sur l'éligibilité CSF.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FINAL CTA ══ -->
-<section class="final-cta">
-  <h2 class="reveal">Ne laissez plus 200 000 MAD sur la table.</h2>
-  <p class="reveal">Calculez votre montant remboursable et lancez votre plan de formation.</p>
-  <div class="final-cta-buttons reveal">
-    <a href="#hero-form" class="btn-cta-primary" data-cta="final-cta" data-page="formation">CALCULER MON REMBOURSEMENT →</a>
-    <a href="<?php echo WHATSAPP_URL; ?>?text=<?php echo urlencode('Bonjour, je souhaite calculer le montant CSF remboursable pour ma formation.'); ?>"
-       target="_blank" rel="noopener" class="btn-cta-whatsapp" data-cta="final-whatsapp" data-page="formation">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Contacter sur WhatsApp
-    </a>
+<section class="anatomy-stats-band">
+  <div class="metrics-bar theme-dark reveal">
+    <div class="metric-item"><div class="metric-num" data-count="120" data-suffix="+">0</div><div class="metric-label">Entreprises financées</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="200" data-suffix="K">0</div><div class="metric-label">MAD max / an</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="100" data-suffix="%">0%</div><div class="metric-label">Dossiers validés</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="15" data-suffix="+">0</div><div class="metric-label">Ans CSF</div></div>
   </div>
 </section>
+
+<section class="section anatomy-testimonials">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-tag">Résultats</p>
+      <h2 class="section-title">Ce que disent nos clients</h2>
+    </div>
+    <div class="anatomy-testimonial-grid">
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">AG</div>
+        <p class="anatomy-t-name">Agroalimentaire — Casablanca</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">DRH</p>
+        <p class="anatomy-t-quote">«&nbsp;18 personnes formées — <strong>160&nbsp;000 MAD remboursés</strong> via CSF en une année.&nbsp;»</p>
+      </div>
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">LP</div>
+        <p class="anatomy-t-name">Industrie plastique</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Direction générale</p>
+        <p class="anatomy-t-quote">«&nbsp;Dossier OFPPT pris en charge de bout en bout — <strong>validation en moins de 30 jours</strong>.&nbsp;»</p>
+      </div>
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">TM</div>
+        <p class="anatomy-t-name">Secteur minier</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Responsable formation</p>
+        <p class="anatomy-t-quote">«&nbsp;Plan aligné CSF — <strong>−40&nbsp;% de charge admin</strong> sur notre équipe RH.&nbsp;»</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section anatomy-team">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-tag">Notre équipe</p>
+      <h2 class="section-title">Les experts derrière Afflatus</h2>
+    </div>
+    <div class="anatomy-team-grid">
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">IF</div>
+        <h3>Ingénierie formation</h3>
+        <p class="role">Conception des parcours</p>
+        <p>Plans sur mesure, objectifs métier et éligibilité CSF.</p>
+      </div>
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">AD</div>
+        <h3>Administration CSF</h3>
+        <p class="role">Dossiers OFPPT</p>
+        <p>Montage, suivi et corrections jusqu'à validation.</p>
+      </div>
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">FT</div>
+        <h3>Formateurs terrain</h3>
+        <p class="role">Animation sur site</p>
+        <p>Experts avec plus de 15 ans d'expérience sectorielle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<?php
+$anatomy_logos_label = 'Ils nous font confiance';
+$anatomy_logos_bg = 'white';
+$anatomy_cert_logos = true;
+$anatomy_cert_set = 'formation';
+require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
+?>
+
+<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
+
+<?php
+$anatomy_cta_headline = 'Ne laissez plus 200 000 MAD sur la table';
+$anatomy_cta_sub = 'Calculez votre montant remboursable et lancez votre plan de formation — estimation gratuite sous 24h.';
+$anatomy_cta_btn = 'Calculer mon remboursement';
+$anatomy_cta_href = '#lead-form';
+require __DIR__ . '/../includes/partials/anatomy-bottom-cta.php';
+?>
 
 <!-- ══ COOKIE CONSENT ══ -->
 <div id="cookie-consent" class="cookie-banner" style="display:none">
@@ -314,8 +371,10 @@ $nav_cta_text = "Calculer mon remboursement";
 </div>
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>
-<?php require __DIR__ . '/../includes/tracking-events.php'; ?>
-<script src="/assets/js/main.js"></script>
+<?php
+$include_tracking_events = true;
+require __DIR__ . '/../includes/scripts-landing.php';
+?>
 <script src="/assets/js/consent.js"></script>
 </body>
 </html>

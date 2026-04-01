@@ -4,24 +4,26 @@ require_once __DIR__ . '/../config.php';
 $page_title = "Certification BRCGS, IFS & FSSC 22000 au Maroc";
 $page_description = "Le seul consultant BRCGS officiellement approuvé en Afrique. Certification BRCGS Food Safety, IFS, FSSC 22000 — 98% de succès première tentative en 90 jours.";
 $page_slug = "food-safety";
-$page_css = "food-safety";
-$google_fonts_url = "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&display=swap";
+$page_css = 'brand-pages';
 $gads_conversion_label = GADS_CONVERSION_LABEL_FOOD;
-$nav_cta_text = "Réserver maintenant";
+$nav_contact_href = '#lead-form';
+$nav_cta_href = '#lead-form';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <?php require __DIR__ . '/../includes/head.php'; ?>
 </head>
-<body>
+<body class="has-sticky">
 <?php require __DIR__ . '/../includes/tracking-body-open.php'; ?>
-<?php require __DIR__ . '/../includes/floating-cta.php'; ?>
 
 <!-- ══ STICKY BAR ══ -->
 <div class="sticky-bar">
-  <span class="sticky-text"><img src="/assets/img/logos/brcgs.svg" alt="BRCGS" class="badge-icon" width="24" height="24"> Seul consultant BRCGS officiellement approuvé au Maroc & en Afrique</span>
-  <a href="#hero-form" class="btn-sticky" data-cta="sticky-cta" data-page="food-safety">Réserver maintenant</a>
+  <span class="sticky-text"><?php
+    $sticky_brcgs_text = 'Seul consultant BRCGS officiellement approuvé au Maroc & en Afrique';
+    require __DIR__ . '/../includes/partials/sticky-brcgs-claim.php';
+  ?></span>
+  <a href="#lead-form" class="btn-sticky" data-cta="sticky-cta" data-page="food-safety">Réserver maintenant</a>
 </div>
 
 <?php require __DIR__ . '/../includes/nav.php'; ?>
@@ -29,9 +31,9 @@ $nav_cta_text = "Réserver maintenant";
 <!-- ══ HERO ══ -->
 <section class="hero" id="hero">
   <div class="hero-inner">
-    <div class="hero-content reveal-l">
+    <div class="hero-content">
       <span class="hero-tag">BRCGS · IFS · FSSC 22000 · Food Safety</span>
-      <h1>VOTRE CERTIFICATION <em>EN 90 JOURS.</em></h1>
+      <h1>Votre certification <em>en 90 jours</em></h1>
       <p class="hero-mechanism">Le seul consultant BRCGS approuvé en Afrique accompagne votre entreprise de la Gap Analysis à la certification — avec un taux de succès de 98% à la première tentative.</p>
       <ul class="hero-usps">
         <li><span class="usp-icon">✓</span> Gap Analysis complète offerte (valeur 8 000 MAD) — diagnostic point par point vs exigences BRCGS v9</li>
@@ -46,23 +48,40 @@ $nav_cta_text = "Réserver maintenant";
         <div class="hero-stat"><div class="stat-num">+400</div><div class="stat-label">Projets</div></div>
         <div class="hero-stat"><div class="stat-num">130+</div><div class="stat-label">Pays BRCGS</div></div>
       </div>
+      <div class="hero-ctas">
+        <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="food-safety">Obtenir mon diagnostic gratuit</a>
+        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="food-safety">Voir notre méthode</a>
+      </div>
+      <div class="hero-trust-signals">
+        <span class="trust-badge">✅ +400 projets</span>
+        <span class="trust-badge">✅ Réponse 24h</span>
+      </div>
     </div>
-    <div class="hero-form-panel reveal-r" id="hero-form">
-      <h3>DIAGNOSTIC GRATUIT</h3>
-      <p class="form-subtitle">Identifiez vos 3 écarts prioritaires en 45 minutes</p>
+    <div class="hero-visual">
+      <img src="https://placehold.co/600x450/e8f4fc/1a5f8a?text=Food+Safety+%2B+Certs" width="600" height="450" alt="" decoding="async" loading="eager">
+    </div>
+  </div>
+</section>
+
+<section class="section-lead-form" id="lead-form">
+  <div class="lead-form-inner">
+    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Diagnostic gratuit</span>
+    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Identifiez vos 3 écarts prioritaires</h2>
+    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Session de 45 minutes · Réponse sous 24h</p>
+    <div class="hero-form-panel">
       <form data-landing="Food Safety BRCGS">
         <input type="hidden" name="source" value="food-safety">
         <div class="form-group">
-          <label for="name">Nom complet</label>
-          <input type="text" id="name" name="Nom" placeholder="Votre nom" required>
+          <label for="fs-name">Nom complet</label>
+          <input type="text" id="fs-name" name="Nom" placeholder="Votre nom" required>
         </div>
         <div class="form-group">
-          <label for="company">Entreprise</label>
-          <input type="text" id="company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          <label for="fs-company">Entreprise</label>
+          <input type="text" id="fs-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
         </div>
         <div class="form-group">
-          <label for="sector">Secteur</label>
-          <select id="sector" name="Secteur" required>
+          <label for="fs-sector">Secteur</label>
+          <select id="fs-sector" name="Secteur" required>
             <option value="" disabled selected>Sélectionnez votre secteur</option>
             <option value="Industrie alimentaire">Industrie alimentaire</option>
             <option value="Emballage">Emballage</option>
@@ -72,8 +91,8 @@ $nav_cta_text = "Réserver maintenant";
           </select>
         </div>
         <div class="form-group">
-          <label for="certification">Certification visée</label>
-          <select id="certification" name="Certification" required>
+          <label for="fs-certification">Certification visée</label>
+          <select id="fs-certification" name="Certification" required>
             <option value="" disabled selected>Sélectionnez la certification</option>
             <option value="BRCGS Food Safety">BRCGS Food Safety</option>
             <option value="BRCGS Packaging">BRCGS Packaging</option>
@@ -84,61 +103,57 @@ $nav_cta_text = "Réserver maintenant";
           </select>
         </div>
         <div class="form-group">
-          <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="WhatsApp" placeholder="+212 6XX XXX XXX" required>
+          <label for="fs-telephone">Téléphone</label>
+          <input type="tel" id="fs-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
         </div>
-        <button type="submit" class="btn-submit" data-cta="form-submit" data-page="food-safety">RÉSERVER MON DIAGNOSTIC →</button>
+        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="food-safety">Réserver mon diagnostic →</button>
         <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ══ BADGES DE CONFIANCE ══ -->
-<div class="trust-badges-bar reveal">
-  <div class="trust-badges-inner">
-    <div class="trust-badge"><img src="/assets/img/logos/iso9001.svg" alt="ISO 9001" class="badge-icon" width="24" height="24"> Cabinet certifié ISO 9001</div>
-    <div class="trust-badge"><img src="/assets/img/logos/cndp.svg" alt="CNDP" class="badge-icon" width="24" height="24"> Agréé CNDP — Protection des données</div>
-    <a href="https://www.brcgs.com/partners/find-a-consultant/list-updated/ismail-idrissi/" target="_blank" rel="noopener" class="trust-badge badge-premium">
-      <span class="badge-icon">🏆</span>
-      <span><strong>1er Consultant BRCGS reconnu en Afrique</strong> — Vérifier sur le registre officiel →</span>
-    </a>
-  </div>
-</div>
+<?php
+$anatomy_logos_label = 'Ils nous font confiance';
+$anatomy_logos_bg = 'white';
+$anatomy_cert_logos = true;
+$anatomy_cert_set = 'food-safety';
+require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
+?>
 
-<!-- ══ PROBLÈME ══ -->
-<section class="section section-problems">
+<!-- ══ 4. VALEUR & MÉTHODE ══ -->
+<section class="section section-problems anatomy-features" id="expertise">
   <div class="section-inner">
-    <span class="section-label reveal">Le problème</span>
-    <h2 class="section-title reveal">POURQUOI VOTRE CERTIFICATION ÉCHOUE ?</h2>
+    <span class="section-label reveal">Notre expertise, votre succès</span>
+    <h2 class="section-title reveal">Sécurité alimentaire : passez l'audit sans improvisation</h2>
+    <p class="section-subtitle reveal">Nous structurons HACCP, dossiers et fournisseurs pour viser la certification BRCGS, IFS ou FSSC 22000 en première tentative — comme sur plus de 400 missions.</p>
     <div class="problems-grid">
       <div class="problem-card reveal" style="--i:0">
         <span class="problem-num">01</span>
-        <h4>Documentation HACCP incomplète</h4>
-        <p>Plans HACCP qui ne couvrent pas tous les dangers exigés par BRCGS v9. L'analyse des risques est insuffisante et les CCP mal définis.</p>
-        <span class="problem-consequence">→ Non-conformité majeure à l'audit</span>
+        <h4>Un plan HACCP et une documentation qui tiennent face à l'auditeur</h4>
+        <p>Analyse des dangers, CCP et enregistrements alignés sur BRCGS v9 — pour éviter les non-conformités majeures liées au plan HACCP.</p>
+        <span class="problem-consequence">→ Moins de risques au jour J</span>
       </div>
       <div class="problem-card reveal" style="--i:1">
         <span class="problem-num">02</span>
-        <h4>Training Records insuffisants</h4>
-        <p>Formation réalisée mais pas prouvée. L'auditeur exige des enregistrements précis avec dates, contenus et évaluations de compétences.</p>
-        <span class="problem-consequence">→ Refus de certification</span>
+        <h4>Des training records traçables et conformes</h4>
+        <p>Nous formalisons preuves de formation, compétences et contenus — un point d'audit souvent bloquant.</p>
+        <span class="problem-consequence">→ Dossier RH prêt pour l'audit</span>
       </div>
       <div class="problem-card reveal" style="--i:2">
         <span class="problem-num">03</span>
-        <h4>Supplier Approval absent</h4>
-        <p>Processus d'approbation fournisseurs non formalisé — point de non-conformité le plus fréquent lors des audits BRCGS et IFS.</p>
-        <span class="problem-consequence">→ Contrats export menacés</span>
+        <h4>Un processus fournisseurs qui rassure vos clients export</h4>
+        <p>Approbation, évaluation et enregistrements fournisseurs structurés — critère fréquent BRCGS / IFS.</p>
+        <span class="problem-consequence">→ Chaîne d'approvisionnement sécurisée</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SOLUTION ══ -->
 <section class="section section-solution">
   <div class="section-inner">
     <span class="section-label reveal">La méthode</span>
-    <h2 class="section-title reveal">LA MÉTHODE AFFLATUS EN 4 ÉTAPES</h2>
+    <h2 class="section-title reveal">La méthode Afflatus en 4 étapes</h2>
     <div class="timeline">
       <div class="timeline-step reveal">
         <div class="timeline-num">1</div>
@@ -151,7 +166,7 @@ $nav_cta_text = "Réserver maintenant";
       <div class="timeline-step reveal">
         <div class="timeline-num">2</div>
         <div class="timeline-content">
-          <h4>Plan d'action & Documentation</h4>
+          <h4>Plan d'action &amp; Documentation</h4>
           <p class="timeline-duration">2 semaines</p>
           <p>Construction documentaire complète : manuels, procédures, plans HACCP, enregistrements, fiches fournisseurs.</p>
         </div>
@@ -176,154 +191,169 @@ $nav_cta_text = "Réserver maintenant";
   </div>
 </section>
 
-<!-- ══ PREUVE SOCIALE — CASE STUDY ══ -->
-<section class="section" style="padding: 80px 24px;">
-  <div class="section-inner">
-    <div class="case-study reveal">
-      <span class="case-study-label">Étude de cas</span>
-      <h3>INTERNATIONAL PAPER MAROC — Leader mondial de l'emballage</h3>
-      <div class="case-before-after">
-        <div class="case-col before">
-          <h5>Avant Afflatus</h5>
-          <ul>
-            <li>2 tentatives de certification échouées</li>
-            <li>Documentation BRCGS non conforme v6</li>
-            <li>Processus fournisseurs non formalisés</li>
-            <li>Risque de perte de contrats européens</li>
-          </ul>
-        </div>
-        <div class="case-col after">
-          <h5>Après Afflatus</h5>
-          <ul>
-            <li>Gap Analysis en 48h — 23 écarts identifiés</li>
-            <li>Plan d'action sur 60 jours exécuté</li>
-            <li>Formation de 12 opérateurs certifiée</li>
-            <li>Certification BRCGS Packaging 1ère tentative</li>
-            <li>Délai total : 87 jours</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SOCIAL PROOF PREMIUM — BRCGS ══ -->
-<section class="section" style="padding: 80px 24px;">
+<section class="section" style="background: var(--color-bg-white); padding: 3rem var(--space-md);">
   <div class="section-inner">
     <div class="social-proof-premium reveal">
-      <h3>LE PREMIER ET SEUL CONSULTANT BRCGS OFFICIELLEMENT RECONNU EN AFRIQUE</h3>
-      <p>Ismail Idrissi est inscrit au registre mondial des consultants BRCGS — une accréditation délivrée directement par l'organisme international BRCGS après évaluation rigoureuse de ses compétences et méthodologie. Cette reconnaissance est vérifiable publiquement.</p>
-      <a href="https://www.brcgs.com/partners/find-a-consultant/list-updated/ismail-idrissi/" target="_blank" rel="noopener" class="verify-link">
-        → Vérifier sur le registre officiel BRCGS
-      </a>
+      <h3>Premier consultant BRCGS officiellement reconnu en Afrique</h3>
+      <p>Ismail Idrissi est inscrit au registre mondial des consultants BRCGS — accréditation vérifiable publiquement.</p>
+      <a href="https://www.brcgs.com/partners/find-a-consultant/list-updated/ismail-idrissi/" target="_blank" rel="noopener" class="verify-link">→ Vérifier sur le registre officiel BRCGS</a>
       <div class="badge-visual">
         <span style="font-size: 24px;">🛡️</span>
         BRCGS® APPROVED CONSULTANT
       </div>
-      <p style="margin-top: 16px; font-size: 13px; opacity: 0.6;">Cabinet également certifié ISO 9001 et agréé CNDP pour la protection des données personnelles.</p>
+      <p style="margin-top: 16px; font-size: 13px; opacity: 0.6;">Cabinet certifié ISO 9001 et agréé CNDP.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ MÉTRIQUES ══ -->
-<section class="section" style="padding: 60px 24px;">
-  <div class="metrics-bar reveal">
-    <div class="metric-item"><div class="metric-num">90</div><div class="metric-label">Jours délai moyen</div></div>
-    <div class="metric-item"><div class="metric-num">98%</div><div class="metric-label">Taux de succès</div></div>
-    <div class="metric-item"><div class="metric-num">+400</div><div class="metric-label">Projets</div></div>
-    <div class="metric-item"><div class="metric-num">8+</div><div class="metric-label">Ans terrain</div></div>
-    <div class="metric-item"><div class="metric-num">130+</div><div class="metric-label">Pays BRCGS</div></div>
-  </div>
-</section>
-
-<!-- ══ TRUSTED BY ══ -->
-<section class="trusted-section reveal">
-  <p class="trusted-label">Ils nous font confiance</p>
-  <div class="trusted-logos">
-    <span class="logo-chip">Atlantic Conserves</span>
-    <span class="logo-chip">Aïcha</span>
-    <span class="logo-chip">Mina</span>
-    <span class="logo-chip">PlastiPak</span>
-    <span class="logo-chip">Unilever</span>
-    <span class="logo-chip">CANPACK</span>
-    <span class="logo-chip">Europac</span>
-    <span class="logo-chip">Maymouna</span>
-  </div>
-</section>
-
-<!-- ══ AUTORITÉ ══ -->
-<section class="authority-section">
+<!-- ══ 5. AUTRES SERVICES (QSE · Food safety · Formation · Anir.io) ══ -->
+<section class="section anatomy-services-band" id="services">
   <div class="section-inner">
-    <div class="authority-card reveal">
-      <div style="text-align:center">
-        <div class="authority-avatar" style="background: linear-gradient(135deg, var(--pink), var(--deep-pink)); display:flex; align-items:center; justify-content:center; font-size:48px; color:#fff; margin: 0 auto;">II</div>
-      </div>
-      <div>
-        <h3 class="authority-name">ISMAIL IDRISSI</h3>
-        <p class="authority-title">Consultant BRCGS® Approuvé · Sécurité Alimentaire · CEO Afflatus Consulting Group</p>
-        <div class="authority-stats">
-          <div class="authority-stat"><div class="stat-val">+400</div><div class="stat-lab">Projets</div></div>
-          <div class="authority-stat"><div class="stat-val">98%</div><div class="stat-lab">Succès</div></div>
-          <div class="authority-stat"><div class="stat-val">8+</div><div class="stat-lab">Ans terrain</div></div>
-          <div class="authority-stat"><div class="stat-val">1er</div><div class="stat-lab">En Afrique</div></div>
-        </div>
-        <div class="authority-badges">
-          <span class="authority-badge-item">🏆 BRCGS® Approved</span>
-          <span class="authority-badge-item">🏅 ISO 9001</span>
-          <span class="authority-badge-item">🔒 Agréé CNDP</span>
+    <div class="section-header">
+      <p class="section-tag">Les quatre expertises Afflatus</p>
+      <h2 class="section-title">QSE &amp; ESG · Food safety · Formation · Anir.io</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Les trois autres offres du groupe — même exigence de résultats. La page actuelle n'est pas répétée.</p>
+    </div>
+<?php
+$anatomy_current_service = 'food-safety';
+require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
+?>
+  </div>
+</section>
+
+<!-- ══ 6. FAQ ══ -->
+<section class="section anatomy-faq section-faq">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-tag">Vos questions</p>
+      <h2 class="section-title">Pourquoi Afflatus Consulting Group&nbsp;?</h2>
+    </div>
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Pourquoi choisir le seul consultant BRCGS approuvé en Afrique&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>L'inscription au registre BRCGS atteste des compétences auditées par l'organisme certificateur. C'est une garantie méthodologique pour vos audits Food Safety et Packaging.</p>
         </div>
       </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">BRCGS ou IFS pour mon export&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Les deux sont reconnus GFSI. Le choix dépend de vos donneurs d'ordre (UK/international vs France/Allemagne). Nous vous orientons selon vos contrats.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">La Gap Analysis est-elle vraiment offerte&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Oui, sans engagement : rapport d'écarts et plan d'action priorisé. Vous savez où vous allez avant de vous engager.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Que couvre votre garantie certification&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Après accompagnement complet, si l'audit échoue, nous reprenons les actions correctives sans frais jusqu'à l'obtention du grade — avec 98&nbsp;% de réussite en première tentative, c'est rare.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">Peut-on financer la formation des opérateurs&nbsp;? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-answer" hidden>
+          <p>Oui, les formations terrain peuvent être éligibles aux CSF OFPPT jusqu'à 100&nbsp;% selon dossier. Nous intégrons cette dimension dès la phase de plan.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══ GARANTIE ══ -->
-<section class="section" style="padding: 60px 24px;">
-  <div class="guarantee-box reveal">
-    <h3>NOTRE GARANTIE CERTIFICATION</h3>
-    <p>Si votre audit de certification échoue après notre accompagnement complet, nous reprenons toutes les actions correctives sans frais supplémentaires jusqu'à l'obtention de votre grade.</p>
-    <blockquote>"La sécurité alimentaire n'est pas négociable — et votre certification ne devrait pas l'être non plus." — Ismail Idrissi</blockquote>
+<!-- ══ 7. STATS ══ -->
+<section class="anatomy-stats-band">
+  <div class="metrics-bar theme-dark reveal">
+    <div class="metric-item"><div class="metric-num" data-count="90">0</div><div class="metric-label">Jours délai moyen</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="98" data-suffix="%">0%</div><div class="metric-label">Taux de succès</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="400" data-prefix="+">0</div><div class="metric-label">Projets</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="8" data-suffix="+">0</div><div class="metric-label">Ans terrain</div></div>
+    <div class="metric-item"><div class="metric-num" data-count="130" data-suffix="+">0</div><div class="metric-label">Pays BRCGS</div></div>
   </div>
 </section>
 
-<!-- ══ FAQ ══ -->
-<section class="section section-faq">
+<!-- ══ 8. TÉMOIGNAGES ══ -->
+<section class="section anatomy-testimonials">
   <div class="section-inner">
-    <h2 class="section-title reveal" style="text-align:center">QUESTIONS FRÉQUENTES</h2>
-    <div class="faq-grid" style="margin-top: 40px;">
-      <div class="faq-card reveal">
-        <h4>Quelle différence entre BRCGS et IFS ?</h4>
-        <p>BRCGS est plutôt exigé par les distributeurs britanniques et internationaux, IFS par les distributeurs français et allemands. Les deux sont reconnus par la GFSI. Nous vous aidons à choisir la plus pertinente pour vos marchés.</p>
+    <div class="section-header">
+      <p class="section-tag">Résultats clients</p>
+      <h2 class="section-title">Ce que disent nos clients</h2>
+    </div>
+    <div class="anatomy-testimonial-grid">
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">IP</div>
+        <p class="anatomy-t-name">International Paper Maroc</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Emballage — leader mondial</p>
+        <p class="anatomy-t-quote">«&nbsp;Après deux échecs, <strong>certification BRCGS Packaging en 1<sup>re</sup> tentative en 87 jours</strong> — gap analysis, plan 60 jours et formation de 12 opérateurs.&nbsp;»</p>
       </div>
-      <div class="faq-card reveal">
-        <h4>Combien coûte l'accompagnement ?</h4>
-        <p>Le coût dépend de la taille de votre entreprise et du niveau de maturité de vos processus. Le diagnostic offert permet de calibrer précisément le budget nécessaire. La formation des équipes peut être financée jusqu'à 100% par les CSF.</p>
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">AC</div>
+        <p class="anatomy-t-name">Atlantic Conserves</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Industrie agroalimentaire</p>
+        <p class="anatomy-t-quote">«&nbsp;Accompagnement exigeant sur la documentation HACCP — <strong>100&nbsp;% des audits clients export validés</strong> la même année.&nbsp;»</p>
       </div>
-      <div class="faq-card reveal">
-        <h4>La Gap Analysis est-elle vraiment offerte ?</h4>
-        <p>Oui, le diagnostic complet est offert sans engagement. Il vous donne un rapport détaillé de vos écarts versus les exigences normatives, avec un plan d'action priorisé.</p>
-      </div>
-      <div class="faq-card reveal">
-        <h4>Que se passe-t-il si l'audit échoue ?</h4>
-        <p>Avec 98% de succès en première tentative, c'est rare. Mais si cela arrive, nous reprenons l'intégralité des actions correctives sans frais supplémentaires jusqu'à l'obtention de votre certification.</p>
+      <div class="anatomy-t-card reveal" data-reveal="up">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">FM</div>
+        <p class="anatomy-t-name">Industriel FMCG</p>
+        <div class="anatomy-t-logo" aria-hidden="true"><span class="anatomy-t-logo-placeholder">Logo</span></div>
+        <p class="anatomy-t-role">Responsable qualité — Maroc</p>
+        <p class="anatomy-t-quote">«&nbsp;Préparation audit en <strong>délai contraint (21 jours)</strong> : priorisation des écarts majeurs et coaching terrain des équipes.&nbsp;»</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ FINAL CTA ══ -->
-<section class="final-cta">
-  <h2 class="reveal">PRÊT À DÉCROCHER VOTRE CERTIFICATION ?</h2>
-  <p class="reveal">Réservez votre diagnostic gratuit avec le seul consultant BRCGS approuvé en Afrique.</p>
-  <div class="final-cta-buttons reveal">
-    <a href="#hero-form" class="btn-cta-primary" data-cta="final-cta" data-page="food-safety">RÉSERVER MON DIAGNOSTIC GRATUIT →</a>
-    <a href="<?php echo WHATSAPP_URL; ?>?text=<?php echo urlencode('Bonjour, je souhaite obtenir un diagnostic sécurité alimentaire (BRCGS/IFS/FSSC22000).'); ?>"
-       target="_blank" rel="noopener" class="btn-cta-whatsapp" data-cta="final-whatsapp" data-page="food-safety">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Contacter sur WhatsApp
-    </a>
+<!-- ══ 9. ÉQUIPE ══ -->
+<section class="section anatomy-team">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-tag">Les experts derrière Afflatus</p>
+      <h2 class="section-title">Notre équipe</h2>
+    </div>
+    <div class="anatomy-team-grid">
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">II</div>
+        <h3>Ismail Idrissi</h3>
+        <p class="role">Consultant BRCGS® Approuvé · CEO</p>
+        <p>Premier consultant BRCGS reconnu en Afrique — pilotage stratégique des missions certification.</p>
+      </div>
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">FS</div>
+        <h3>Experts Food Safety</h3>
+        <p class="role">HACCP, PRP &amp; audits blancs</p>
+        <p>Mise en conformité terrain, formation opérateurs et simulation d'audit.</p>
+      </div>
+      <div class="anatomy-team-card reveal">
+        <div class="anatomy-t-avatar initials" aria-hidden="true">DC</div>
+        <h3>Documentation &amp; système</h3>
+        <p class="role">Manuels, procédures, enregistrements</p>
+        <p>Construction des dossiers et preuves attendues par BRCGS, IFS et FSSC 22000.</p>
+      </div>
+    </div>
   </div>
 </section>
+
+<?php
+$anatomy_logos_label = 'Ils nous font confiance';
+$anatomy_logos_bg = 'white';
+$anatomy_cert_logos = true;
+$anatomy_cert_set = 'food-safety';
+require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
+?>
+
+<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
+
+<?php
+$anatomy_cta_headline = 'Prêt à décrocher votre certification ?';
+$anatomy_cta_sub = 'Réservez votre diagnostic gratuit avec le seul consultant BRCGS approuvé en Afrique — réponse sous 24h.';
+$anatomy_cta_btn = 'Réserver mon diagnostic gratuit';
+$anatomy_cta_href = '#lead-form';
+require __DIR__ . '/../includes/partials/anatomy-bottom-cta.php';
+?>
 
 <!-- ══ COOKIE CONSENT ══ -->
 <div id="cookie-consent" class="cookie-banner" style="display:none">
@@ -336,8 +366,10 @@ $nav_cta_text = "Réserver maintenant";
 </div>
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>
-<?php require __DIR__ . '/../includes/tracking-events.php'; ?>
-<script src="/assets/js/main.js"></script>
+<?php
+$include_tracking_events = true;
+require __DIR__ . '/../includes/scripts-landing.php';
+?>
 <script src="/assets/js/consent.js"></script>
 </body>
 </html>

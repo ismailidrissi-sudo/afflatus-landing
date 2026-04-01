@@ -1,0 +1,396 @@
+/* ══════════════════════════════════════════════════════════════
+   AFFLATUS — MOTION SYSTEM (scroll reveal, hero, CTA, FAQ, tokens)
+   Loaded after global.css
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --anim-fast: 0.15s;
+  --anim-normal: 0.3s;
+  --anim-slow: 0.6s;
+  --anim-slower: 0.9s;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-linear: linear;
+  --slide-sm: 16px;
+  --slide-md: 30px;
+  --slide-lg: 50px;
+  --stagger-sm: 60ms;
+  --stagger-md: 100ms;
+  --stagger-lg: 150ms;
+}
+
+/* ── Scroll progress ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-brand-purple-dark), var(--color-brand-purple), var(--color-brand-purple-light));
+  z-index: 10000;
+  transition: width 0.1s var(--ease-linear);
+  pointer-events: none;
+}
+
+/* ── Scroll reveal (data API + legacy .reveal*) ── */
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity var(--anim-slow) var(--ease-out),
+    transform var(--anim-slow) var(--ease-out);
+}
+
+[data-reveal="up"] { transform: translateY(var(--slide-md)); }
+[data-reveal="left"] { transform: translateX(calc(-1 * var(--slide-md))); }
+[data-reveal="right"] { transform: translateX(var(--slide-md)); }
+[data-reveal="fade"] { transform: none; }
+[data-reveal="scale"] { transform: scale(0.88); }
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+[data-reveal="scale"].is-visible { transform: scale(1); }
+
+[data-delay="1"] { transition-delay: calc(var(--stagger-md) * 1); }
+[data-delay="2"] { transition-delay: calc(var(--stagger-md) * 2); }
+[data-delay="3"] { transition-delay: calc(var(--stagger-md) * 3); }
+[data-delay="4"] { transition-delay: calc(var(--stagger-md) * 4); }
+[data-delay="5"] { transition-delay: calc(var(--stagger-md) * 5); }
+
+.reveal,
+.reveal-l,
+.reveal-r {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity var(--anim-slow) var(--ease-out),
+    transform var(--anim-slow) var(--ease-out);
+}
+.reveal { transform: translateY(var(--slide-md)); }
+.reveal-l { transform: translateX(calc(-1 * var(--slide-md))); }
+.reveal-r { transform: translateX(var(--slide-md)); }
+
+.reveal.is-visible,
+.reveal-l.is-visible,
+.reveal-r.is-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.stagger > * {
+  transition-delay: calc(var(--i, 0) * var(--stagger-md));
+}
+
+/* ── Hero load sequences ── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--slide-lg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero .hero-tag {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.1s both;
+}
+.hero .hero-inner > .hero-content > h1 {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.25s both;
+}
+.hero .hero-inner > .hero-content > .hero-big-number {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.32s both;
+}
+.hero .hero-mechanism {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.4s both;
+}
+.hero .hero-usps {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.5s both;
+}
+.hero .hero-stats {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.7s both;
+}
+.hero .hero-ctas {
+  animation: heroFadeUp var(--anim-slower) var(--ease-spring) 0.55s both;
+}
+.hero .hero-trust-signals {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.62s both;
+}
+.hero .hero-visual {
+  animation: heroFadeIn var(--anim-slower) var(--ease-out) 0.5s both;
+}
+.hero .btn-submit {
+  animation: heroFadeUp var(--anim-slower) var(--ease-spring) 0.55s both;
+}
+
+/* Hub hero */
+.services-hero .section-tag {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.1s both;
+}
+.services-hero .container > h1 {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.25s both;
+}
+.services-hero .services-hero-lead {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.4s both;
+}
+.services-hero .services-hero-ctas {
+  animation: heroFadeUp var(--anim-slower) var(--ease-spring) 0.55s both;
+}
+.services-hero .services-hero-trust {
+  animation: heroFadeUp var(--anim-slower) var(--ease-out) 0.7s both;
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(123, 45, 139, 0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(123, 45, 139, 0); }
+}
+
+@keyframes pulse-shadow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(123, 45, 139, 0.45), 0 4px 14px rgba(123, 45, 139, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(123, 45, 139, 0), 0 8px 28px rgba(123, 45, 139, 0.35);
+  }
+}
+
+.btn-primary.pulse,
+.hero .btn-submit.pulse,
+.hero .hero-ctas .btn-primary.pulse {
+  animation: pulse-shadow 2s ease-in-out 3;
+}
+
+.anatomy-bottom-cta .final-cta-buttons.is-visible .btn-cta-primary {
+  animation: pulse-shadow 2.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+/* ── Nav scrolled (extends global) ── */
+.main-nav {
+  transition:
+    background var(--anim-normal) var(--ease-out),
+    box-shadow var(--anim-normal) var(--ease-out),
+    border-color var(--anim-normal) var(--ease-out);
+}
+.main-nav.scrolled {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 20px rgba(123, 45, 139, 0.1);
+}
+
+/* ── Buttons / cards — complement global (avoid duplicate transforms where possible) ── */
+.btn-primary,
+.btn-secondary {
+  transition:
+    background var(--anim-fast) var(--ease-out),
+    transform var(--anim-fast) var(--ease-out),
+    box-shadow var(--anim-fast) var(--ease-out),
+    color var(--anim-fast) var(--ease-out),
+    border-color var(--anim-fast) var(--ease-out);
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 20px var(--color-shadow);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.problem-card,
+.anatomy-t-card,
+.anatomy-team-card,
+.timeline-step {
+  transition:
+    transform var(--anim-normal) var(--ease-out),
+    box-shadow var(--anim-normal) var(--ease-out);
+}
+.problem-card:hover,
+.anatomy-t-card:hover,
+.anatomy-team-card:hover,
+.timeline-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px var(--color-shadow);
+}
+
+.service-card {
+  transition:
+    transform var(--anim-normal) var(--ease-out),
+    box-shadow var(--anim-normal) var(--ease-out);
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px var(--color-shadow);
+}
+
+.nav-link {
+  position: relative;
+  transition: color var(--anim-fast) var(--ease-out), border-color var(--anim-fast) var(--ease-out);
+}
+.main-nav:not(.scrolled) .nav-links .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-brand-purple-light);
+  transition: width var(--anim-normal) var(--ease-out);
+}
+.main-nav:not(.scrolled) .nav-links .nav-link:hover::after,
+.main-nav:not(.scrolled) .nav-links .nav-link.is-active::after {
+  width: 100%;
+}
+
+.btn-cta-primary {
+  transition:
+    background var(--anim-fast) var(--ease-out),
+    transform var(--anim-fast) var(--ease-out),
+    box-shadow var(--anim-fast) var(--ease-out);
+}
+.btn-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--color-shadow);
+}
+
+.btn-submit {
+  transition:
+    background var(--anim-fast) var(--ease-out),
+    transform var(--anim-fast) var(--ease-out),
+    box-shadow var(--anim-fast) var(--ease-out);
+}
+.btn-submit:hover {
+  box-shadow: 0 6px 20px var(--color-shadow);
+}
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* ── FAQ accordion motion (works with main.js max-height) ── */
+.faq-question {
+  transition: color var(--anim-fast) var(--ease-out);
+}
+.faq-item.is-open .faq-question {
+  color: var(--color-brand-purple);
+}
+.faq-icon {
+  display: inline-block;
+  transition: transform var(--anim-normal) var(--ease-spring);
+}
+.faq-item.is-open .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--anim-slow) var(--ease-in-out);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  :root {
+    --slide-md: 18px;
+    --slide-lg: 28px;
+    --anim-slow: 0.45s;
+  }
+  [data-delay="1"],
+  [data-delay="2"],
+  [data-delay="3"],
+  [data-delay="4"],
+  [data-delay="5"] {
+    transition-delay: 0ms !important;
+  }
+  [data-reveal="left"],
+  [data-reveal="right"] {
+    transform: translateY(var(--slide-sm));
+  }
+  [data-reveal="left"].is-visible,
+  [data-reveal="right"].is-visible {
+    transform: translateY(0);
+  }
+  .reveal-l,
+  .reveal-r {
+    transform: translateY(var(--slide-sm));
+  }
+  .reveal-l.is-visible,
+  .reveal-r.is-visible {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  [data-reveal] {
+    transition-duration: 0.35s;
+  }
+  .hero .hero-tag,
+  .hero .hero-inner > .hero-content > h1,
+  .hero .hero-inner > .hero-content > .hero-big-number,
+  .hero .hero-mechanism,
+  .hero .hero-usps,
+  .hero .hero-stats,
+  .hero .hero-visual,
+  .hero .hero-ctas,
+  .hero .hero-trust-signals,
+  .hero .btn-submit {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .reveal,
+  .reveal-l,
+  .reveal-r {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero .hero-tag,
+  .hero .hero-inner > .hero-content > h1,
+  .hero .hero-inner > .hero-content > .hero-big-number,
+  .hero .hero-mechanism,
+  .hero .hero-usps,
+  .hero .hero-stats,
+  .hero .hero-visual,
+  .hero .hero-ctas,
+  .hero .hero-trust-signals,
+  .hero .btn-submit,
+  .services-hero .section-tag,
+  .services-hero .container > h1,
+  .services-hero .services-hero-lead,
+  .services-hero .services-hero-ctas,
+  .services-hero .services-hero-trust {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .btn-primary.pulse,
+  .hero .hero-ctas .btn-primary.pulse,
+  .hero .btn-submit.pulse {
+    animation: none !important;
+  }
+  .anatomy-bottom-cta .final-cta-buttons.is-visible .btn-cta-primary {
+    animation: none !important;
+  }
+  .scroll-progress {
+    display: none !important;
+  }
+  .faq-answer {
+    transition: none !important;
+  }
+  .faq-icon {
+    transition: none !important;
+  }
+}

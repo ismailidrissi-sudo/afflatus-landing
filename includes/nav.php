@@ -1,20 +1,48 @@
-<!-- ══ NAVIGATION ══ -->
-<nav class="main-nav" id="main-nav">
+<!-- ══ NAVIGATION (sticky — anatomy §1) ══ -->
+<?php
+$nav_contact_href = $nav_contact_href ?? '/qse-esg#lead-form';
+$nav_cta_href = $nav_cta_href ?? $nav_contact_href;
+$nav_cta_text = $nav_cta_text ?? 'Nous contacter';
+$nav_cta_is_external = (strpos($nav_cta_href, 'http://') === 0 || strpos($nav_cta_href, 'https://') === 0 || strpos($nav_cta_href, 'mailto:') === 0);
+?>
+<nav class="main-nav" id="main-nav" aria-label="Navigation principale">
   <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="<?php echo COMPANY_NAME; ?>">
-      <img src="https://afflatus.consulting/logo.png" alt="<?php echo COMPANY_NAME; ?>" class="nav-logo-img">
+    <a href="/" class="nav-logo" aria-label="<?php echo htmlspecialchars(COMPANY_NAME); ?> — Accueil">
+      <img src="https://afflatus.consulting/logo.png" alt="<?php echo htmlspecialchars(COMPANY_NAME); ?>" class="nav-logo-img" width="160" height="40">
     </a>
-    <div class="nav-cta">
-      <a href="<?php echo WHATSAPP_URL; ?>?text=<?php echo urlencode('Bonjour, je souhaite obtenir plus d\'informations.'); ?>"
-         target="_blank" rel="noopener" class="btn btn-nav-whatsapp"
-         data-cta="nav-whatsapp" data-page="<?php echo $page_slug ?? ''; ?>">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="#hero-form" class="btn btn-nav-cta"
-         data-cta="nav-cta" data-page="<?php echo $page_slug ?? ''; ?>">
-        <?php echo $nav_cta_text ?? 'Consultation gratuite'; ?>
-      </a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <div class="nav-links">
+        <?php
+        $current = $page_slug ?? '';
+        $nav_items = [
+          ['href' => '/', 'slug' => 'nos-services', 'label' => 'Services'],
+          ['href' => '/#expertise', 'slug' => '', 'label' => 'Expertise', 'scroll' => true],
+          ['href' => '/#services-grid', 'slug' => '', 'label' => 'Offres', 'scroll' => true],
+          ['href' => $nav_contact_href, 'slug' => '', 'label' => 'Contact', 'scroll' => (strpos($nav_contact_href, '#') === 0)],
+        ];
+        foreach ($nav_items as $item) :
+          $is_active = isset($item['slug']) && $item['slug'] !== '' && ($current === $item['slug']);
+          $href = $item['href'];
+          $ext = !empty($item['external'])
+            || str_starts_with($href, 'http://')
+            || str_starts_with($href, 'https://');
+        ?>
+        <a href="<?php echo htmlspecialchars($href); ?>"
+           class="nav-link<?php echo $is_active ? ' is-active' : ''; ?>"
+           <?php echo $ext ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo htmlspecialchars($item['label']); ?></a>
+        <?php endforeach; ?>
+      </div>
+      <div class="nav-cta">
+        <a href="<?php echo htmlspecialchars($nav_cta_href); ?>"
+           class="btn btn-primary btn-nav-cta"
+           <?php echo $nav_cta_is_external ? 'target="_blank" rel="noopener"' : ''; ?>
+           data-cta="nav-cta" data-page="<?php echo htmlspecialchars($page_slug ?? ''); ?>">
+          <?php echo htmlspecialchars($nav_cta_text); ?>
+        </a>
+      </div>
     </div>
   </div>
 </nav>

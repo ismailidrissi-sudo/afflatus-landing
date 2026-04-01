@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'source'        => $s('source'),
         'nom'           => $s('Nom'),
         'entreprise'    => $s('Entreprise'),
-        'whatsapp'      => $s('WhatsApp'),
+        'whatsapp'      => $s('Telephone') ?: $s('WhatsApp'),
         'secteur'       => $s('Secteur'),
         'besoin'        => $s('Besoin'),
         'taille'        => $s('Taille'),

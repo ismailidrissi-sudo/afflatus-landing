@@ -62,11 +62,23 @@ s.parentNode.insertBefore(b,s);})(window.lintrk);
 <noscript><img height="1" width="1" style="display:none;" alt=""
 src="https://px.ads.linkedin.com/collect/?pid=<?php echo LINKEDIN_PARTNER_ID; ?>&fmt=gif"/></noscript>
 
+<?php
+if (empty($google_fonts_url ?? '')) {
+  $google_fonts_url = 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Raleway:wght@400;600&display=swap';
+}
+?>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="<?php echo $google_fonts_url; ?>" rel="stylesheet">
+<link href="<?php echo htmlspecialchars($google_fonts_url); ?>" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- CSS -->
 <link rel="stylesheet" href="/assets/css/global.css">
-<link rel="stylesheet" href="/assets/css/<?php echo $page_css; ?>.css">
+<link rel="stylesheet" href="/assets/css/animations.css">
+<?php if (!empty($page_css ?? '')) : ?>
+<link rel="stylesheet" href="/assets/css/<?php echo htmlspecialchars($page_css); ?>.css">
+<?php endif; ?>
+<?php foreach ($page_css_extra ?? [] as $extra_css) : ?>
+<link rel="stylesheet" href="/assets/css/<?php echo htmlspecialchars($extra_css); ?>.css">
+<?php endforeach; ?>

@@ -36,3 +36,5 @@ define('COMPANY_ADDRESS', 'Villa 9K4 Rue Annajd, Hay Ryad, Rabat');
 define('COMPANY_EMAIL', 'contact@afflatus.consulting');
 define('COMPANY_PHONE', '+212 661 863 618');
 define('COMPANY_URL', 'https://afflatus.consulting');
+define('COMPANY_LINKEDIN_URL', 'https://www.linkedin.com/company/afflatus-consulting');
+define('COMPANY_BLOG_URL', COMPANY_URL . '/blog');

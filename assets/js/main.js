@@ -1,13 +1,7 @@
 // ══════════════════════════════════════════════════════════════
 // AFFLATUS LANDING PAGES — MAIN JS
-// Reveal animations · Form handling · CTA tracking
+// Form handling · CTA tracking · FAQ (reveal lives in animations.js)
 // ══════════════════════════════════════════════════════════════
-
-// ── INTERSECTION OBSERVER — REVEAL ANIMATIONS ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => observer.observe(el));
 
 // ── SMOOTH SCROLL FOR ANCHOR LINKS ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -20,7 +14,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ── FORM SUBMISSION — DB Storage + WhatsApp + Conversion Tracking ──
+// ── FORM SUBMISSION — DB storage + conversion tracking + thank-you redirect ──
 document.querySelectorAll('form[data-landing]').forEach(form => {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -28,32 +22,25 @@ document.querySelectorAll('form[data-landing]').forEach(form => {
     const pageName = this.dataset.landing;
     const data = new FormData(this);
     const formObj = {};
-    let msg = '🔔 Nouvelle demande — ' + pageName + ':\n\n';
 
     data.forEach((v, k) => {
       if (v) {
-        msg += k + ': ' + v + '\n';
         formObj[k] = v;
       }
     });
 
-    // Store in database via AJAX
     fetch('/includes/form-handler.php', {
       method: 'POST',
       body: data
-    }).catch(function() { /* silent fail — WhatsApp is primary */ });
+    }).catch(function() { /* still redirect so user sees confirmation */ });
 
-    // Fire conversion tracking on ALL platforms
     if (typeof trackFormConversion === 'function') {
       trackFormConversion(pageName, formObj);
     }
 
-    // Small delay to allow pixels to fire, then redirect to WhatsApp
     setTimeout(function() {
-      window.open('https://wa.me/212661863618?text=' + encodeURIComponent(msg), '_blank');
-      // Optional: redirect to thank you page
-      // window.location.href = '/merci?source=' + encodeURIComponent(pageName);
-    }, 500);
+      window.location.href = '/merci?source=' + encodeURIComponent(pageName);
+    }, 400);
   });
 });
 
@@ -81,14 +68,100 @@ if (stickyBar) {
   });
 }
 
-// ── NAV BACKGROUND ON SCROLL ──
+// ── NAV: classe .scrolled après 60px (anatomy §1) ──
 const nav = document.querySelector('.main-nav');
+function updateNavScrolled() {
+  if (!nav) return;
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}
 if (nav) {
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      nav.style.boxShadow = '0 4px 24px rgba(0,0,0,.15)';
-    } else {
-      nav.style.boxShadow = 'none';
+  window.addEventListener('scroll', updateNavScrolled, { passive: true });
+  window.addEventListener('resize', updateNavScrolled);
+  updateNavScrolled();
+}
+
+// ── FAQ ACCORDION (anatomy §6) — max-height + hidden for a11y ──
+document.querySelectorAll('.faq-accordion').forEach(function(wrap) {
+  wrap.querySelectorAll('.faq-item').forEach(function(item) {
+    const btn = item.querySelector('.faq-question');
+    const ans = item.querySelector('.faq-answer');
+    if (!btn || !ans) return;
+
+    function applyOpenState(open) {
+      if (open) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        ans.hidden = false;
+        ans.style.maxHeight = '0px';
+        requestAnimationFrame(function() {
+          ans.style.maxHeight = ans.scrollHeight + 'px';
+        });
+      } else {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        var instant = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (instant) {
+          ans.style.maxHeight = '0px';
+          ans.hidden = true;
+          return;
+        }
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        requestAnimationFrame(function() {
+          ans.style.maxHeight = '0px';
+        });
+        function onEnd(e) {
+          if (e.propertyName !== 'max-height') return;
+          ans.removeEventListener('transitionend', onEnd);
+          if (!item.classList.contains('is-open')) {
+            ans.hidden = true;
+          }
+        }
+        ans.addEventListener('transitionend', onEnd);
+        window.setTimeout(function() {
+          ans.removeEventListener('transitionend', onEnd);
+          if (!item.classList.contains('is-open')) {
+            ans.hidden = true;
+          }
+        }, 700);
+      }
     }
+
+    if (item.classList.contains('is-open')) {
+      ans.hidden = false;
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+    } else {
+      ans.hidden = true;
+      ans.style.maxHeight = '0px';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function() {
+      applyOpenState(!item.classList.contains('is-open'));
+    });
+  });
+});
+
+// ── MOBILE NAV ──
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', function() {
+    const open = document.body.classList.toggle('nav-open');
+    document.body.style.overflow = open ? 'hidden' : '';
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  navMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.body.classList.remove('nav-open');
+      document.body.style.overflow = '';
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Ouvrir le menu');
+    });
   });
 }
