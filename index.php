@@ -93,6 +93,7 @@ $routes = [
     'anir-ia'         => 'pages/anir-ia.php',
     'sites-web'       => 'pages/sites-web.php',
     'merci'           => 'thank-you.php',
+    'thank-you'       => 'thank-you.php',
     'confidentialite'  => 'privacy.php',
 ];
 

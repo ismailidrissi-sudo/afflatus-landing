@@ -57,7 +57,7 @@ $nav_cta_href = '#lead-form';
         <span class="hero-form-eyebrow">Démo 30 min</span>
         <h3>Réservez votre démo Anir.io</h3>
         <p class="form-subtitle">Découvrez comment l'IA agentique transforme vos opérations · Réponse sous 24h</p>
-        <form data-landing="Anir.io IA Agentique">
+        <form data-landing="Anir.io IA Agentique" method="post" action="/includes/form-handler.php">
           <input type="hidden" name="source" value="anir-ia">
           <div class="form-group">
             <label for="ai-name">Nom complet</label>

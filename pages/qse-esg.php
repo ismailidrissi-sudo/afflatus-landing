@@ -60,7 +60,7 @@ $nav_cta_href = '#lead-form';
         <span class="hero-form-eyebrow">Diagnostic offert</span>
         <h3>Obtenez votre feuille de route QSE/ESG</h3>
         <p class="form-subtitle">Réponse sous 24h · Sans engagement</p>
-        <form data-landing="QSE ESG Due Diligence">
+        <form data-landing="QSE ESG Due Diligence" method="post" action="/includes/form-handler.php">
           <input type="hidden" name="source" value="qse-esg">
           <div class="form-group">
             <label for="qse-name">Nom complet</label>

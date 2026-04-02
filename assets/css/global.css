@@ -1521,6 +1521,13 @@ ul, ol { list-style: none; }
   color: rgba(255, 255, 255, 0.78);
   margin-bottom: 2rem;
 }
+.thank-you-inner p.thank-you-context {
+  font-size: 0.9375rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+.thank-you-source-label { font-weight: 600; color: rgba(255, 255, 255, 0.92); }
 .thank-you-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .ty-btn {
   padding: 1rem 1.75rem;

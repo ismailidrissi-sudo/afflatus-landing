@@ -61,7 +61,7 @@ $nav_cta_href = '#lead-form';
         <span class="hero-form-eyebrow">Diagnostic gratuit</span>
         <h3>Identifiez vos 3 écarts prioritaires</h3>
         <p class="form-subtitle">Session de 45 minutes · Réponse sous 24h</p>
-        <form data-landing="Food Safety BRCGS">
+        <form data-landing="Food Safety BRCGS" method="post" action="/includes/form-handler.php">
           <input type="hidden" name="source" value="food-safety">
           <div class="form-group">
             <label for="fs-name">Nom complet</label>

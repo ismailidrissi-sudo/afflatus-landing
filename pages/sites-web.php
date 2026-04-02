@@ -55,7 +55,7 @@ $nav_cta_href = '#lead-form';
         <span class="hero-form-eyebrow">Devis gratuit</span>
         <h3>Décrivez votre projet</h3>
         <p class="form-subtitle">Proposition détaillée sous 48h · Sans engagement</p>
-        <form data-landing="Sites Web Afflatus">
+        <form data-landing="Sites Web Afflatus" method="post" action="/includes/form-handler.php">
           <input type="hidden" name="source" value="sites-web">
           <div class="form-group">
             <label for="wb-name">Nom complet</label>

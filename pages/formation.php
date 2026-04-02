@@ -58,7 +58,7 @@ $nav_cta_href = '#lead-form';
         <span class="hero-form-eyebrow">Estimation gratuite</span>
         <h3>Calculez votre montant remboursable</h3>
         <p class="form-subtitle">Réponse en 24h · Sans engagement</p>
-        <form data-landing="Formation CSF">
+        <form data-landing="Formation CSF" method="post" action="/includes/form-handler.php">
           <input type="hidden" name="source" value="formation">
           <div class="form-group">
             <label for="fo-name">Nom complet</label>

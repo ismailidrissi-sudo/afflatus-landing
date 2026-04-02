@@ -31,6 +31,7 @@ document.querySelectorAll('form[data-landing]').forEach(form => {
 
     fetch('/includes/form-handler.php', {
       method: 'POST',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
       body: data
     }).catch(function() { /* still redirect so user sees confirmation */ });
 
@@ -39,7 +40,7 @@ document.querySelectorAll('form[data-landing]').forEach(form => {
     }
 
     setTimeout(function() {
-      window.location.href = '/merci?source=' + encodeURIComponent(pageName);
+      window.location.href = '/thank-you?source=' + encodeURIComponent(pageName);
     }, 400);
   });
 });
