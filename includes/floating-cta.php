@@ -1,2 +1,2 @@
 <?php
-// Floating WhatsApp CTA removed — formulaires redirigent vers /merci
+// Floating WhatsApp CTA removed — formulaires redirigent vers /thank-you

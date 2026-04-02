@@ -46,65 +46,58 @@ $nav_cta_href = '#lead-form';
       </div>
       <div class="hero-ctas">
         <a href="#lead-form" class="btn btn-primary" data-cta="hero-primary" data-page="anir-ia">Réserver ma démo gratuite</a>
-        <a href="#expertise" class="btn btn-outline" data-cta="hero-secondary" data-page="anir-ia">Voir notre méthode</a>
       </div>
       <div class="hero-trust-signals">
         <span class="trust-badge">✅ +400 projets</span>
         <span class="trust-badge">✅ Réponse 24h</span>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="https://placehold.co/600x450/ede8f5/5A1F68?text=Anir.io+%2B+IA" width="600" height="450" alt="" decoding="async" loading="eager">
-    </div>
-  </div>
-</section>
-
-<section class="section-lead-form" id="lead-form">
-  <div class="lead-form-inner">
-    <span class="section-tag" style="display:block;margin-bottom:0.5rem;color:var(--color-brand-purple);font-weight:600;">Démo 30 min</span>
-    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:0.35rem;">Réservez votre démo Anir.io</h2>
-    <p style="color:var(--color-text-secondary);font-size:0.9375rem;">Découvrez comment l'IA agentique transforme vos opérations · Réponse sous 24h</p>
-    <div class="hero-form-panel">
-      <form data-landing="Anir.io IA Agentique">
-        <input type="hidden" name="source" value="anir-ia">
-        <div class="form-group">
-          <label for="ai-name">Nom complet</label>
-          <input type="text" id="ai-name" name="Nom" placeholder="Votre nom" required>
-        </div>
-        <div class="form-group">
-          <label for="ai-company">Entreprise</label>
-          <input type="text" id="ai-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
-        </div>
-        <div class="form-group">
-          <label for="ai-sector">Secteur</label>
-          <select id="ai-sector" name="Secteur" required>
-            <option value="" disabled selected>Sélectionnez</option>
-            <option value="Industrie">Industrie</option>
-            <option value="Services">Services</option>
-            <option value="Finance">Finance</option>
-            <option value="Logistique">Logistique</option>
-            <option value="Agroalimentaire">Agroalimentaire</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="ai-usecase">Cas d'usage principal</label>
-          <select id="ai-usecase" name="Cas d'usage" required>
-            <option value="" disabled selected>Sélectionnez</option>
-            <option value="Automatisation documentaire">Automatisation documentaire</option>
-            <option value="Analyse de données">Analyse de données</option>
-            <option value="Gouvernance & conformité">Gouvernance & conformité</option>
-            <option value="Support client intelligent">Support client intelligent</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="ai-telephone">Téléphone</label>
-          <input type="tel" id="ai-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
-        </div>
-        <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="anir-ia">Réserver ma démo gratuite →</button>
-        <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
-      </form>
+    <div class="hero-lead-column" id="lead-form">
+      <div class="hero-form-panel">
+        <span class="hero-form-eyebrow">Démo 30 min</span>
+        <h3>Réservez votre démo Anir.io</h3>
+        <p class="form-subtitle">Découvrez comment l'IA agentique transforme vos opérations · Réponse sous 24h</p>
+        <form data-landing="Anir.io IA Agentique" method="post" action="/includes/form-handler.php">
+          <input type="hidden" name="source" value="anir-ia">
+          <div class="form-group">
+            <label for="ai-name">Nom complet</label>
+            <input type="text" id="ai-name" name="Nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="ai-company">Entreprise</label>
+            <input type="text" id="ai-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="ai-sector">Secteur</label>
+            <select id="ai-sector" name="Secteur" required>
+              <option value="" disabled selected>Sélectionnez</option>
+              <option value="Industrie">Industrie</option>
+              <option value="Services">Services</option>
+              <option value="Finance">Finance</option>
+              <option value="Logistique">Logistique</option>
+              <option value="Agroalimentaire">Agroalimentaire</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ai-usecase">Cas d'usage principal</label>
+            <select id="ai-usecase" name="Cas d'usage" required>
+              <option value="" disabled selected>Sélectionnez</option>
+              <option value="Automatisation documentaire">Automatisation documentaire</option>
+              <option value="Analyse de données">Analyse de données</option>
+              <option value="Gouvernance & conformité">Gouvernance & conformité</option>
+              <option value="Support client intelligent">Support client intelligent</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ai-telephone">Téléphone</label>
+            <input type="tel" id="ai-telephone" name="Telephone" placeholder="+212 6XX XXX XXX" required>
+          </div>
+          <button type="submit" class="btn-submit btn-primary" data-cta="form-submit" data-page="anir-ia">Réserver ma démo gratuite →</button>
+          <p class="form-trust">🔒 Confidentiel · Réponse sous 24h · Sans engagement</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -114,6 +107,7 @@ $anatomy_logos_label = 'Ils nous font confiance';
 $anatomy_logos_bg = 'white';
 $anatomy_cert_logos = true;
 $anatomy_cert_set = 'anir-ia';
+$anatomy_expertise_chips = ['IA agentique', 'Gouvernance', 'ERP / CRM', 'RBAC', 'Human-in-the-loop'];
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
 
@@ -222,21 +216,6 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
         <p>Validation humaine aux points critiques</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ══ 5. AUTRES SERVICES (QSE · Food safety · Formation · Anir.io) ══ -->
-<section class="section anatomy-services-band" id="services">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-tag">Les quatre expertises Afflatus</p>
-      <h2 class="section-title">QSE &amp; ESG · Food safety · Formation · Anir.io</h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto">Les trois autres offres du groupe — même exigence de résultats. La page actuelle n'est pas répétée.</p>
-    </div>
-<?php
-$anatomy_current_service = 'anir-ia';
-require __DIR__ . '/../includes/partials/anatomy-sibling-services.php';
-?>
   </div>
 </section>
 
@@ -355,8 +334,6 @@ $anatomy_cert_logos = true;
 $anatomy_cert_set = 'anir-ia';
 require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
 ?>
-
-<?php require __DIR__ . '/../includes/partials/anatomy-blog.php'; ?>
 
 <?php
 $anatomy_cta_headline = 'Prêt à déployer vos agents IA ?';

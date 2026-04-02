@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Non-AJAX: redirect to thank you page
     $source = $s('source');
-    header("Location: /merci?source=" . urlencode($source));
+    header('Location: /thank-you?source=' . urlencode($source));
     exit;
 }
 
