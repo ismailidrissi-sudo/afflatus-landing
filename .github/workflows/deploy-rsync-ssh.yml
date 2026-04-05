@@ -1,5 +1,8 @@
-# Deploy when FTP from GitHub times out (ETIMEDOUT on port 21) — Hostinger often blocks
-# GitHub-hosted runner IPs on FTP but allows SSH on port 65002 (shared hosting).
+# Optional / manual only: Hostinger often blocks GitHub runner IPs on BOTH FTP (port 21)
+# and SSH (e.g. 65002) — “Connection timed out” from Actions is expected. Use workflow
+# “Deploy (Hostinger Git webhook)” instead (secret HOSTINGER_GIT_WEBHOOK_URL).
+#
+# This workflow is workflow_dispatch-only so pushes do not fail when SSH is blocked.
 #
 # hPanel → Advanced → SSH Access → enable SSH, note port (often 65002), add your public key.
 # GitHub → repo → Settings → Secrets and variables → Actions:
@@ -18,10 +21,6 @@
 name: Deploy via SSH (rsync)
 
 on:
-  push:
-    branches:
-      - main
-      - master
   workflow_dispatch:
 
 jobs:

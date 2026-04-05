@@ -1,0 +1,42 @@
+# When FTP and SSH from GitHub Actions both time out, Hostinger is blocking cloud IPs.
+# This workflow does NOT open SSH/FTP to your server. It only calls Hostinger’s webhook;
+# Hostinger then pulls your repo (outbound from their side to GitHub).
+#
+# One-time hPanel setup (afflatusconsulting.tech):
+#   1. Advanced → Git → create repo: https://github.com/ismailidrissi-sudo/afflatus-landing.git
+#   2. Branch: master (or main). Install path: leave empty for account public_html, or set
+#      to public_html per Hostinger docs if your layout requires it.
+#   3. Private repo: use Hostinger’s deploy key → add in GitHub → Settings → Deploy keys.
+#   4. Open Git → Auto Deployment → copy the Webhook URL (token in query string).
+#   5. GitHub → this repo → Settings → Secrets → Actions → New secret:
+#        HOSTINGER_GIT_WEBHOOK_URL = paste the full webhook URL
+#
+# Optional: GitHub → Webhooks can also point at the same URL for redundancy; this workflow
+# is enough to deploy after each push if the secret is set.
+
+name: Deploy (Hostinger Git webhook)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  trigger-hostinger-pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Hostinger deployment
+        env:
+          WEBHOOK_URL: ${{ secrets.HOSTINGER_GIT_WEBHOOK_URL }}
+        run: |
+          if [ -z "$WEBHOOK_URL" ]; then
+            echo "::notice::Set Actions secret HOSTINGER_GIT_WEBHOOK_URL from hPanel → Git → Auto Deployment (full URL). Until then, this job is a no-op."
+            exit 0
+          fi
+          echo "Requesting Hostinger to pull latest commit…"
+          curl -fsS --connect-timeout 30 --max-time 120 --retry 2 --retry-delay 5 \
+            "$WEBHOOK_URL"
+          echo ""
+          echo "Webhook OK — check hPanel → Git → Latest build output if files did not update."
