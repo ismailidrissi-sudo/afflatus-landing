@@ -1,0 +1,72 @@
+# Deploy when FTP from GitHub times out (ETIMEDOUT on port 21) — Hostinger often blocks
+# GitHub-hosted runner IPs on FTP but allows SSH on port 65002 (shared hosting).
+#
+# hPanel → Advanced → SSH Access → enable SSH, note port (often 65002), add your public key.
+# GitHub → repo → Settings → Secrets and variables → Actions:
+#   SSH_PRIVATE_KEY   full private key (-----BEGIN ... -----END)
+#   SSH_HOST          82.25.113.173  (or your domain)
+#   SSH_USER          same style as FTP, e.g. u485919720.afflatusconsulting.tech
+#   SSH_REMOTE_PATH   absolute path to site root, e.g.
+#                     /home/u485919720/domains/afflatusconsulting.tech/public_html
+# Optional:
+#   SSH_PORT          default 65002 if unset (Hostinger shared hosting)
+#
+# After this works: disable the “Deploy to FTP” workflow (Actions → Deploy to FTP → …)
+# so only one deploy runs per push.
+
+name: Deploy via SSH (rsync)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check SSH secrets
+        id: ssh
+        env:
+          KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          HOST: ${{ secrets.SSH_HOST }}
+          USER: ${{ secrets.SSH_USER }}
+          PATH_REMOTE: ${{ secrets.SSH_REMOTE_PATH }}
+        run: |
+          if [ -n "$KEY" ] && [ -n "$HOST" ] && [ -n "$USER" ] && [ -n "$PATH_REMOTE" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::SSH deploy skipped — set secrets SSH_PRIVATE_KEY, SSH_HOST, SSH_USER, SSH_REMOTE_PATH (see workflow file comments)."
+          fi
+
+      - name: Rsync to Hostinger
+        if: steps.ssh.outputs.ok == 'true'
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_REMOTE_PATH: ${{ secrets.SSH_REMOTE_PATH }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          set -e
+          PORT="${SSH_PORT:-65002}"
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+          RSYNC_SSH="ssh -i ~/.ssh/deploy_key -p $PORT -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          rsync -avzr \
+            -e "$RSYNC_SSH" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='data' \
+            --exclude='router.php' \
+            --exclude='.gitignore' \
+            ./ "${SSH_USER}@${SSH_HOST}:${SSH_REMOTE_PATH}/"
