@@ -13,19 +13,14 @@
 # server-dir: Hostinger domain FTP often lands IN public_html. Using public_html/
 # uploads to public_html/public_html/. Use ./ here unless your FTP root is above public_html.
 #
-# ETIMEDOUT on port 21 from GitHub Actions: Hostinger (and many hosts) block FTP from
-# cloud/datacenter IPs. FileZilla from your PC still works. Fix: use workflow
-# “Deploy via SSH (rsync)” (.github/workflows/deploy-rsync-ssh.yml) with SSH port 65002,
-# or Hostinger hPanel Git deployment, or a self-hosted runner.
-# Optional: try removing protocol: ftps below (same port 21; rarely fixes timeout).
+# ETIMEDOUT on port 21: Hostinger shared hosting blocks FTP from GitHub’s IPs. This
+# workflow does NOT run on push (avoids red CI). Deploy with hPanel → Git → Deploy, or
+# Actions workflow “Deploy (Hostinger Git webhook)” + secret HOSTINGER_GIT_WEBHOOK_URL.
+# Run this FTP job manually only if you use a self-hosted runner or a host that allows FTP from CI.
 
 name: Deploy to FTP
 
 on:
-  push:
-    branches:
-      - main
-      - master
   workflow_dispatch:
 
 jobs:
