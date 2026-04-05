@@ -5,7 +5,8 @@
 # GitHub → repo → Settings → Secrets and variables → Actions:
 #   SSH_PRIVATE_KEY   full private key (-----BEGIN ... -----END)
 #   SSH_HOST          82.25.113.173  (or your domain)
-#   SSH_USER          same style as FTP, e.g. u485919720.afflatusconsulting.tech
+#   SSH_USER          hPanel SSH line is usually SHORT: u485919720 (not the FTP user
+#                     u485919720.afflatusconsulting.tech — use exactly what “ssh -p …” shows).
 #   SSH_REMOTE_PATH   absolute path to site root, e.g.
 #                     /home/u485919720/domains/afflatusconsulting.tech/public_html
 # Optional:
