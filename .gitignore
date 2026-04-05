@@ -1,5 +1,8 @@
-# Data directory (contains leads and user credentials)
-data/
+# Data: leads stay local/server-only; users.json is committed for team seed (hashes only)
+/data/*
+!/data/users.json
+!/data/.htaccess
+data/.team-passwords-once.txt
 *.db
 
 # OS files
