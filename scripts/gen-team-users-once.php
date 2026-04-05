@@ -1,5 +1,8 @@
 <?php
-/** Run once locally: php scripts/gen-team-users-once.php — writes data/users.json + data/.team-passwords-once.txt */
+/**
+ * Local only: php scripts/gen-team-users-once.php
+ * Writes admin/users.bootstrap.json and prints one-line JSON of plaintext passwords to stdout.
+ */
 $all = ['qse-esg', 'food-safety', 'formation', 'anir-ia', 'sites-web'];
 $team = [
     ['mohamed', 'Mohamed', 'agent'],
@@ -38,10 +41,9 @@ foreach ($team as $t) {
     ];
 }
 
-$root = dirname(__DIR__);
-if (!is_dir($root . '/data')) {
-    mkdir($root . '/data', 0755, true);
-}
-file_put_contents($root . '/data/users.json', json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-file_put_contents($root . '/data/.team-passwords-once.txt', json_encode($plain, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+$path = dirname(__DIR__) . '/admin/users.bootstrap.json';
+file_put_contents(
+    $path,
+    json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+);
 echo json_encode($plain, JSON_UNESCAPED_UNICODE) . "\n";

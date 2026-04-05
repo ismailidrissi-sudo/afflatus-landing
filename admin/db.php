@@ -139,8 +139,32 @@ class FlatDB {
 
     // ── USERS ──
 
+    /**
+     * Hostinger Git often does not deploy data/users.json. If missing or empty, copy
+     * admin/users.bootstrap.json (tracked in git) into data/users.json once.
+     */
+    private function readUsersFile(): array {
+        $path = $this->data_dir . '/users.json';
+        if (file_exists($path)) {
+            $raw = file_get_contents($path);
+            $data = json_decode($raw, true);
+            if (is_array($data) && count($data) > 0) {
+                return $data;
+            }
+        }
+        $boot = __DIR__ . '/users.bootstrap.json';
+        if (is_readable($boot)) {
+            $data = json_decode(file_get_contents($boot), true);
+            if (is_array($data) && count($data) > 0) {
+                $this->writeFile('users.json', $data);
+                return $data;
+            }
+        }
+        return [];
+    }
+
     public function getUsers(): array {
-        return $this->readFile('users.json');
+        return $this->readUsersFile();
     }
 
     public function getUserByUsername(string $username): ?array {
@@ -160,7 +184,7 @@ class FlatDB {
     }
 
     public function addUser(array $user): int {
-        $users = $this->readFile('users.json');
+        $users = $this->readUsersFile();
 
         // Check unique username
         foreach ($users as $u) {
@@ -178,7 +202,7 @@ class FlatDB {
     }
 
     public function updateUser(int $id, array $data): void {
-        $users = $this->readFile('users.json');
+        $users = $this->readUsersFile();
         foreach ($users as &$u) {
             if ($u['id'] === $id) {
                 $u = array_merge($u, $data);
@@ -189,7 +213,7 @@ class FlatDB {
     }
 
     public function deleteUser(int $id): void {
-        $users = $this->readFile('users.json');
+        $users = $this->readUsersFile();
         $users = array_values(array_filter($users, fn($u) => $u['id'] !== $id));
         $this->writeFile('users.json', $users);
     }
@@ -207,7 +231,7 @@ class FlatDB {
         $path = $this->data_dir . '/' . $filename;
         // Atomic write with lock
         $tmp = $path . '.tmp';
-        file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+        file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES), LOCK_EX);
         rename($tmp, $path);
     }
 }

@@ -1,7 +1,5 @@
-# Data: leads stay local/server-only; users.json is committed for team seed (hashes only)
-/data/*
-!/data/users.json
-!/data/.htaccess
+# Data directory (leads, runtime users.json copy). Team defaults: admin/users.bootstrap.json
+data/
 data/.team-passwords-once.txt
 *.db
 
