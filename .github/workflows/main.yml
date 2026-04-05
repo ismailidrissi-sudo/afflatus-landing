@@ -1,17 +1,18 @@
-# Deploy site to hosting FTP → public_html (serves afflatusconsulting.tech)
+# Deploy PHP site to Hostinger → public_html (afflatusconsulting.tech)
 #
 # Required — add under: Repository → Settings → Secrets and variables → Actions
-#   (use either name on the left; first match wins)
-#
 #   Username: FTP_USERNAME  OR  FTP_USER
 #   Password: FTP_PASSWORD  OR  FTP_PASS
 #
-# Hostinger: hPanel → Files → FTP Accounts → copy full username + password you set.
-# Forks: secrets are NOT inherited — create them again on your fork.
-# Org secrets: allow this repository in the secret’s access list.
+# Hostinger: hPanel → Files → FTP Accounts → full username + password.
+# Forks: secrets are NOT inherited. Org secrets: allow this repository.
 #
 # If secrets are missing, the workflow still succeeds but skips FTP upload
-# (see “Check FTP credentials” step log for a notice).
+# (see “Check FTP credentials” step log).
+#
+# server-dir: Hostinger domain FTP often lands IN public_html. Using public_html/
+# uploads to public_html/public_html/. Use ./ here unless your FTP root is above public_html.
+# If connection fails: try removing protocol: ftps or set server to the host IP.
 
 name: Deploy to FTP
 
@@ -40,7 +41,7 @@ jobs:
             echo "FTP credentials are set — deploy step will run."
           else
             echo "ok=false" >> "$GITHUB_OUTPUT"
-            echo "::notice::FTP deploy skipped — no repository secrets. Add FTP_USERNAME (or FTP_USER) and FTP_PASSWORD (or FTP_PASS) under Settings → Secrets and variables → Actions. Same repo/fork that runs this workflow."
+            echo "::notice::FTP deploy skipped — no repository secrets. Add FTP_USERNAME (or FTP_USER) and FTP_PASSWORD (or FTP_PASS) under Settings → Secrets and variables → Actions."
           fi
 
       - name: Deploy via FTP
@@ -48,11 +49,14 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: afflatusconsulting.tech
+          protocol: ftps
           username: ${{ secrets.FTP_USERNAME || secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD || secrets.FTP_PASS }}
-          server-dir: public_html/
+          server-dir: ./
           exclude: |
             **/.git*
             **/.git*/**
             **/.github/**
             .gitignore
+            router.php
+            data/**

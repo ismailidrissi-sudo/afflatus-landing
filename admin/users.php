@@ -117,6 +117,7 @@ if (isset($_GET['logout'])) { session_destroy(); header('Location: /admin/login.
   .role-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
   .role-admin { background: rgba(232,197,71,.15); color: #E8C547; }
   .role-viewer { background: rgba(100,116,139,.2); color: #94A3B8; }
+  .role-agent { background: rgba(59,130,246,.15); color: #60A5FA; }
   .role-manager { background: rgba(10,107,94,.15); color: #0D8870; }
   .status-active { color: #25D366; }
   .status-inactive { color: #E74C3C; }
@@ -136,6 +137,7 @@ if (isset($_GET['logout'])) { session_destroy(); header('Location: /admin/login.
     <nav class="sidebar-nav">
       <a href="/admin/"><span>📊</span> Tableau de bord</a>
       <a href="/admin/users.php" class="active"><span>👥</span> Utilisateurs</a>
+      <a href="/admin/setup-team-accounts.php"><span>👋</span> Comptes équipe</a>
       <a href="/" target="_blank"><span>🌐</span> Voir le site</a>
       <a href="?logout=1"><span>🚪</span> Déconnexion</a>
     </nav>
@@ -153,7 +155,7 @@ if (isset($_GET['logout'])) { session_destroy(); header('Location: /admin/login.
           <div><label>Nom d'utilisateur</label><input type="text" name="username" required></div>
           <div><label>Mot de passe</label><input type="password" name="password" required minlength="6"></div>
           <div><label>Nom complet</label><input type="text" name="full_name" required></div>
-          <div><label>Rôle</label><select name="role"><option value="viewer">Viewer</option><option value="manager">Manager</option><option value="admin">Admin</option></select></div>
+          <div><label>Rôle</label><select name="role"><option value="viewer">Viewer (par page)</option><option value="agent">Agent (tous les leads)</option><option value="manager">Manager</option><option value="admin">Admin</option></select></div>
         </div>
         <label style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.5;">Pages accessibles</label>
         <div class="pages-checkboxes">
