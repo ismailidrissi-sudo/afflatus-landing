@@ -4,7 +4,7 @@
 // ══════════════════════════════════════════════════════════════
 
 // Google Tag Manager
-define('GTM_ID', 'GTM-XXXXXXX');
+define('GTM_ID', 'GTM-WZR9BDBX');
 
 // Google Ads
 define('GADS_CONVERSION_ID', 'AW-XXXXXXXXX');

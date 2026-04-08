@@ -3,6 +3,8 @@
 // AFFLATUS LANDING PAGES — ROUTEUR PRINCIPAL
 // ══════════════════════════════════════════════════════════════
 
+require_once __DIR__ . '/config.php';
+
 $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
 // PHP built-in server: serve static files directly
@@ -101,8 +103,11 @@ if (array_key_exists($uri, $routes)) {
     require __DIR__ . '/' . $routes[$uri];
 } else {
     http_response_code(404);
-    echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>404</title></head>';
+    echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">';
+    echo '<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=\'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);})(window,document,\'script\',\'dataLayer\',\'' . GTM_ID . '\');</script><!-- End Google Tag Manager -->';
+    echo '<title>404</title></head>';
     echo '<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Poppins,Segoe UI,sans-serif;background:#1A0A2E;color:#fff">';
+    echo '<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=' . GTM_ID . '" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->';
     echo '<div style="text-align:center;max-width:420px;padding:2rem"><h1 style="font-size:4rem;margin:0 0 0.5rem;font-weight:800">404</h1><p style="opacity:0.85;margin-bottom:1.5rem;line-height:1.6">Page non trouvée</p>';
     echo '<a href="/" style="display:inline-block;padding:0.75rem 1.5rem;background:#7B2D8B;color:#fff;border-radius:8px;text-decoration:none;font-weight:600">← Retour à l\'accueil</a></div></body></html>';
 }
