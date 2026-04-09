@@ -36,7 +36,7 @@ jobs:
             exit 0
           fi
           echo "Requesting Hostinger to pull latest commit…"
-          curl -fsS --connect-timeout 30 --max-time 120 --retry 2 --retry-delay 5 \
+          curl -fsS -X POST --connect-timeout 30 --max-time 120 --retry 2 --retry-delay 5 \
             "$WEBHOOK_URL"
           echo ""
           echo "Webhook OK — check hPanel → Git → Latest build output if files did not update."
