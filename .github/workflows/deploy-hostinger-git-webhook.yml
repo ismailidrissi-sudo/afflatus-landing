@@ -36,7 +36,23 @@ jobs:
             exit 0
           fi
           echo "Requesting Hostinger to pull latest commit…"
-          curl -fsS -X POST --connect-timeout 30 --max-time 120 --retry 2 --retry-delay 5 \
-            "$WEBHOOK_URL"
-          echo ""
-          echo "Webhook OK — check hPanel → Git → Latest build output if files did not update."
+
+          # Try POST first; if 400, fall back to GET (Hostinger webhooks vary)
+          HTTP_CODE=$(curl -s -o /tmp/webhook_body -w "%{http_code}" \
+            -X POST --connect-timeout 30 --max-time 120 "$WEBHOOK_URL") || true
+
+          if [ "$HTTP_CODE" = "400" ] || [ "$HTTP_CODE" = "405" ]; then
+            echo "POST returned $HTTP_CODE — retrying with GET…"
+            HTTP_CODE=$(curl -s -o /tmp/webhook_body -w "%{http_code}" \
+              --connect-timeout 30 --max-time 120 "$WEBHOOK_URL") || true
+          fi
+
+          BODY=$(cat /tmp/webhook_body 2>/dev/null || echo "")
+          echo "HTTP $HTTP_CODE — $BODY"
+
+          if [ "$HTTP_CODE" -ge 200 ] 2>/dev/null && [ "$HTTP_CODE" -lt 300 ] 2>/dev/null; then
+            echo "Webhook OK — check hPanel → Git → Latest build output if files did not update."
+          else
+            echo "::warning::Webhook returned HTTP $HTTP_CODE. Go to hPanel → Git → Auto Deployment, copy a fresh webhook URL, and update the HOSTINGER_GIT_WEBHOOK_URL secret."
+            exit 1
+          fi
