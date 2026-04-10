@@ -42,6 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['toggle_called_lead_id
     exit;
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_lead_id']) && ($user['role'] ?? '') === 'admin') {
+    $lid = (int) $_POST['delete_lead_id'];
+    if ($db->getLeadById($lid)) {
+        $db->deleteLead($lid);
+    }
+    header('Location: ' . $redirect_url);
+    exit;
+}
+
 // Get leads (admin / agent / manager: all sources; viewer: allowed pages only)
 $source_filter = ($filter_page && in_array($filter_page, $allowed_pages)) ? $filter_page : null;
 if ($full_lead_access) {
@@ -178,6 +187,9 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
   .called-toggle label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; user-select: none; }
   .called-toggle input[type="checkbox"] { width: 18px; height: 18px; accent-color: #0A6B5E; cursor: pointer; }
   .called-toggle .called-at { font-size: 10px; opacity: 0.45; white-space: nowrap; max-width: 120px; }
+  .lead-actions { white-space: nowrap; }
+  .btn-delete { padding: 6px 12px; border-radius: 6px; background: rgba(239,68,68,.12); color: #F87171; border: 1px solid rgba(239,68,68,.25); cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 600; }
+  .btn-delete:hover { background: rgba(239,68,68,.22); color: #FCA5A5; }
   @media (max-width: 960px) { .admin-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
 </style>
 </head>
@@ -244,7 +256,7 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
     <?php else: ?>
     <div style="overflow-x: auto;">
       <table class="leads-table">
-        <thead><tr><th>#</th><th>Source</th><th>Nom</th><th>Entreprise</th><th>WhatsApp</th><th>Appelé</th><th>Résumé</th><th>Réponses complètes</th><th>Date</th></tr></thead>
+        <thead><tr><th>#</th><th>Source</th><th>Nom</th><th>Entreprise</th><th>WhatsApp</th><th>Appelé</th><th>Résumé</th><th>Réponses complètes</th><th>Date</th><?php if (($user['role'] ?? '') === 'admin'): ?><th>Actions</th><?php endif; ?></tr></thead>
         <tbody>
           <?php foreach ($leads as $lead): ?>
           <tr>
@@ -312,6 +324,14 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
               </details>
             </td>
             <td style="font-size: 12px; white-space: nowrap;"><?php echo isset($lead['created_at']) ? date('d/m/Y H:i', strtotime($lead['created_at'])) : '—'; ?></td>
+            <?php if (($user['role'] ?? '') === 'admin'): ?>
+            <td class="lead-actions">
+              <form method="post" action="<?php echo htmlspecialchars($redirect_url); ?>" onsubmit="return confirm('Supprimer définitivement ce lead ?');">
+                <input type="hidden" name="delete_lead_id" value="<?php echo (int) $lead['id']; ?>">
+                <button type="submit" class="btn-delete">Supprimer</button>
+              </form>
+            </td>
+            <?php endif; ?>
           </tr>
           <?php endforeach; ?>
         </tbody>

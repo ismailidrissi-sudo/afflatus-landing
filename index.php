@@ -34,6 +34,13 @@ if (str_starts_with($uri, 'admin')) {
     }
 }
 
+// Serve robots.txt
+if ($uri === 'robots.txt') {
+    header('Content-Type: text/plain');
+    readfile(__DIR__ . '/robots.txt');
+    return;
+}
+
 // Form handler route
 if ($uri === 'includes/form-handler.php' || $uri === 'includes/form-handler') {
     require __DIR__ . '/includes/form-handler.php';

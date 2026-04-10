@@ -1,9 +1,13 @@
 RewriteEngine On
 RewriteBase /
 
-# Redirect to HTTPS (uncomment on production)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Redirect to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Block direct access to sensitive admin scripts
+RewriteRule ^admin/install\.php$ - [F,L]
+RewriteRule ^admin/diag\.php$ - [F,L]
 
 # Skip existing files and directories
 RewriteCond %{REQUEST_FILENAME} !-f

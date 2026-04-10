@@ -1,16 +1,20 @@
 <?php
 // ══════════════════════════════════════════════════════════════
-// ADMIN — DATABASE SETUP & INSTALLATION
+// ADMIN — DATABASE SETUP & INSTALLATION (CLI only)
 // Run this once: php admin/install.php
 // ══════════════════════════════════════════════════════════════
+
+if (php_sapi_name() !== 'cli') {
+    http_response_code(403);
+    die('This script can only be run from the command line.');
+}
 
 require_once __DIR__ . '/db.php';
 
 $db = getDB();
 
-echo "✅ Data directory created.\n";
+echo "Data directory ready.\n";
 
-// Create default admin user if none exists
 $users = $db->getUsers();
 $admin_exists = false;
 foreach ($users as $u) {
@@ -18,19 +22,18 @@ foreach ($users as $u) {
 }
 
 if (!$admin_exists) {
+    $password = getenv('ADMIN_PASSWORD') ?: bin2hex(random_bytes(12));
     $db->addUser([
         'username'      => 'admin',
-        'password_hash' => password_hash('Afflatus2024!', PASSWORD_BCRYPT),
+        'password_hash' => password_hash($password, PASSWORD_BCRYPT),
         'full_name'     => 'Administrateur',
         'role'          => 'admin',
         'allowed_pages' => ['qse-esg', 'food-safety', 'formation', 'anir-ia', 'sites-web'],
         'is_active'     => true,
     ]);
-    echo "✅ Admin user created (username: admin / password: Afflatus2024!)\n";
+    echo "Admin user created. Change the password after first login.\n";
 } else {
-    echo "ℹ️  Admin user already exists.\n";
+    echo "Admin user already exists.\n";
 }
 
-echo "✅ Database initialized successfully (JSON flat-file storage)\n";
-echo "   Data stored in: " . realpath(__DIR__ . '/../data') . "\n";
-echo "\n⚠️  IMPORTANT: Change the admin password after first login!\n";
+echo "Database initialized.\n";

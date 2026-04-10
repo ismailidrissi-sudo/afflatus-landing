@@ -1,5 +1,25 @@
-# Do not serve user hashes over HTTP (LiteSpeed / Apache)
-<Files "users.bootstrap.json">
+# Block sensitive files from being served over HTTP
+<FilesMatch "\.(json|sql|log|bak|tmp)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<Files "install.php">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</Files>
+
+<Files "diag.php">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>

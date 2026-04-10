@@ -54,6 +54,16 @@ class FlatDB {
         return $found;
     }
 
+    public function deleteLead(int $id): bool {
+        $leads = $this->readFile('leads.json');
+        $new = array_values(array_filter($leads, fn($l) => (int) ($l['id'] ?? 0) !== $id));
+        if (count($new) === count($leads)) {
+            return false;
+        }
+        $this->writeFile('leads.json', $new);
+        return true;
+    }
+
     public function getLeads(?string $source = null, ?string $search = null, ?string $date_from = null, ?string $date_to = null, ?bool $called_filter = null): array {
         $leads = $this->readFile('leads.json');
 

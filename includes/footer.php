@@ -12,15 +12,6 @@
       </div>
     </div>
     <div class="footer-col">
-      <p class="footer-col-title">Liens rapides</p>
-      <div class="footer-links">
-        <a href="/">Services</a>
-        <a href="/#expertise">Expertise</a>
-        <a href="/#services-grid">Nos offres</a>
-        <a href="/confidentialite">Politique de confidentialité</a>
-      </div>
-    </div>
-    <div class="footer-col">
       <p class="footer-col-title">Nos services</p>
       <div class="footer-links">
         <a href="/qse-esg">QSE &amp; ESG &amp; Due diligence</a>

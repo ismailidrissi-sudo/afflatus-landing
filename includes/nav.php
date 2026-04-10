@@ -14,27 +14,7 @@ $nav_cta_is_external = (strpos($nav_cta_href, 'http://') === 0 || strpos($nav_ct
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
     <div class="nav-menu" id="nav-menu">
-      <div class="nav-links">
-        <?php
-        $current = $page_slug ?? '';
-        $nav_items = [
-          ['href' => '/', 'slug' => 'nos-services', 'label' => 'Services'],
-          ['href' => '/#expertise', 'slug' => '', 'label' => 'Expertise', 'scroll' => true],
-          ['href' => '/#services-grid', 'slug' => '', 'label' => 'Offres', 'scroll' => true],
-          ['href' => $nav_contact_href, 'slug' => '', 'label' => 'Contact', 'scroll' => (strpos($nav_contact_href, '#') === 0)],
-        ];
-        foreach ($nav_items as $item) :
-          $is_active = isset($item['slug']) && $item['slug'] !== '' && ($current === $item['slug']);
-          $href = $item['href'];
-          $ext = !empty($item['external'])
-            || str_starts_with($href, 'http://')
-            || str_starts_with($href, 'https://');
-        ?>
-        <a href="<?php echo htmlspecialchars($href); ?>"
-           class="nav-link<?php echo $is_active ? ' is-active' : ''; ?>"
-           <?php echo $ext ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo htmlspecialchars($item['label']); ?></a>
-        <?php endforeach; ?>
-      </div>
+      <div class="nav-links"></div>
       <div class="nav-cta">
         <a href="<?php echo htmlspecialchars($nav_cta_href); ?>"
            class="btn btn-primary btn-nav-cta"
