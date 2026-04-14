@@ -1,6 +1,6 @@
-# When FTP and SSH from GitHub Actions both time out, Hostinger is blocking cloud IPs.
-# This workflow does NOT open SSH/FTP to your server. It only calls Hostinger’s webhook;
-# Hostinger then pulls your repo (outbound from their side to GitHub).
+# Hostinger Git Auto Deployment is designed to receive GitHub webhook deliveries.
+# Do not call the Hostinger webhook URL with an empty curl request from GitHub Actions:
+# Hostinger expects a GitHub repository webhook payload on push events.
 #
 # One-time hPanel setup (afflatusconsulting.tech):
 #   1. Advanced → Git → create repo: https://github.com/ismailidrissi-sudo/afflatus-landing.git
@@ -8,51 +8,23 @@
 #      to public_html per Hostinger docs if your layout requires it.
 #   3. Private repo: use Hostinger’s deploy key → add in GitHub → Settings → Deploy keys.
 #   4. Open Git → Auto Deployment → copy the Webhook URL (token in query string).
-#   5. GitHub → this repo → Settings → Secrets → Actions → New secret:
-#        HOSTINGER_GIT_WEBHOOK_URL = paste the full webhook URL
-#
-# Optional: GitHub → Webhooks can also point at the same URL for redundancy; this workflow
-# is enough to deploy after each push if the secret is set.
+#   5. GitHub → this repo → Settings → Webhooks → Add webhook:
+#        Payload URL: paste the full Hostinger Webhook URL
+#        Content type: application/json
+#        Events: Just the push event
+#        Active: enabled
+#   6. Push to master and check hPanel → Git → Latest build output.
 
-name: Deploy (Hostinger Git webhook v2)
+name: Hostinger Auto-Deploy Setup Note
 
 on:
-  push:
-    branches:
-      - main
-      - master
   workflow_dispatch:
 
 jobs:
-  trigger-hostinger-pull:
+  info:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Hostinger deployment
-        env:
-          WEBHOOK_URL: ${{ secrets.HOSTINGER_GIT_WEBHOOK_URL }}
+      - name: Explain Hostinger setup
         run: |
-          if [ -z "$WEBHOOK_URL" ]; then
-            echo "::notice::Set Actions secret HOSTINGER_GIT_WEBHOOK_URL from hPanel → Git → Auto Deployment (full URL). Until then, this job is a no-op."
-            exit 0
-          fi
-          echo "Requesting Hostinger to pull latest commit…"
-
-          # Try POST first; if 400, fall back to GET (Hostinger webhooks vary)
-          HTTP_CODE=$(curl -s -o /tmp/webhook_body -w "%{http_code}" \
-            -X POST --connect-timeout 30 --max-time 120 "$WEBHOOK_URL") || true
-
-          if [ "$HTTP_CODE" = "400" ] || [ "$HTTP_CODE" = "405" ]; then
-            echo "POST returned $HTTP_CODE — retrying with GET…"
-            HTTP_CODE=$(curl -s -o /tmp/webhook_body -w "%{http_code}" \
-              --connect-timeout 30 --max-time 120 "$WEBHOOK_URL") || true
-          fi
-
-          BODY=$(cat /tmp/webhook_body 2>/dev/null || echo "")
-          echo "HTTP $HTTP_CODE — $BODY"
-
-          if [ "$HTTP_CODE" -ge 200 ] 2>/dev/null && [ "$HTTP_CODE" -lt 300 ] 2>/dev/null; then
-            echo "Webhook OK — check hPanel → Git → Latest build output if files did not update."
-          else
-            echo "::warning::Webhook returned HTTP $HTTP_CODE. Go to hPanel → Git → Auto Deployment, copy a fresh webhook URL, and update the HOSTINGER_GIT_WEBHOOK_URL secret."
-            exit 1
-          fi
+          echo "::notice::Hostinger Git Auto Deployment should be configured as a GitHub repository webhook, not called directly from Actions."
+          echo "::notice::GitHub -> Settings -> Webhooks -> Add webhook -> use the Hostinger Auto Deployment URL, application/json, push event, Active."
