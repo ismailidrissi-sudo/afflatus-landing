@@ -2,7 +2,7 @@
 <footer class="site-footer">
   <div class="footer-inner footer-inner--anatomy">
     <div class="footer-brand">
-      <img src="https://afflatus.consulting/logo.png" alt="<?php echo htmlspecialchars(COMPANY_NAME); ?>" class="footer-logo" width="140" height="36">
+      <img src="<?php echo htmlspecialchars(COMPANY_LOGO_PATH); ?>" alt="<?php echo htmlspecialchars(COMPANY_NAME); ?>" class="footer-logo" width="140" height="36">
       <p class="footer-tagline">Conseil – Audit – Formation</p>
       <p class="footer-desc">Cabinet de conseil premium au service des entreprises marocaines et africaines : conformité, formation et transformation digitale.</p>
       <div class="footer-social" aria-label="Réseaux sociaux">

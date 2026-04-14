@@ -8,7 +8,7 @@ $nav_cta_is_external = (strpos($nav_cta_href, 'http://') === 0 || strpos($nav_ct
 <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="<?php echo htmlspecialchars(COMPANY_NAME); ?> — Accueil">
-      <img src="https://afflatus.consulting/logo.png" alt="<?php echo htmlspecialchars(COMPANY_NAME); ?>" class="nav-logo-img" width="160" height="40">
+      <img src="<?php echo htmlspecialchars(COMPANY_LOGO_PATH); ?>" alt="<?php echo htmlspecialchars(COMPANY_NAME); ?>" class="nav-logo-img" width="160" height="40">
     </a>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>

@@ -289,7 +289,7 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
         <p class="anatomy-t-quote">«&nbsp;Mise en production pilote en <strong>4 semaines</strong> avec gouvernance et human-in-the-loop.&nbsp;»</p>
       </div>
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="https://afflatus.consulting/logo.png" width="64" height="64" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="<?php echo htmlspecialchars(COMPANY_LOGO_PATH); ?>" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Afflatus Consulting Group</p>
         <p class="anatomy-t-role">Éditeur &amp; intégrateur</p>
         <p class="anatomy-t-quote">«&nbsp;Anir.io : <strong>99,2&nbsp;% de précision cible</strong> sur nos agents métiers en recette.&nbsp;»</p>

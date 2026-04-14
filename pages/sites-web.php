@@ -181,7 +181,7 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
   <div class="section-inner">
     <div class="case-study reveal">
       <span class="case-study-label">Étude de cas</span>
-      <h3>afflatus.consulting</h3>
+      <h3><?php echo htmlspecialchars(COMPANY_DOMAIN_DISPLAY); ?></h3>
       <div class="case-before-after">
         <div class="case-col before">
           <h5>Objectifs</h5>
@@ -262,7 +262,7 @@ require __DIR__ . '/../includes/partials/anatomy-logos-bar.php';
     </div>
     <div class="anatomy-testimonial-grid">
       <div class="anatomy-t-card reveal" data-reveal="up">
-        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="https://afflatus.consulting/logo.png" width="64" height="64" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <img class="anatomy-t-avatar anatomy-t-avatar--img" src="<?php echo htmlspecialchars(COMPANY_LOGO_PATH); ?>" width="64" height="64" alt="" loading="lazy" decoding="async">
         <p class="anatomy-t-name">Afflatus Consulting Group</p>
         <p class="anatomy-t-role">Site corporate</p>
         <p class="anatomy-t-quote">«&nbsp;Site premium — <strong>+35&nbsp;% de demandes qualifiées</strong> post-refonte.&nbsp;»</p>

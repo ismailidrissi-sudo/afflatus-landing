@@ -18,15 +18,6 @@ $nav_cta_href = '/';
 <html lang="fr">
 <head>
 <?php require __DIR__ . '/includes/head.php'; ?>
-<script>
-  gtag('event', 'conversion', {
-    'send_to': '<?php echo GADS_CONVERSION_ID; ?>/THANK_YOU_LABEL',
-    'value': 1.0, 'currency': 'MAD',
-    'transaction_id': Date.now().toString()
-  });
-  fbq('track', 'CompleteRegistration');
-  ttq.track('CompleteRegistration');
-</script>
 </head>
 <body>
 <?php require __DIR__ . '/includes/tracking-body-open.php'; ?>

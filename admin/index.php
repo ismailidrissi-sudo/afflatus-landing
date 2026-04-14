@@ -3,6 +3,7 @@
 // ADMIN — LEADS DASHBOARD
 // ══════════════════════════════════════════════════════════════
 
+require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/db.php';
 $user = requireLogin();
 $db = getDB();
@@ -197,7 +198,7 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
 <div class="admin-layout">
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <img src="https://afflatus.consulting/logo.png" alt="Afflatus">
+      <img src="<?php echo htmlspecialchars(COMPANY_LOGO_PATH); ?>" alt="Afflatus">
       <span>Admin Panel</span>
     </div>
     <nav class="sidebar-nav">

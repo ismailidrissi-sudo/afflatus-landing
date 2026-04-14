@@ -3,6 +3,7 @@
 // ADMIN — LOGIN PAGE
 // ══════════════════════════════════════════════════════════════
 
+require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/db.php';
 startAdminSession();
 
@@ -68,7 +69,7 @@ if (!empty($_SESSION['admin_user'])) {
 </head>
 <body>
 <div class="login-card">
-  <img src="https://afflatus.consulting/logo.png" alt="Afflatus">
+  <img src="<?php echo htmlspecialchars(COMPANY_LOGO_PATH); ?>" alt="Afflatus">
   <h1>Administration</h1>
   <p>Panneau de gestion des leads des landing pages</p>
   <?php if ($error): ?>

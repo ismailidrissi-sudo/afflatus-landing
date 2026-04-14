@@ -3,6 +3,7 @@
 // ADMIN — USER MANAGEMENT (admin-only)
 // ══════════════════════════════════════════════════════════════
 
+require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/db.php';
 $current_user = requireAdmin();
 $db = getDB();
@@ -133,7 +134,7 @@ if (isset($_GET['logout'])) { session_destroy(); header('Location: /admin/login.
 <body>
 <div class="admin-layout">
   <aside class="sidebar">
-    <div class="sidebar-logo"><img src="https://afflatus.consulting/logo.png" alt="Afflatus"><span>Admin Panel</span></div>
+    <div class="sidebar-logo"><img src="<?php echo htmlspecialchars(COMPANY_LOGO_PATH); ?>" alt="Afflatus"><span>Admin Panel</span></div>
     <nav class="sidebar-nav">
       <a href="/admin/"><span>📊</span> Tableau de bord</a>
       <a href="/admin/users.php" class="active"><span>👥</span> Utilisateurs</a>

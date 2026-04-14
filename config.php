@@ -33,8 +33,10 @@ define('WHATSAPP_URL', 'https://wa.me/' . WHATSAPP_NUMBER);
 // Company Info
 define('COMPANY_NAME', 'Afflatus Consulting Group');
 define('COMPANY_ADDRESS', 'Villa 9K4 Rue Annajd, Hay Ryad, Rabat');
-define('COMPANY_EMAIL', 'contact@afflatus.consulting');
+define('COMPANY_EMAIL', 'contact@afflatusconsulting.tech');
 define('COMPANY_PHONE', '+212 661 863 618');
-define('COMPANY_URL', 'https://afflatus.consulting');
+define('COMPANY_URL', 'https://afflatusconsulting.tech');
+define('COMPANY_DOMAIN_DISPLAY', preg_replace('/^www\./i', '', parse_url(COMPANY_URL, PHP_URL_HOST) ?: ''));
+define('COMPANY_LOGO_PATH', '/assets/img/brand/afflatus-logo.png');
 define('COMPANY_LINKEDIN_URL', 'https://www.linkedin.com/company/afflatus-consulting');
 define('COMPANY_BLOG_URL', COMPANY_URL . '/blog');
