@@ -14,7 +14,7 @@
 # Optional: GitHub → Webhooks can also point at the same URL for redundancy; this workflow
 # is enough to deploy after each push if the secret is set.
 
-name: Deploy (Hostinger Git webhook)
+name: Deploy (Hostinger Git webhook v2)
 
 on:
   push:
