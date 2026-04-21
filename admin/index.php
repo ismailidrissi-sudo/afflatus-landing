@@ -77,7 +77,9 @@ $LEAD_FIELD_LABELS = [
     'created_at'    => 'Date',
     'source'        => 'Source',
     'nom'           => 'Nom',
+    'email'         => 'Email',
     'entreprise'    => 'Entreprise',
+    'cnss'          => 'N° CNSS',
     'whatsapp'      => 'WhatsApp',
     'secteur'       => 'Secteur',
     'besoin'        => 'Besoin',
@@ -99,13 +101,15 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
     header('Content-Disposition: attachment; filename="leads_' . date('Y-m-d') . '.csv"');
     $out = fopen('php://output', 'w');
     fprintf($out, chr(0xEF).chr(0xBB).chr(0xBF)); // UTF-8 BOM for Excel
-    fputcsv($out, ['ID', 'Source', 'Nom', 'Entreprise', 'WhatsApp', 'Secteur', 'Besoin', 'Taille', 'Certification', 'Employés', 'Projet', 'Budget', "Cas d'usage", 'Appelé', "Date d'appel", 'Date']);
+    fputcsv($out, ['ID', 'Source', 'Nom', 'Email', 'Entreprise', 'N° CNSS', 'WhatsApp', 'Secteur', 'Besoin', 'Taille', 'Certification', 'Employés', 'Projet', 'Budget', "Cas d'usage", 'Appelé', "Date d'appel", 'Date']);
     foreach ($leads as $l) {
         fputcsv($out, [
             $l['id'],
             $l['source'] ?? '',
             $l['nom'] ?? '',
+            $l['email'] ?? '',
             $l['entreprise'] ?? '',
+            $l['cnss'] ?? '',
             $l['whatsapp'] ?? '',
             $l['secteur'] ?? '',
             $l['besoin'] ?? '',
@@ -240,7 +244,7 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
         <option value="<?php echo $p; ?>" <?php echo $filter_page === $p ? 'selected' : ''; ?>><?php echo $PAGE_LABELS[$p] ?? $p; ?></option>
         <?php endforeach; ?>
       </select>
-      <input type="text" name="search" placeholder="Nom, entreprise, WhatsApp, réponses formulaire…" value="<?php echo htmlspecialchars($filter_search); ?>">
+      <input type="text" name="search" placeholder="Nom, email, entreprise, CNSS, WhatsApp, réponses…" value="<?php echo htmlspecialchars($filter_search); ?>">
       <input type="date" name="date_from" value="<?php echo $date_from; ?>">
       <input type="date" name="date_to" value="<?php echo $date_to; ?>">
       <select name="called_filter">

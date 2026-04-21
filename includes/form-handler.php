@@ -11,10 +11,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
     $s = function($key) { return htmlspecialchars(trim($_POST[$key] ?? ''), ENT_QUOTES, 'UTF-8'); };
 
+    // Email: required + validated
+    $emailRaw = trim($_POST['Email'] ?? '');
+    $email = filter_var($emailRaw, FILTER_VALIDATE_EMAIL) ? $emailRaw : '';
+
+    // CNSS: optional, keep digits/spaces/dashes only
+    $cnssRaw = trim($_POST['CNSS'] ?? '');
+    $cnss = preg_replace('/[^0-9 \-]/', '', $cnssRaw);
+
+    if ($email === '') {
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+            strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+            header('Content-Type: application/json', true, 422);
+            echo json_encode(['status' => 'error', 'field' => 'Email', 'message' => 'Email invalide']);
+            exit;
+        }
+        http_response_code(422);
+        echo 'Email invalide';
+        exit;
+    }
+
     $lead = [
         'source'        => $s('source'),
         'nom'           => $s('Nom'),
+        'email'         => $email,
         'entreprise'    => $s('Entreprise'),
+        'cnss'          => $cnss,
         'whatsapp'      => $s('Telephone') ?: $s('WhatsApp'),
         'secteur'       => $s('Secteur'),
         'besoin'        => $s('Besoin'),

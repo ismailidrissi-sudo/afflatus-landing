@@ -83,7 +83,9 @@ class FlatDB {
             $answerKeys = ['secteur', 'besoin', 'certification', 'projet', 'budget', 'cas_usage', 'taille', 'employes', 'source'];
             $leads = array_filter($leads, function($l) use ($s, $answerKeys) {
                 if (str_contains(mb_strtolower($l['nom'] ?? ''), $s)
+                    || str_contains(mb_strtolower($l['email'] ?? ''), $s)
                     || str_contains(mb_strtolower($l['entreprise'] ?? ''), $s)
+                    || str_contains(mb_strtolower($l['cnss'] ?? ''), $s)
                     || str_contains(mb_strtolower($l['whatsapp'] ?? ''), $s)) {
                     return true;
                 }

@@ -68,8 +68,16 @@ $nav_cta_href = '#lead-form';
             <input type="text" id="fs-name" name="Nom" placeholder="Votre nom" required>
           </div>
           <div class="form-group">
+            <label for="fs-email">Email</label>
+            <input type="email" id="fs-email" name="Email" placeholder="vous@entreprise.com" required>
+          </div>
+          <div class="form-group">
             <label for="fs-company">Entreprise</label>
             <input type="text" id="fs-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="fs-cnss">Numéro d'affiliation CNSS <span class="form-optional">(optionnel)</span></label>
+            <input type="text" id="fs-cnss" name="CNSS" placeholder="N° d'affiliation CNSS" inputmode="numeric">
           </div>
           <div class="form-group">
             <label for="fs-sector">Secteur</label>

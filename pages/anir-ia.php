@@ -64,8 +64,16 @@ $nav_cta_href = '#lead-form';
             <input type="text" id="ai-name" name="Nom" placeholder="Votre nom" required>
           </div>
           <div class="form-group">
+            <label for="ai-email">Email</label>
+            <input type="email" id="ai-email" name="Email" placeholder="vous@entreprise.com" required>
+          </div>
+          <div class="form-group">
             <label for="ai-company">Entreprise</label>
             <input type="text" id="ai-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="ai-cnss">Numéro d'affiliation CNSS <span class="form-optional">(optionnel)</span></label>
+            <input type="text" id="ai-cnss" name="CNSS" placeholder="N° d'affiliation CNSS" inputmode="numeric">
           </div>
           <div class="form-group">
             <label for="ai-sector">Secteur</label>

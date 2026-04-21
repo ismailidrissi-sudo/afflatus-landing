@@ -62,8 +62,16 @@ $nav_cta_href = '#lead-form';
             <input type="text" id="wb-name" name="Nom" placeholder="Votre nom" required>
           </div>
           <div class="form-group">
+            <label for="wb-email">Email</label>
+            <input type="email" id="wb-email" name="Email" placeholder="vous@entreprise.com" required>
+          </div>
+          <div class="form-group">
             <label for="wb-company">Entreprise</label>
             <input type="text" id="wb-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="wb-cnss">Numéro d'affiliation CNSS <span class="form-optional">(optionnel)</span></label>
+            <input type="text" id="wb-cnss" name="CNSS" placeholder="N° d'affiliation CNSS" inputmode="numeric">
           </div>
           <div class="form-group">
             <label for="wb-project">Type de projet</label>

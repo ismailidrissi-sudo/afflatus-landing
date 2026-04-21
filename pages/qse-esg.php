@@ -67,8 +67,16 @@ $nav_cta_href = '#lead-form';
             <input type="text" id="qse-name" name="Nom" placeholder="Votre nom" required>
           </div>
           <div class="form-group">
+            <label for="qse-email">Email</label>
+            <input type="email" id="qse-email" name="Email" placeholder="vous@entreprise.com" required>
+          </div>
+          <div class="form-group">
             <label for="qse-company">Entreprise</label>
             <input type="text" id="qse-company" name="Entreprise" placeholder="Nom de votre entreprise" required>
+          </div>
+          <div class="form-group">
+            <label for="qse-cnss">Numéro d'affiliation CNSS <span class="form-optional">(optionnel)</span></label>
+            <input type="text" id="qse-cnss" name="CNSS" placeholder="N° d'affiliation CNSS" inputmode="numeric">
           </div>
           <div class="form-group">
             <label for="qse-need">Besoin principal</label>
